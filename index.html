@@ -70,7 +70,7 @@
             transition: opacity 0.8s ease;
         }
 
-        /* Scroll Interactive Light Reveal Effect (Asegura legibilidad total siempre) */
+        /* Scroll Interactive Light Reveal Effect */
         .scroll-light-reveal {
             opacity: 0.88;
             transform: translateY(15px);
@@ -108,19 +108,13 @@
     <div id="ambientLight" class="ambient-glow"></div>
     <canvas id="lightGridCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-    <!-- Header con alineación a extremos y menú centrado -->
+    <!-- Header con logos a los extremos y menú centrado -->
     <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/95 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             
-            <!-- Logo Izquierdo: ARGIEDER -->
-            <a href="#inicio" class="flex items-center gap-3 group shrink-0">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gold-dark via-gold to-gold-amber flex items-center justify-center border border-gold/50 shadow-glow-gold group-hover:scale-105 transition-transform">
-                    <span class="font-extrabold text-black font-sans text-xl tracking-tighter">A</span>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-extrabold text-xl tracking-wider text-white font-sans leading-none">ARGIEDER</span>
-                    <span class="text-[10px] tracking-widest text-gold uppercase font-semibold mt-1">Asesoría Energética</span>
-                </div>
+            <!-- Logo Izquierdo: logoargieder.png -->
+            <a href="#inicio" class="flex items-center shrink-0 group">
+                <img src="logoargieder.png" alt="Argieder Logo" class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
             </a>
 
             <!-- Menú de Navegación Central -->
@@ -132,15 +126,9 @@
                 <a href="#contacto" class="hover:text-gold transition-colors py-1">Contacto</a>
             </nav>
 
-            <!-- Logo Derecho: AULEO CHARGER DESIGN -->
-            <a href="#metricas" class="flex items-center gap-3 group shrink-0">
-                <div class="flex flex-col text-right hidden sm:flex">
-                    <span class="font-extrabold text-sm tracking-wider text-white font-sans leading-none">AULEO</span>
-                    <span class="text-[9px] tracking-widest text-gold uppercase font-medium mt-1">Charger Design</span>
-                </div>
-                <div class="w-10 h-10 rounded-full bg-darkCard border border-gold/50 flex items-center justify-center text-gold shadow-glow-gold group-hover:scale-105 transition-transform">
-                    <i class="fa-solid fa-bolt text-gold text-lg"></i>
-                </div>
+            <!-- Logo Derecho: logoauled.png -->
+            <a href="#metricas" class="flex items-center shrink-0 group">
+                <img src="logoauled.png" alt="Auled Logo" class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
             </a>
 
         </div>
@@ -794,10 +782,7 @@
             
             <div class="space-y-4">
                 <div class="flex items-center gap-3">
-                    <div class="w-9 h-9 rounded-full bg-gold flex items-center justify-center text-black font-bold font-sans">
-                        A
-                    </div>
-                    <span class="text-xl font-extrabold text-white font-sans tracking-wider">ARGIEDER</span>
+                    <img src="logoargieder.png" alt="Argieder Logo" class="h-8 w-auto object-contain">
                 </div>
                 <p class="text-xs text-slate-400 leading-relaxed">
                     Argieder Gestión S.L. Tu asesoría energética tecnológica de confianza para optimizar gastos eléctricos y soluciones de movilidad sostenible.
@@ -926,7 +911,7 @@
             requestAnimationFrame(animateCanvas);
         }
 
-        // Observer con activación inmediata para asegurar que nada quede a oscuras
+        // Observer con activación inmediata
         const observerOptions = {
             threshold: 0.05
         };
@@ -941,7 +926,6 @@
 
         document.querySelectorAll('.scroll-light-reveal').forEach(el => {
             revealObserver.observe(el);
-            // Ilumina inmediatamente para evitar oscurecimiento
             el.classList.add('illuminated');
         });
 
