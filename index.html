@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Argieder & Auled | Asesoría Energética Tecnológica</title>
+    <title>Argieder & Auleo | Asesoría Energética Tecnológica</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Montserrat & Inter -->
@@ -149,54 +149,54 @@
     <div id="ambientLight" class="ambient-glow"></div>
     <canvas id="lightGridCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-    <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/90 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
+    <!-- Header reestructurado según especificaciones -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/95 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             
-            <!-- Logo Argieder / Auled -->
-            <a href="#" class="flex items-center gap-3 group">
+            <!-- Logo Izquierdo: ARGIEDER -->
+            <a href="#inicio" class="flex items-center gap-3 group shrink-0">
                 <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gold-dark via-gold to-gold-amber flex items-center justify-center border border-gold/50 shadow-glow-gold group-hover:scale-105 transition-transform">
                     <span class="font-extrabold text-black font-sans text-xl tracking-tighter">A</span>
                 </div>
                 <div class="flex flex-col">
                     <span class="font-extrabold text-xl tracking-wider text-white font-sans leading-none">ARGIEDER</span>
-                    <span class="text-[10px] tracking-widest text-gold uppercase font-bold mt-1">AULED Charger Design</span>
+                    <span class="text-[10px] tracking-widest text-gold uppercase font-semibold mt-1">Asesoría Energética</span>
                 </div>
             </a>
 
-            <!-- Desktop Navigation Menu -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-                <a href="#inicio" class="hover:text-gold transition-colors">Inicio</a>
-                <a href="#factura" class="hover:text-gold transition-colors">Ahorra en tu factura</a>
-                <a href="#metricas" class="hover:text-gold transition-colors">Nuestro equipo</a>
-                <a href="#servicios" class="hover:text-gold transition-colors">Servicios</a>
-                <a href="#contacto" class="hover:text-gold transition-colors">Contacto</a>
+            <!-- Menú de Navegación Central -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-slate-300">
+                <a href="#inicio" class="hover:text-gold transition-colors py-1">Inicio</a>
+                <a href="#factura" class="hover:text-gold transition-colors py-1">Ahorra en tu factura</a>
+                <a href="#metricas" class="hover:text-gold transition-colors py-1">Nuestro equipo</a>
+                <a href="#servicios" class="hover:text-gold transition-colors py-1">Servicios</a>
+                <a href="#contacto" class="hover:text-gold transition-colors py-1">Contacto</a>
             </nav>
 
-            <!-- Light Mode Toggle & Primary CTA Button -->
-            <div class="flex items-center gap-4">
-                
-                <!-- Interactive Power Mode Switcher -->
-                <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-darkCard border border-gold/30 text-xs">
-                    <span class="text-slate-400 text-[11px]">Modo Luz</span>
-                    <div id="powerSwitch" class="switch-track active" title="Alternar iluminación interactiva">
-                        <div class="switch-thumb"></div>
-                    </div>
+            <!-- Logo Derecho: AULEO CHARGER DESIGN -->
+            <a href="#metricas" class="flex items-center gap-3 group shrink-0">
+                <div class="flex flex-col text-right hidden sm:flex">
+                    <span class="font-extrabold text-sm tracking-wider text-white font-sans leading-none">AULEO</span>
+                    <span class="text-[9px] tracking-widest text-gold uppercase font-medium mt-1">Charger Design</span>
                 </div>
+                <div class="w-10 h-10 rounded-full bg-darkCard border border-gold/50 flex items-center justify-center text-gold shadow-glow-gold group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-bolt text-gold text-lg"></i>
+                </div>
+            </a>
 
-                <a href="#contacto" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-gold via-gold-amber to-gold-dark text-slate-950 font-bold text-xs md:text-sm uppercase tracking-wide hover:shadow-glow-gold hover:scale-105 transition-all duration-300">
-                    Presupuesto GRATUITO
-                </a>
-            </div>
+        </div>
 
+        <!-- Menú Móvil desplegable para pantallas pequeñas -->
+        <div class="md:hidden flex justify-center gap-4 pt-3 border-t border-white/5 mt-2 text-xs font-medium text-slate-300 overflow-x-auto whitespace-nowrap">
+            <a href="#inicio" class="hover:text-gold">Inicio</a>
+            <a href="#factura" class="hover:text-gold">Factura</a>
+            <a href="#metricas" class="hover:text-gold">Equipo</a>
+            <a href="#servicios" class="hover:text-gold">Servicios</a>
+            <a href="#contacto" class="hover:text-gold">Contacto</a>
         </div>
     </header>
 
-    <section id="inicio" class="relative pt-32 pb-20 md:pt-44 md:pb-32 px-6 overflow-hidden z-10">
-        
-        <!-- Background Hero Golden Glow Overlay -->
-        <div class="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-gradient-to-bl from-gold/15 via-gold/5 to-transparent pointer-events-none -z-10"></div>
-
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section id="inicio" class="relative pt-36 pb-20 md:pt-44 md:pb-32 px-6 overflow-hidden z-10">
             
             <!-- Left Hero Content -->
             <div class="lg:col-span-7 space-y-8">
@@ -237,52 +237,52 @@
                 </div>
 
                 <!-- Call to Action Actions -->
-                <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="#factura" class="px-8 py-4 rounded-xl bg-gradient-to-r from-gold via-gold-amber to-gold-dark text-black font-extrabold text-center shadow-glow-gold hover:opacity-95 transition-all duration-300 flex items-center justify-center gap-3 group">
-                        <span>Estudiar Mi Ahorro Gratis</span>
-                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                    </a>
+            <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                <a href="#factura" class="px-8 py-4 rounded-xl bg-gradient-to-r from-gold via-gold-amber to-gold-dark text-black font-extrabold text-center shadow-glow-gold hover:opacity-95 transition-all duration-300 flex items-center justify-center gap-3 group">
+                    <span>Estudiar Mi Ahorro Gratis</span>
+                    <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
 
-                    <a href="#servicios" class="px-8 py-4 rounded-xl bg-darkCard border border-gold/30 text-white font-semibold text-center hover:bg-slate-900 hover:border-gold transition-all flex items-center justify-center gap-2">
-                        <span>Ver Todas las Soluciones</span>
-                    </a>
-                </div>
-
-            </div>
-
-            <!-- Right Hero Card / Visualizer -->
-            <div class="lg:col-span-5 relative flex justify-center">
-                <!-- Golden Ambient Aura Backing -->
-                <div class="absolute inset-0 bg-gold/20 rounded-3xl blur-3xl scale-95 opacity-70"></div>
-                
-                <div class="relative gold-glass-card p-8 rounded-3xl border border-gold/40 w-full max-w-md shadow-2xl text-center space-y-6">
-                    <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-gold-dark to-gold flex items-center justify-center border-2 border-white/20 shadow-glow-gold">
-                        <i class="fa-solid fa-lightbulb text-slate-950 text-3xl"></i>
-                    </div>
-
-                    <div class="space-y-2">
-                        <h3 class="text-2xl font-bold text-white font-sans">Optimización Inteligente</h3>
-                        <p class="text-sm text-slate-300 leading-relaxed">
-                            Analizamos el mercado diariamente para ofrecer a nuestros clientes las mejores oportunidades reales de ahorro sin sorpresas.
-                        </p>
-                    </div>
-
-                    <div class="p-4 rounded-2xl bg-black/60 border border-gold/20 flex justify-around items-center">
-                        <div class="text-center">
-                            <span class="block text-2xl font-black text-gold font-sans">100%</span>
-                            <span class="text-[11px] text-slate-400 uppercase">Sin Compromiso</span>
-                        </div>
-                        <div class="w-px h-8 bg-gold/20"></div>
-                        <div class="text-center">
-                            <span class="block text-2xl font-black text-emerald-400 font-sans">Max</span>
-                            <span class="text-[11px] text-slate-400 uppercase">Eficiencia</span>
-                        </div>
-                    </div>
-                </div>
+                <a href="#servicios" class="px-8 py-4 rounded-xl bg-darkCard border border-gold/30 text-white font-semibold text-center hover:bg-slate-900 hover:border-gold transition-all flex items-center justify-center gap-2">
+                    <span>Ver Todas las Soluciones</span>
+                </a>
             </div>
 
         </div>
-    </section>
+
+        <!-- Right Hero Card / Visualizer -->
+        <div class="lg:col-span-5 relative flex justify-center">
+            <!-- Golden Ambient Aura Backing -->
+            <div class="absolute inset-0 bg-gold/20 rounded-3xl blur-3xl scale-95 opacity-70"></div>
+            
+            <div class="relative gold-glass-card p-8 rounded-3xl border border-gold/40 w-full max-w-md shadow-2xl text-center space-y-6">
+                <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-tr from-gold-dark to-gold flex items-center justify-center border-2 border-white/20 shadow-glow-gold">
+                    <i class="fa-solid fa-lightbulb text-slate-950 text-3xl"></i>
+                </div>
+
+                <div class="space-y-2">
+                    <h3 class="text-2xl font-bold text-white font-sans">Optimización Inteligente</h3>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Analizamos el mercado diariamente para ofrecer a nuestros clientes las mejores oportunidades reales de ahorro sin sorpresas.
+                    </p>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-black/60 border border-gold/20 flex justify-around items-center">
+                    <div class="text-center">
+                        <span class="block text-2xl font-black text-gold font-sans">100%</span>
+                        <span class="text-[11px] text-slate-400 uppercase">Sin Compromiso</span>
+                    </div>
+                    <div class="w-px h-8 bg-gold/20"></div>
+                    <div class="text-center">
+                        <span class="block text-2xl font-black text-emerald-400 font-sans">Max</span>
+                        <span class="text-[11px] text-slate-400 uppercase">Eficiencia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 
     <section id="metricas" class="py-20 px-6 relative z-10 bg-black border-y border-gold/20 scroll-light-reveal">
         <div class="max-w-7xl mx-auto">
@@ -292,10 +292,10 @@
                     <i class="fa-solid fa-charging-station"></i>
                 </div>
                 <h2 class="text-xl md:text-2xl font-bold text-gold uppercase tracking-widest font-sans">
-                    AULED Charger Design
+                    AULEO Charger Design
                 </h2>
                 <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
-                    Conoce Auled Charger Design y apuesta por la movilidad sostenible. Estás en un servicio profesional, eficiente y transparente.
+                    Conoce Auleo Charger Design y apuesta por la movilidad sostenible. Estás en un servicio profesional, eficiente y transparente.
                 </p>
             </div>
 
@@ -829,7 +829,7 @@
                             <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Servicio de Interés</label>
                             <select class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
                                 <option value="1">Ahorro en Factura Eléctrica</option>
-                                <option value="2">Cargador de Vehículo Eléctrico (AULED)</option>
+                                <option value="2">Cargador de Vehículo Eléctrico (AULEO)</option>
                                 <option value="3">Asesoramiento Tecnología LED</option>
                                 <option value="4">Energía Solar / Autoconsumo</option>
                                 <option value="5">Optimización de Potencias Empresas</option>
@@ -1002,25 +1002,7 @@
             requestAnimationFrame(animateCanvas);
         }
 
-        // --- 2. Interactive Light Power Mode Switch ---
-        const powerSwitch = document.getElementById('powerSwitch');
-        const ambientLight = document.getElementById('ambientLight');
-        let isPowerOn = true;
-
-        powerSwitch.addEventListener('click', () => {
-            isPowerOn = !isPowerOn;
-            powerSwitch.classList.toggle('active', isPowerOn);
-            
-            if (isPowerOn) {
-                ambientLight.style.opacity = '1';
-                document.body.style.backgroundColor = '#0A0A0B';
-            } else {
-                ambientLight.style.opacity = '0.15';
-                document.body.style.backgroundColor = '#040405';
-            }
-        });
-
-        // --- 3. Scroll Reveal Observer ---
+        // --- Scroll Reveal Observer ---
         const observerOptions = {
             threshold: 0.12
         };
@@ -1035,15 +1017,17 @@
 
         document.querySelectorAll('.scroll-light-reveal').forEach(el => revealObserver.observe(el));
 
-        // --- 4. Form Submission Handler ---
+        // --- Form Submission Handler ---
         const contactForm = document.getElementById('contactForm');
         const formConfirmation = document.getElementById('formConfirmation');
 
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            contactForm.classList.add('hidden');
-            formConfirmation.classList.remove('hidden');
-        });
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                contactForm.classList.add('hidden');
+                formConfirmation.classList.remove('hidden');
+            });
+        }
 
         // Start animation loop on window load
         window.onload = function() {
