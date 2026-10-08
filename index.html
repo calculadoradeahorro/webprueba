@@ -28,7 +28,7 @@
                             dark: '#D4920B',
                             amber: '#F3C649'
                         },
-                        darkBg: '#0A0A0B',
+                        darkBg: '#08090C',
                         darkCard: '#121318',
                         darkBorder: '#222530',
                         lightBg: '#FAFAFB'
@@ -50,24 +50,10 @@
         }
 
         body {
-            background-color: #0A0A0B;
+            background-color: #08090C;
             color: #E2E8F0;
             overflow-x: hidden;
             font-family: 'Inter', sans-serif;
-        }
-
-        /* Dynamic Light Radial Background */
-        .ambient-glow {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 1000px;
-            height: 1000px;
-            background: radial-gradient(circle, rgba(227, 168, 39, 0.15) 0%, rgba(243, 198, 73, 0.04) 45%, rgba(10, 10, 11, 0) 75%);
-            pointer-events: none;
-            z-index: 0;
-            transition: opacity 0.8s ease;
         }
 
         /* Scroll Interactive Light Reveal Effect */
@@ -85,7 +71,7 @@
 
         /* Neumorphic Dark Card with Golden Glow on Hover */
         .gold-glass-card {
-            background: linear-gradient(145deg, rgba(20, 22, 28, 0.95), rgba(12, 13, 17, 0.98));
+            background: linear-gradient(145deg, rgba(15, 18, 26, 0.85) 0%, rgba(10, 12, 18, 0.95) 100%);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(227, 168, 39, 0.25);
             transition: all 0.4s ease;
@@ -105,11 +91,11 @@
 </head>
 <body class="relative min-h-screen selection:bg-gold selection:text-black">
 
-    <div id="ambientLight" class="ambient-glow"></div>
+    <!-- Background Canvas Particles -->
     <canvas id="lightGridCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
     <!-- Header con logos a los extremos y menú centrado -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/95 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#08090C]/60 backdrop-blur-xl border-b border-gold/15 px-4 lg:px-8 py-3.5 transition-all">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             
             <!-- Logo Izquierdo: logoargieder.png -->
@@ -228,7 +214,7 @@
     </section>
 
     <!-- Sección Métricas iluminada -->
-    <section id="metricas" class="py-20 px-6 relative z-10 bg-black/80 border-y border-gold/20 scroll-light-reveal">
+    <section id="metricas" class="py-20 px-6 relative z-10 border-y border-gold/20 scroll-light-reveal">
         <div class="max-w-7xl mx-auto">
             
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
@@ -351,7 +337,7 @@
     </section>
 
     <!-- Comparativa de Factura -->
-    <section id="factura" class="py-24 px-6 relative z-10 bg-black/80 border-t border-gold/20 scroll-light-reveal">
+    <section id="factura" class="py-24 px-6 relative z-10 border-t border-gold/20 scroll-light-reveal">
         <div class="max-w-7xl mx-auto">
             
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -683,7 +669,7 @@
     </section>
 
     <!-- Formulario de Contacto -->
-    <section id="contacto" class="py-20 px-6 relative z-10 bg-black/80 border-t border-gold/20 scroll-light-reveal">
+    <section id="contacto" class="py-20 px-6 relative z-10 border-t border-gold/20 scroll-light-reveal">
         <div class="max-w-5xl mx-auto space-y-16">
             
             <!-- Banner Imagen de Financiación Institucional -->
@@ -758,7 +744,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black border-t border-gold/30 pt-16 pb-12 px-6 relative z-10 text-slate-400 text-sm font-body">
+    <footer class="bg-[#08090C] border-t border-gold/30 pt-16 pb-12 px-6 relative z-10 text-slate-400 text-sm font-body">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
             
             <div class="space-y-4">
@@ -821,76 +807,79 @@
     </footer>
 
     <script>
-        // Background Canvas Particles
+        // Matrix Background Particles Mesh (Código 02 Style)
         const canvas = document.getElementById('lightGridCanvas');
         const ctx = canvas.getContext('2d');
-        let width = canvas.width = window.innerWidth;
-        let height = canvas.height = window.innerHeight;
+        let particles = [];
 
-        window.addEventListener('resize', () => {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        });
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        }
 
-        class GoldLightParticle {
+        class Particle {
             constructor() {
-                this.reset();
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.radius = Math.random() * 2 + 0.5;
+                this.color = Math.random() > 0.3 ? '#F5B800' : '#00E6A8';
             }
 
-            reset() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.vx = (Math.random() - 0.5) * 0.4;
-                this.vy = (Math.random() - 0.5) * 0.4;
-                this.radius = Math.random() * 1.8 + 0.5;
-                this.alpha = Math.random() * 0.4 + 0.1;
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = this.color;
+                ctx.fill();
             }
 
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
 
-                if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
-                    this.reset();
-                }
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(227, 168, 39, ${this.alpha})`;
-                ctx.shadowBlur = 8;
-                ctx.shadowColor = '#E3A827';
-                ctx.fill();
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
             }
         }
 
-        const particles = Array.from({ length: 40 }, () => new GoldLightParticle());
+        function initParticles() {
+            particles = [];
+            const count = Math.floor((canvas.width * canvas.height) / 22000);
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
 
         function animateCanvas() {
-            ctx.clearRect(0, 0, width, height);
-            
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
             for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-
                 for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < 110) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
                         ctx.beginPath();
+                        ctx.strokeStyle = `rgba(245, 184, 0, ${0.15 - dist / 800})`;
+                        ctx.lineWidth = 0.5;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(227, 168, 39, ${0.12 * (1 - dist / 110)})`;
-                        ctx.lineWidth = 0.6;
                         ctx.stroke();
                     }
                 }
             }
             requestAnimationFrame(animateCanvas);
         }
+
+        window.addEventListener('resize', resizeCanvas);
 
         // Observer con activación inmediata
         const observerOptions = {
@@ -922,6 +911,7 @@
         }
 
         window.onload = function() {
+            resizeCanvas();
             animateCanvas();
         };
     </script>
