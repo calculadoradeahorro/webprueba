@@ -153,43 +153,28 @@
     <!-- Background Dynamic Particle Mesh Canvas -->
     <canvas id="canvas-matrix" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-50 backdrop-blur-xl bg-energy-bg/70 border-b border-energy-border/30 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="relative w-11 h-11 rounded-2xl bg-gradient-to-br from-energy-gold to-energy-cyan p-0.5 shadow-plasma group-hover:scale-105 transition-transform duration-300">
-                    <div class="w-full h-full bg-energy-bg rounded-[14px] flex items-center justify-center">
-                        <i data-lucide="zap" class="w-6 h-6 text-energy-gold fill-energy-gold group-hover:text-energy-cyan group-hover:fill-energy-cyan transition-colors"></i>
-                    </div>
-                </div>
-                <div>
-                    <span class="text-2xl font-black tracking-tight text-white flex items-center gap-1.5">
-                        ARGIEDER
-                        <span class="inline-block w-2 h-2 rounded-full bg-energy-cyan animate-pulse"></span>
-                    </span>
-                    <span class="text-[10px] uppercase tracking-widest text-energy-gold font-bold block -mt-1">
-                        Matriz Energética Humana
-                    </span>
-                </div>
+    <!-- Header con logos a los extremos y menú centrado -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/95 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            
+            <!-- Logo Izquierdo: logoargieder.png -->
+            <a href="#inicio" class="flex items-center shrink-0 group">
+                <img src="logoargieder.png" alt="Argieder Logo" class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
             </a>
 
             <!-- Role Filter Pills -->
             <nav class="hidden md:flex items-center gap-2 p-1.5 rounded-2xl bg-energy-surface/80 border border-energy-border">
                 <button onclick="filterTeam('all')" class="filter-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all bg-energy-gold text-slate-900 shadow-plasma" data-role="all">
-                    Todos los Nodos
-                </button>
-                <button onclick="filterTeam('direccion')" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-300 hover:text-white hover:bg-energy-surfaceLight" data-role="direccion">
-                    Dirección
-                </button>
-                <button onclick="filterTeam('comercial')" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-300 hover:text-white hover:bg-energy-surfaceLight" data-role="comercial">
-                    Comercial
-                </button>
-                <button onclick="filterTeam('administracion')" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-300 hover:text-white hover:bg-energy-surfaceLight" data-role="administracion">
-                    Administración
+                    Nuestro Equipo
                 </button>
             </nav>
 
+              <!-- Logo Derecho: logoauled.png -->
+            <a href="#metricas" class="flex items-center shrink-0 group">
+                <img src="logoauled.png" alt="Auled Logo" class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+            </a>
+
+        </div>
             <!-- Action Tag -->
             <div class="flex items-center gap-3">
                 <div class="hidden lg:flex items-center gap-2 px-4 py-2 rounded-full bg-energy-cyan/10 border border-energy-cyan/30 text-energy-cyan text-xs font-bold">
