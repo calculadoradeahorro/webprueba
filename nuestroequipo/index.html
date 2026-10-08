@@ -279,7 +279,7 @@ e<!DOCTYPE html>
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                                     <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
-                                        <img src="david.jpg" alt="David Tena" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                        <img src="belen.jpg" alt="David Tena" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                     </div>
                                 </div>
                                 <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-slate-900 text-[10px] font-black tracking-wider whitespace-nowrap shadow-plasma">
@@ -378,8 +378,43 @@ e<!DOCTYPE html>
 
                 <!-- Team Cards Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10" id="team-grid">
-                    
-                    <!-- 1. David Tena -->
+
+                     <!-- 1. Janire Etxebeste -->
+                    <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" 
+                         data-role="comercial" 
+                         onclick="openModal('janire')">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="relative">
+                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-energy-gold to-energy-cyan p-0.5 shadow-plasma group-hover:scale-110 transition-transform duration-300">
+                                    <div class="w-full h-full bg-energy-surface rounded-[14px] overflow-hidden">
+                                        <img src="janire.jpg" alt="Janire Etxebeste" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                                <span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-energy-gold border-2 border-energy-bg flex items-center justify-center text-[10px] text-black font-bold">★</span>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-energy-cyan/10 border border-energy-cyan/30 text-energy-cyan text-[11px] font-bold uppercase tracking-wider">
+                                Estrategia Comercial
+                            </span>
+                        </div>
+
+                        <h4 class="text-2xl font-black text-white group-hover:text-energy-cyan transition-colors">
+                            Janire Etxebeste
+                        </h4>
+                        <span class="text-xs font-bold uppercase tracking-widest text-energy-cyan block mb-4">
+                            Directora Comercial
+                        </span>
+
+                        <p class="text-slate-300 text-xs leading-relaxed line-clamp-4 mb-6">
+                            Janire, al igual que su socio David, lleva también once años en el sector energético y desde hace siete dirige el departamento comercial. Se encarga de los acuerdos de colaboración con las compañías energéticas y asociaciones...
+                        </p>
+
+                        <div class="pt-4 border-t border-energy-border/50 flex items-center justify-between text-xs font-bold text-energy-cyan group-hover:text-energy-gold transition-colors">
+                            <span>Ver Ficha Completa</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- 2. David Tena -->
                     <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" 
                          data-role="direccion" 
                          onclick="openModal('david')">
@@ -415,41 +450,7 @@ e<!DOCTYPE html>
                         </div>
                     </div>
 
-                    <!-- 2. Janire Etxebeste -->
-                    <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" 
-                         data-role="comercial" 
-                         onclick="openModal('janire')">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="relative">
-                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-energy-gold to-energy-cyan p-0.5 shadow-plasma group-hover:scale-110 transition-transform duration-300">
-                                    <div class="w-full h-full bg-energy-surface rounded-[14px] overflow-hidden">
-                                        <img src="janire.jpg" alt="Janire Etxebeste" class="w-full h-full object-cover" />
-                                    </div>
-                                </div>
-                                <span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-energy-gold border-2 border-energy-bg flex items-center justify-center text-[10px] text-black font-bold">★</span>
-                            </div>
-                            <span class="px-3 py-1 rounded-full bg-energy-cyan/10 border border-energy-cyan/30 text-energy-cyan text-[11px] font-bold uppercase tracking-wider">
-                                Estrategia Comercial
-                            </span>
-                        </div>
-
-                        <h4 class="text-2xl font-black text-white group-hover:text-energy-cyan transition-colors">
-                            Janire Etxebeste
-                        </h4>
-                        <span class="text-xs font-bold uppercase tracking-widest text-energy-cyan block mb-4">
-                            Directora Comercial
-                        </span>
-
-                        <p class="text-slate-300 text-xs leading-relaxed line-clamp-4 mb-6">
-                            Janire, al igual que su socio David, lleva también once años en el sector energético y desde hace siete dirige el departamento comercial. Se encarga de los acuerdos de colaboración con las compañías energéticas y asociaciones...
-                        </p>
-
-                        <div class="pt-4 border-t border-energy-border/50 flex items-center justify-between text-xs font-bold text-energy-cyan group-hover:text-energy-gold transition-colors">
-                            <span>Ver Ficha Completa</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                        </div>
-                    </div>
-
+                   
                     <!-- 3. Verónica Martín -->
                     <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" 
                          data-role="administracion" 
