@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="LOGO-AULED.ico">
+    <title>Servicios | Auled Charger Design</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons & Lucide Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        gold: {
+                            light: '#F5D061',
+                            DEFAULT: '#E3A827',
+                            dark: '#D4920B',
+                            amber: '#F3C649'
+                        },
+                        darkBg: '#1d1d1d',
+                        darkCard: '#121318',
+                        darkBorder: '#222530',
+                        lightBg: '#FAFAFB',
+                        argieder: {
+                            gold: '#E3A827',
+                            goldHover: '#F5D061',
+                            black: '#1d1d1d',
+                            cardBg: 'rgba(29, 29, 29, 0.85)',
+                            border: 'rgba(227, 168, 39, 0.25)',
+                            inputBg: '#121318'
+                        }
+                    },
+                    boxShadow: {
+                        'glow-gold': '0 0 30px rgba(227, 168, 39, 0.35)',
+                        'glow-gold-lg': '0 0 50px rgba(227, 168, 39, 0.5)',
+                        'glow-green': '0 0 30px rgba(34, 197, 94, 0.4)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --brand-gold: #E3A827;
+            --brand-gold-glow: rgba(227, 168, 39, 0.4);
+        }
+
+        body {
+            background-color: #1d1d1d;
+            color: #E2E8F0;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Glassmorphism Card Style */
+        .gold-glass-card {
+            background: rgba(29, 29, 29, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(227, 168, 39, 0.25);
+            transition: all 0.4s ease;
+        }
+
+        .gold-glass-card:hover {
+            border-color: rgba(227, 168, 39, 0.6);
+            box-shadow: 0 10px 35px -5px rgba(227, 168, 39, 0.25);
+        }
+
+        .text-glow-gold {
+            text-shadow: 0 0 18px rgba(227, 168, 39, 0.6);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen selection:bg-gold selection:text-black flex flex-col justify-between font-sans">
+
+    <!-- Background Dynamic Particle Mesh Canvas -->
+    <canvas id="canvas-matrix" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- Header Fijo -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            
+            <!-- Logo Izquierdo -->
+            <a href="https://calculadoradeahorro.github.io/webprueba/" class="flex items-center shrink-0 group">
+                <img src="logoargieder.png" alt="Argieder Logo" class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+            </a>
+
+            <!-- Menú de Navegación Central -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-slate-300">
+                <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold transition-colors py-1">Inicio</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold transition-colors py-1">Ahorra en tu factura</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/" class="hover:text-gold transition-colors py-1">Nuestro equipo</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="text-gold font-bold transition-colors py-1">Servicios</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold transition-colors py-1">Contacto</a>
+                
+                <!-- Botón Verde Estilo Pill -->
+                <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-xs font-bold uppercase tracking-wider hover:bg-emerald-500/20 hover:border-emerald-400 hover:shadow-[0_0_20px_rgba(52,211,153,0.3)] transition-all duration-300">
+                    <i class="fa-solid fa-euro-sign text-emerald-400 text-xs"></i>
+                    <span>CALCULA TU AHORRO CON AULED</span>
+                </a>
+            </nav>
+
+            <!-- Logo Derecho -->
+            <a href="https://calculadoradeahorro.github.io/webprueba/" class="flex items-center shrink-0 group">
+                <img src="logoauled.png" alt="Auled Logo" class="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+            </a>
+
+        </div>
+
+        <!-- Menú Móvil -->
+        <div class="md:hidden flex justify-center items-center gap-4 pt-3 border-t border-white/5 mt-2 text-xs font-medium text-slate-300 overflow-x-auto whitespace-nowrap">
+            <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold">Inicio</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold">Factura</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/" class="hover:text-gold">Equipo</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="text-gold font-bold">Servicios</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold">Contacto</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[11px] font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-euro-sign text-[10px]"></i>
+                <span>Calcula tu ahorro</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 pt-36 pb-12 flex-1 w-full relative z-10 space-y-20">
+        
+        <!-- Hero Section -->
+        <div class="text-center max-w-4xl mx-auto">
+            <div class="flex justify-center mb-6">
+                <img src="logoauled.png" alt="Auled Charger Design" class="h-16 md:h-20 w-auto object-contain">
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white mb-6 uppercase">
+                AULED CHARGER DESIGN
+            </h1>
+            <p class="text-slate-300 text-sm sm:text-base font-normal leading-relaxed max-w-3xl mx-auto">
+                Realizamos servicios integrales de mantenimiento eléctrico e instalación de cargador para coches eléctricos. Garantizamos soluciones eficientes y seguras adaptadas a las necesidades de tu hogar o empresa.
+            </p>
+        </div>
+
+        <!-- Sección Nuestros Servicios -->
+        <section>
+            <h2 class="text-center text-xl font-bold uppercase tracking-widest text-gold mb-10">
+                Nuestros Servicios
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+                <!-- 3 Tarjetas Principales de Servicio -->
+                <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    
+                    <!-- Tarjeta 1 -->
+                    <div class="gold-glass-card rounded-2xl p-6 text-center flex flex-col justify-between items-center border border-gold/30">
+                        <div class="mb-4 text-gold">
+                            <i data-lucide="lightbulb" class="w-10 h-10 mx-auto"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-gold uppercase mb-3">Asesoría en Tecnología Led</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Estudio lumínico personalizado, posibles mejoras en eficiencia y consumo.
+                        </p>
+                    </div>
+
+                    <!-- Tarjeta 2 -->
+                    <div class="gold-glass-card rounded-2xl p-6 text-center flex flex-col justify-between items-center border border-gold/30">
+                        <div class="mb-4 text-gold">
+                            <i data-lucide="zap" class="w-10 h-10 mx-auto"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-gold uppercase mb-3">Instalación Cargador de Coche Eléctrico</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Para garajes particulares se contemplan las instalaciones trifásicas y monofásicas.
+                        </p>
+                    </div>
+
+                    <!-- Tarjeta 3 -->
+                    <div class="gold-glass-card rounded-2xl p-6 text-center flex flex-col justify-between items-center border border-gold/30">
+                        <div class="mb-4 text-gold">
+                            <i data-lucide="settings" class="w-10 h-10 mx-auto"></i>
+                        </div>
+                        <h3 class="text-sm font-bold text-gold uppercase mb-3">Mantenimiento Eléctrico</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Sustitución de iluminación tradicional en viviendas e instalaciones industriales o comerciales. Boletines eléctricos.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Bloque lateral de contacto directo -->
+                <div class="md:col-span-4 gold-glass-card rounded-2xl p-6 flex flex-col justify-center items-center text-center space-y-4 border border-gold/40">
+                    <p class="text-xs font-bold text-white uppercase tracking-wider leading-relaxed">
+                        Si alguna de estas soluciones le interesa, contáctenos vía:
+                    </p>
+                    
+                    <a href="mailto:info@argieder.es" class="w-full py-2.5 px-6 rounded-full bg-gold text-slate-950 font-bold text-xs uppercase tracking-wider hover:bg-gold-light transition-all shadow-glow-gold">
+                        Correo
+                    </a>
+
+                    <span class="text-slate-400 text-xs font-medium">o</span>
+
+                    <a href="https://wa.me/34604113451" target="_blank" class="w-full py-2.5 px-6 rounded-full bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider hover:bg-emerald-400 transition-all shadow-glow-green">
+                        WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Asesoría Tecnología LED -->
+        <section class="max-w-3xl mx-auto text-center space-y-8">
+            <h2 class="text-2xl sm:text-3xl font-black text-white">
+                Nuestra Asesoría en Tecnología Led puede aportarte:
+            </h2>
+
+            <div class="gold-glass-card rounded-2xl overflow-hidden border border-gold/30">
+                <div class="divide-y divide-white/10 text-xs sm:text-sm font-semibold text-slate-200">
+                    <div class="py-3 px-4 hover:bg-white/5 transition-colors">Reducción de potencia</div>
+                    <div class="py-3 px-4 hover:bg-white/5 transition-colors">Reducción de consumo</div>
+                    <div class="py-3 px-4 hover:bg-white/5 transition-colors">Aumento de lumines</div>
+                    <div class="py-3 px-4 hover:bg-white/5 transition-colors">Mejora de equipo</div>
+                    <div class="py-3 px-4 bg-gold/10 text-gold font-bold">Estudio final de ahorro</div>
+                </div>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Cambiar tu iluminación a LED es más <strong class="text-white">económico</strong>, más <strong class="text-white">personalizable</strong>, más <strong class="text-white">duradero</strong> y cuenta con una <strong class="text-gold">mejor iluminación</strong>.
+            </p>
+
+            <div>
+                <a href="https://wa.me/34604113451" target="_blank" class="inline-block py-3 px-8 rounded-full bg-emerald-500 text-white font-black text-xs uppercase tracking-wider hover:bg-emerald-400 hover:shadow-glow-green transition-all">
+                    Envíanos tu consulta
+                </a>
+            </div>
+        </section>
+
+        <!-- Sección Catálogo de Cargadores -->
+        <section class="space-y-12">
+            <div class="text-center">
+                <h2 class="text-lg sm:text-xl font-bold text-slate-300">
+                    Elige el <span class="text-gold uppercase font-black">cargador perfecto</span> para tu hogar
+                </h2>
+            </div>
+
+            <!-- Grid Fila 1: Orbis y Policharger -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Orbis Viaris Uni -->
+                <div class="gold-glass-card rounded-2xl p-5 flex flex-col justify-between text-center space-y-4">
+                    <div class="h-44 flex items-center justify-center p-2 bg-black/40 rounded-xl">
+                        <img src="https://placehold.co/200x200/121318/E3A827?text=Orbis+Viaris+Uni" alt="Orbis Viaris Uni" class="max-h-full w-auto object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-gold mb-2">Orbis Viaris Uni</h3>
+                        <div class="text-[11px] text-slate-300 space-y-2 text-left leading-relaxed">
+                            <p><strong>Carga Inteligente y Configurable:</strong> Módulo modulador de potencia para optimizar el consumo instalacional sin sobrepasar el límite.</p>
+                            <p><strong>Ahorro en tu Factura:</strong> Programa tus cargas destacadas en horas viales económicas.</p>
+                            <p><strong>Preparado para Solar:</strong> Integración directa con paneles fotovoltaicos (versión SOLAR).</p>
+                            <p><strong>Listo para Usar:</strong> Incluye manguera de 5m o manguera recta/espiral y conectividad Wi-Fi.</p>
+                            <p><strong>MÁXIMA Protección y Durabilidad:</strong> Protector de corriente de fuga integrada, envolvente ultra resistente IP54 e IK10 para intemperie.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orbis Viaris Combi Double -->
+                <div class="gold-glass-card rounded-2xl p-5 flex flex-col justify-between text-center space-y-4">
+                    <div class="h-44 flex items-center justify-center p-2 bg-black/40 rounded-xl">
+                        <img src="https://placehold.co/200x200/121318/E3A827?text=Viaris+Combi+Double" alt="Orbis Viaris Combi Double" class="max-h-full w-auto object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-gold mb-2">Orbis Viaris Combi Double</h3>
+                        <div class="text-[11px] text-slate-300 space-y-2 text-left leading-relaxed">
+                            <p><strong>Carga Doble e Inteligente:</strong> Carga dos vehículos simultáneamente regulando la potencia entregada a cada uno sin superar la potencia contratada.</p>
+                            <p><strong>Máxima Seguridad Integrada:</strong> Incorpora un espacio para integrar protecciones eléctricas en su interior.</p>
+                            <p><strong>Conectividad Total:</strong> Conexión Wi-Fi, Ethernet y opcional módem 4G para gestión en la nube.</p>
+                            <p><strong>Uniones Exclusivas:</strong> Selector de potencia con llavero RFID, mangueras integradas conector tipo 2.</p>
+                            <p><strong>Versátil y Robusto:</strong> Compatible con mangueras o tomas tipo 2/Schuko. Envolvente robusta IK10 e IP54.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Policharger NW T2 -->
+                <div class="gold-glass-card rounded-2xl p-5 flex flex-col justify-between text-center space-y-4">
+                    <div class="h-44 flex items-center justify-center p-2 bg-black/40 rounded-xl">
+                        <img src="https://placehold.co/200x200/121318/E3A827?text=Policharger+NW+T2" alt="Policharger NW T2" class="max-h-full w-auto object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-gold mb-2">Policharger NW T2</h3>
+                        <div class="text-[11px] text-slate-300 space-y-2 text-left leading-relaxed">
+                            <p><strong>Carga Inteligente de Serie:</strong> Regulación automática para recargar a la máxima potencia disponible en cada momento.</p>
+                            <p><strong>Compatible con Solar:</strong> Integración fotovoltaica para recargar directamente de paneles solares.</p>
+                            <p><strong>Instalación Más Limpia:</strong> Espacio interior para protecciones eléctricas incorporadas.</p>
+                            <p><strong>Robusto y para Intemperie:</strong> Envolvente compacta de alta resistencia con protección IP65 e IK10.</p>
+                            <p><strong>Personalización y Registro:</strong> Pantalla LCD integrativa, clave de seguridad, doble regulación programable por horas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Policharger IN T2 -->
+                <div class="gold-glass-card rounded-2xl p-5 flex flex-col justify-between text-center space-y-4">
+                    <div class="h-44 flex items-center justify-center p-2 bg-black/40 rounded-xl">
+                        <img src="https://placehold.co/200x200/121318/E3A827?text=Policharger+IN+T2" alt="Policharger IN T2" class="max-h-full w-auto object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-gold mb-2">Policharger IN T2</h3>
+                        <div class="text-[11px] text-slate-300 space-y-2 text-left leading-relaxed">
+                            <p><strong>Carga Inteligente de Serie:</strong> Modula la potencia automáticamente para recargar rápido sin cortar la luz en casa.</p>
+                            <p><strong>Diseño Compacto y Moderno:</strong> Pensado para espacios reducidos en garaje o pared externa.</p>
+                            <p><strong>Control Teclado y Mando Integrado:</strong> Mando o teclado integrados directamente en el frontal para su uso fácil e intuitivo.</p>
+                            <p><strong>Conectividad Opcional por App:</strong> Opción de añadir Wi-Fi y App móvil para un control total desde el móvil.</p>
+                            <p><strong>Resistencia Extrema (IP65 / IK10):</strong> Preparado para soportar lluvia, polvo y golpes.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Grid Fila 2: V2C y Ohme -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- V2C Trydan -->
+                <div class="gold-glass-card rounded-2xl p-5 flex flex-col justify-between text-center space-y-4">
+                    <div class="h-44 flex items-center justify-center p-2 bg-black/40 rounded-xl">
+                        <img src="https://placehold.co/200x200/121318/E3A827?text=V2C+Trydan" alt="V2C Trydan" class="max-h-full w-auto object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-gold mb-2">V2C Trydan</h3>
+                        <div class="text-[11px] text-slate-300 space-y-2 text-left leading-relaxed">
+                            <p><strong>Carga Inteligente y Configurable:</strong> Hasta 22kW de potencia. Control dinámico de carga.</p>
+                            <p><strong>Compatible con Monofásico y Trifásico:</strong> Disponible para instalaciones de 230V y 400V.</p>
+                            <p><strong>Ecosistema de Conectividad V2C Cloud:</strong> Controla el cargador mediante App V2C Cloud gratuita, Wi-Fi y Bluetooth.</p>
+                            <p><strong>Integración y Control Avanzado:</strong> Compatible con Alexa, Google Home, OCPP y REST API.</p>
+                            <p><strong>Preparado para Entornos Exigentes:</strong> Resistencia a impactos y agua. Funcionamiento entre -25°C y 50°C.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- V2C Trydan Pro -->
+                <div class="gold-glass-card rounded-2xl p-5 flex flex-col justify-between text-center space-y-4">
+                    <div class="h-44 flex items-center justify-center p-2 bg-black/40 rounded-xl">
+                        <img src="https://placehold.co/200x200/121318/E3A827?text=V2C+Trydan+Pro" alt="V2C Trydan Pro" class="max-h-full w-auto object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-gold mb-2">V2C Trydan Pro</h3>
+                        <div class="text-[11px] text-slate-300 space-y-2 text-left leading-relaxed">
+                            <p><strong>Carga Potente y Configurable:</strong> Hasta 22kW para recargar velozmente.</p>
+                            <p><strong>Versión para Monofásico y Trifásico:</strong> Conexiones en 230V y 400V.</p>
+                            <p><strong>Conectividad Pro con V2C Cloud:</strong> Incluye módem 4G integrado, además de Wi-Fi, Bluetooth, Ethernet y RFID.</p>
+                            <p><strong>Integración y Control Total:</strong> Compatible con Alexa, Google Home, RFID y REST API.</p>
+                            <p><strong>Preparado para Entornos Exigentes:</strong> Protección para uso en intemperie y temperaturas de -25°C a 50°C.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ePod Ohme Home Pro (7.4kW) -->
+                <div class="gold-glass-card rounded-2xl p-5 flex flex-col justify-between text-center space-y-4">
+                    <div class="h-44 flex items-center justify-center p-2 bg-black/40 rounded-xl">
+                        <img src="https://placehold.co/200x200/121318/E3A827?text=Ohme+Home+Pro" alt="Ohme Home Pro" class="max-h-full w-auto object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-gold mb-2">Ohme Home Pro (7.4kW)</h3>
+                        <div class="text-[11px] text-slate-300 space-y-2 text-left leading-relaxed">
+                            <p><strong>Carga Rápida de Serie:</strong> Carga a 7.4kW (32A), ideal para cargas nocturnas.</p>
+                            <p><strong>Control desde App:</strong> Modula la potencia y ajusta las tarifas horarias desde la App Ohme.</p>
+                            <p><strong>Carga Inteligente y Económica:</strong> Integración con tarifas para recargar en las horas más baratas.</p>
+                            <p><strong>Balanceo de Carga:</strong> Incluye pinza amperimétrica (CT) para balanceo dinámico.</p>
+                            <p><strong>Conectividad 3G/4G:</strong> Tarjeta SIM multired integrada sin coste adicional.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OHME Home Pro (7.4kW) -->
+                <div class="gold-glass-card rounded-2xl p-5 flex flex-col justify-between text-center space-y-4">
+                    <div class="h-44 flex items-center justify-center p-2 bg-black/40 rounded-xl">
+                        <img src="https://placehold.co/200x200/121318/E3A827?text=OHME+ePod" alt="OHME ePod" class="max-h-full w-auto object-contain">
+                    </div>
+                    <div>
+                        <h3 class="text-sm font-black text-gold mb-2">OHME ePod (7.4kW)</h3>
+                        <div class="text-[11px] text-slate-300 space-y-2 text-left leading-relaxed">
+                            <p><strong>Carga Rápida de Serie:</strong> 32A para una carga rápida y segura.</p>
+                            <p><strong>Control desde App:</strong> Ajustes directos de la carga y tarifas reducidas.</p>
+                            <p><strong>Carga Inteligente y Económica:</strong> Carga programada automática en periodos económicos.</p>
+                            <p><strong>Balanceo de Carga:</strong> Incluye pinza amperimétrica CT para evitar sobrecargas.</p>
+                            <p><strong>Conectividad 4G y Diseño Resistente:</strong> SIM multired integrada y protección IP65 para exterior.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botón verde de cierre de catálogo -->
+            <div class="text-center pt-6">
+                <a href="https://wa.me/34604113451" target="_blank" class="inline-block py-3.5 px-8 rounded-full bg-emerald-500 text-white font-black text-xs uppercase tracking-wider hover:bg-emerald-400 hover:shadow-glow-green transition-all">
+                    Te ayudamos a saber cuál se adapta a tus necesidades
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Banner Imagen de Financiación Institucional (De lado a lado y pegado al footer) -->
+    <section class="w-full relative z-10 bg-white/95 border-t border-white/20 py-4 md:py-6 flex justify-center items-center shadow-lg">
+        <img src="financiacion.png" alt="Financiado por la Unión Europea" class="max-h-16 md:max-h-20 w-auto object-contain">
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1d1d1d] border-t border-gold/20 pt-16 pb-12 text-slate-400 text-xs relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="logoargieder.png" alt="Argieder Logo" class="h-8 w-auto object-contain">
+                    </div>
+                    <p class="leading-relaxed">
+                        Argieder Gestión es una asesoría energética tecnológica dedicada a la optimización de gasto energético para empresas.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Información</h5>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="hover:text-gold transition-colors">Aviso Legal</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors">Política de Cookies</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Contáctanos</h5>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-gold shrink-0 mt-0.5"></i>
+                            <span>OFICINA: Aranguren Auzoa 2, Local 104/105, Galerías CC Mamut, La Planta (Frente a escaleras eléctricas) 20180 Oiartzun</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i data-lucide="phone" class="w-4 h-4 text-gold shrink-0"></i>
+                            <span>(+34) 943 007 407</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i data-lucide="mail" class="w-4 h-4 text-gold shrink-0"></i>
+                            <span>info@argieder.es</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Últimas Noticias</h5>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="hover:text-gold transition-colors cursor-pointer">• ¿Qué es una asesoría energética tecnológica y cómo puede ayudar a tu empresa?</li>
+                        <li class="hover:text-gold transition-colors cursor-pointer">• Instalación de cargadores para coches eléctricos en Gipuzkoa</li>
+                        <li class="hover:text-gold transition-colors cursor-pointer">• Instalaciones eléctricas en Gipuzkoa: soluciones eficientes y seguras</li>
+                        <li class="hover:text-gold transition-colors cursor-pointer">• Cómo reducir el consumo energético con tecnología LED</li>
+                        <li class="hover:text-gold transition-colors cursor-pointer">• Cargadores de coche eléctrico para gasolineras: soluciones de carga rápida</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gold/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>Argieder Gestión S.L. © - Todos los derechos reservados.</p>
+                <div class="flex gap-4 text-slate-400">
+                    <a href="https://www.facebook.com/argieder/" class="hover:text-gold"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/auledchargerdesign/" class="hover:text-gold"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Dynamic Particle Canvas & Lucide Icons -->
+    <script>
+        // Matrix Canvas Particles logic
+        const canvas = document.getElementById('canvas-matrix');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.radius = Math.random() * 2 + 0.5;
+                this.color = Math.random() > 0.3 ? '#E3A827' : '#FFFFFF';
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const count = Math.floor((canvas.width * canvas.height) / 22000);
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(227, 168, 39, ${0.15 - dist / 800})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.onload = function() {
+            resizeCanvas();
+            animateCanvas();
+            lucide.createIcons();
+        };
+        window.addEventListener('resize', resizeCanvas);
+    </script>
+</body>
+</html>
