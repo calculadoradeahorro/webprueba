@@ -215,32 +215,136 @@
             </div>
         </section>
 
-        <!-- Sección Asesoría Tecnología LED -->
-        <section class="max-w-3xl mx-auto text-center space-y-8">
-            <h2 class="text-2xl sm:text-3xl font-black text-white">
-                Nuestra Asesoría en Tecnología Led puede aportarte:
-            </h2>
+        <!-- Sección Deslizador de Servicios e Información -->
+<section class="max-w-4xl mx-auto relative px-4 sm:px-12">
+    
+    <!-- Flechas de Navegación -->
+    <button onclick="moveSlide(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 border border-gold/30 text-gold flex items-center justify-center hover:bg-gold hover:text-black transition-all shadow-glow-gold">
+        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+    </button>
+    <button onclick="moveSlide(1)" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 border border-gold/30 text-gold flex items-center justify-center hover:bg-gold hover:text-black transition-all shadow-glow-gold">
+        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+    </button>
 
-            <div class="gold-glass-card rounded-2xl overflow-hidden border border-gold/30">
-                <div class="divide-y divide-white/10 text-xs sm:text-sm font-semibold text-slate-200">
-                    <div class="py-3 px-4 hover:bg-white/5 transition-colors">Reducción de potencia</div>
-                    <div class="py-3 px-4 hover:bg-white/5 transition-colors">Reducción de consumo</div>
-                    <div class="py-3 px-4 hover:bg-white/5 transition-colors">Aumento de lumines</div>
-                    <div class="py-3 px-4 hover:bg-white/5 transition-colors">Mejora de equipo</div>
-                    <div class="py-3 px-4 bg-gold/10 text-gold font-bold">Estudio final de ahorro</div>
+    <!-- Contenedor del Slider -->
+    <div class="overflow-hidden relative rounded-3xl">
+        <div id="sliderTrack" class="flex transition-transform duration-500 ease-in-out w-full">
+            
+            <!-- SLIDE 1: Asesoría LED -->
+            <div class="w-full shrink-0 space-y-6 text-center px-4 py-6">
+                <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+                    Nuestra Asesoría en Tecnología Led puede aportarte:
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
+                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                        <i data-lucide="zap-off" class="w-5 h-5 text-gold shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Reducción de potencia</span>
+                    </div>
+                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                        <i data-lucide="trending-down" class="w-5 h-5 text-gold shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Reducción de consumo</span>
+                    </div>
+                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                        <i data-lucide="sun" class="w-5 h-5 text-gold shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Aumento de lúmenes</span>
+                    </div>
+                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                        <i data-lucide="cpu" class="w-5 h-5 text-gold shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Mejoras de equipo</span>
+                    </div>
+                    <div class="sm:col-span-2 gold-glass-card rounded-xl p-4 border border-gold/50 bg-gold/10 flex items-center justify-center gap-3 text-center shadow-glow-gold">
+                        <i data-lucide="calculator" class="w-5 h-5 text-gold shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-bold text-gold uppercase tracking-wider">Estudio final de ahorro</span>
+                    </div>
+                </div>
+
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto pt-2">
+                    Cambiar tu iluminación a led es: más <strong class="text-white">económico</strong>, más <strong class="text-white">personalizable</strong>, más <strong class="text-white">duradero</strong> y cuenta con una <strong class="text-gold">mejor iluminación</strong>.
+                </p>
+
+                <div class="pt-2">
+                    <a href="https://wa.me/34604113451" target="_blank" class="inline-block py-3 px-8 rounded-full bg-emerald-500 text-white font-black text-xs uppercase tracking-wider hover:bg-emerald-400 hover:shadow-glow-green transition-all transform hover:scale-105">
+                        Envíanos tu consulta
+                    </a>
                 </div>
             </div>
 
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Cambiar tu iluminación a LED es más <strong class="text-white">económico</strong>, más <strong class="text-white">personalizable</strong>, más <strong class="text-white">duradero</strong> y cuenta con una <strong class="text-gold">mejor iluminación</strong>.
-            </p>
+            <!-- SLIDE 2: Instalación de Cargadores -->
+            <div class="w-full shrink-0 space-y-6 text-center px-4 py-6">
+                <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+                    Instalación de Cargador de Coche Eléctrico en:
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                    <div class="gold-glass-card rounded-2xl p-6 border border-gold/30 flex flex-col items-center justify-center gap-3 text-center hover:border-gold transition-all">
+                        <i data-lucide="home" class="w-8 h-8 text-gold"></i>
+                        <span class="text-sm font-bold text-white">Tu domicilio o edificio comunitario</span>
+                    </div>
+                    <div class="gold-glass-card rounded-2xl p-6 border border-gold/30 flex flex-col items-center justify-center gap-3 text-center hover:border-gold transition-all">
+                        <i data-lucide="charging-station" class="w-8 h-8 text-gold"></i>
+                        <span class="text-sm font-bold text-white">Electrogasolinera</span>
+                    </div>
+                </div>
 
-            <div>
-                <a href="https://wa.me/34604113451" target="_blank" class="inline-block py-3 px-8 rounded-full bg-emerald-500 text-white font-black text-xs uppercase tracking-wider hover:bg-emerald-400 hover:shadow-glow-green transition-all">
-                    Envíanos tu consulta
-                </a>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto pt-2">
+                    Si desea hacer un estudio <strong class="text-white">personalizado</strong> póngase en contacto con nosotros y un técnico <strong class="text-white">especializado</strong> lo visitará <strong class="text-gold">sin compromiso</strong>.
+                </p>
+
+                <div class="pt-2">
+                    <a href="https://wa.me/34604113451" target="_blank" class="inline-block py-3 px-8 rounded-full bg-emerald-500 text-white font-black text-xs uppercase tracking-wider hover:bg-emerald-400 hover:shadow-glow-green transition-all transform hover:scale-105">
+                        Envíanos tu consulta
+                    </a>
+                </div>
             </div>
-        </section>
+
+            <!-- SLIDE 3: Mantenimiento Eléctrico -->
+            <div class="w-full shrink-0 space-y-6 text-center px-4 py-6">
+                <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+                    Mantenimiento eléctrico:
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
+                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                        <i data-lucide="shield-check" class="w-5 h-5 text-gold shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Mantenimientos eléctricos de baja tensión</span>
+                    </div>
+                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                        <i data-lucide="refresh-cw" class="w-5 h-5 text-gold shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Sustitución de iluminación</span>
+                    </div>
+                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                        <i data-lucide="factory" class="w-5 h-5 text-gold shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Instalaciones industriales o domesticas</span>
+                    </div>
+                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                        <i data-lucide="file-check" class="w-5 h-5 text-gold shrink-0"></i>
+                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Boletines eléctricos</span>
+                    </div>
+                </div>
+
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto pt-2">
+                    Somos <strong class="text-gold uppercase tracking-wide">especialistas</strong> en Diseños Led.
+                </p>
+
+                <div class="pt-2">
+                    <a href="https://wa.me/34604113451" target="_blank" class="inline-block py-3 px-8 rounded-full bg-emerald-500 text-white font-black text-xs uppercase tracking-wider hover:bg-emerald-400 hover:shadow-glow-green transition-all transform hover:scale-105">
+                        Envíanos tu consulta
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Indicadores de Puntos (Dots) -->
+    <div class="flex justify-center items-center gap-2 mt-6">
+        <button onclick="goToSlide(0)" class="dot-btn w-2.5 h-2.5 rounded-full bg-gold transition-all duration-300 opacity-100 scale-125"></button>
+        <button onclick="goToSlide(1)" class="dot-btn w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 opacity-50 hover:opacity-100"></button>
+        <button onclick="goToSlide(2)" class="dot-btn w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 opacity-50 hover:opacity-100"></button>
+    </div>
+
+</section>
 
         <!-- Sección Catálogo de Cargadores -->
         <section class="space-y-12">
@@ -555,6 +659,37 @@
             lucide.createIcons();
         };
         window.addEventListener('resize', resizeCanvas);
+// Lógica para el Slider de Servicios
+let currentSlide = 0;
+const totalSlides = 3;
+
+function updateSlider() {
+    const track = document.getElementById('sliderTrack');
+    const dots = document.querySelectorAll('.dot-btn');
+    
+    if (track) {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    }
+    
+    dots.forEach((dot, index) => {
+        if (index === currentSlide) {
+            dot.className = "dot-btn w-2.5 h-2.5 rounded-full bg-gold transition-all duration-300 opacity-100 scale-125";
+        } else {
+            dot.className = "dot-btn w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 opacity-50 hover:opacity-100";
+        }
+    });
+}
+
+function moveSlide(direction) {
+    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    updateSlider();
+}
+
+function goToSlide(index) {
+    currentSlide = index;
+    updateSlider();
+}
+        
     </script>
 </body>
 </html>
