@@ -691,46 +691,46 @@
                     </p>
                 </div>
 
-                <form id="contactForm" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Nombre y Apellidos</label>
-                            <input type="text" required placeholder="Ej. Carlos Martínez" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
-                        </div>
+                <form action="https://formspree.io/f/mljgprbe" method="POST" id="contactForm" class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Nombre y Apellidos</label>
+            <input type="text" name="nombre" required placeholder="Ej. Carlos Martínez" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
+        </div>
 
-                        <div>
-                            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Teléfono de contacto</label>
-                            <input type="tel" required placeholder="+34 600 000 000" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
-                        </div>
-                    </div>
+        <div>
+            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Teléfono de contacto</label>
+            <input type="tel" name="telefono" required placeholder="+34 600 000 000" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
+        </div>
+    </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Correo Electrónico</label>
-                            <input type="email" required placeholder="carlos@empresa.com" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
-                        </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Correo Electrónico</label>
+            <input type="email" name="email" required placeholder="carlos@empresa.com" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
+        </div>
 
-                        <div>
-                            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Servicio de Interés</label>
-                            <select class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
-                                <option value="1">Ahorro en Factura Eléctrica</option>
-                                <option value="2">Cargador de Vehículo Eléctrico (AULED)</option>
-                                <option value="3">Asesoramiento Tecnología LED</option>
-                                <option value="4">Energía Solar / Autoconsumo</option>
-                                <option value="5">Optimización de Potencias Empresas</option>
-                            </select>
-                        </div>
-                    </div>
+        <div>
+            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Servicio de Interés</label>
+            <select name="servicio" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
+                <option value="Ahorro en Factura Eléctrica">Ahorro en Factura Eléctrica</option>
+                <option value="Cargador de Vehículo Eléctrico (AULED)">Cargador de Vehículo Eléctrico (AULED)</option>
+                <option value="Asesoramiento Tecnología LED">Asesoramiento Tecnología LED</option>
+                <option value="Energía Solar / Autoconsumo">Energía Solar / Autoconsumo</option>
+                <option value="Optimización de Potencias Empresas">Optimización de Potencias Empresas</option>
+            </select>
+        </div>
+    </div>
 
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Mensaje o Consulta Específica</label>
-                        <textarea rows="4" placeholder="Indícanos si eres particular o empresa y en qué podemos ayudarte..." class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all"></textarea>
-                    </div>
+    <div>
+        <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Mensaje o Consulta Específica</label>
+        <textarea name="mensaje" rows="4" placeholder="Indícanos si eres particular o empresa y en qué podemos ayudarte..." class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all"></textarea>
+    </div>
 
-                    <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold via-gold-amber to-gold-dark text-slate-950 font-black uppercase tracking-wider text-sm hover:shadow-glow-gold hover:scale-[1.01] transition-all">
-                        Enviar Solicitud
-                    </button>
-                </form>
+    <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold via-gold-amber to-gold-dark text-slate-950 font-black uppercase tracking-wider text-sm hover:shadow-glow-gold hover:scale-[1.01] transition-all">
+        Enviar Solicitud
+    </button>
+</form>
 
                 <div id="formConfirmation" class="hidden text-center py-10 space-y-4">
                     <div class="w-16 h-16 rounded-full bg-gold/20 text-gold border border-gold flex items-center justify-center text-3xl mx-auto shadow-glow-gold">
