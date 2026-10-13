@@ -1,4 +1,4 @@
-e<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -154,7 +154,7 @@ e<!DOCTYPE html>
     <!-- Background Dynamic Particle Mesh Canvas -->
     <canvas id="canvas-matrix" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
     
- <!-- Header con logos a los extremos y menú centrado -->
+    <!-- Header con logos a los extremos y menú centrado -->
     <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/95 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             
@@ -236,7 +236,7 @@ e<!DOCTYPE html>
                             <span class="text-2xl sm:text-3xl font-black text-energy-cyan text-glow-white">100%</span>
                             <span class="block text-[11px] uppercase text-slate-400 font-bold tracking-wider mt-1">Transparencia</span>
                         </div>
-                     <div class="p-4 rounded-2xl bg-energy-surface/50 border border-energy-border text-center">
+                      <div class="p-4 rounded-2xl bg-energy-surface/50 border border-energy-border text-center">
                             <span class="text-2xl sm:text-3xl font-black text-energy-gold text-glow-gold">2011</span>
                             <span class="block text-[11px] uppercase text-slate-400 font-bold tracking-wider mt-1">Fundación</span>
                         </div>
@@ -258,10 +258,10 @@ e<!DOCTYPE html>
                             <circle cx="0" cy="0" r="110" fill="none" stroke="rgba(0, 230, 168, 0.15)" stroke-width="1" />
                             
                             <!-- Dynamic Beam Lines to Nodes -->
-                            <line id="beam-david" x1="0" y1="0" x2="0" y2="-170" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
-                            <line id="beam-janire" x1="0" y1="0" x2="160" y2="-50" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
-                            <line id="beam-veronica" x1="0" y1="0" x2="100" y2="140" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
-                            <line id="beam-belen" x1="0" y1="0" x2="-100" y2="140" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
+                            <line id="beam-belen" x1="0" y1="0" x2="0" y2="-170" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
+                            <line id="beam-veronica" x1="0" y1="0" x2="160" y2="-50" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
+                            <line id="beam-janire" x1="0" y1="0" x2="100" y2="140" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
+                            <line id="beam-david" x1="0" y1="0" x2="-100" y2="140" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
                             <line id="beam-olatz" x1="0" y1="0" x2="-160" y2="-50" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
                         </svg>
 
@@ -274,22 +274,8 @@ e<!DOCTYPE html>
                             </div>
                         </div>
 
-                        <!-- 1. Verónica Martin Node Circle -->
-                        <div class="absolute core-member-node node-janire z-20 cursor-pointer" onclick="activateCoreMember('veronica')" onmouseenter="activateCoreMember('veronica')">
-                            <div class="relative group">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-cyan to-emerald-500 shadow-glowGold group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-                                    <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
-                                        <img src="veronica.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                                    </div>
-                                </div>
-                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-cyan text-slate-900 text-[10px] font-black tracking-wider whitespace-nowrap shadow-glowGold">
-                                    VERÓNICA
-                                </span>
-                            </div>
-                        </div>
-
-                          <!-- 2. Belén Teijeira Node Circle -->
-                        <div class="absolute core-member-node node-david z-20 cursor-pointer" onclick="activateCoreMember('belen')" onmouseenter="activateCoreMember('belen')">
+                        <!-- 1. Belén Teijeira Node Circle (En la posición superior donde estaba David) -->
+                        <div class="absolute core-member-node node-belen z-20 cursor-pointer" onclick="activateCoreMember('belen')" onmouseenter="activateCoreMember('belen')">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                                     <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
@@ -301,13 +287,27 @@ e<!DOCTYPE html>
                                 </span>
                             </div>
                         </div>
-                        
-                        <!-- 3. Janire Etxebeste Node Circle -->
-                        <div class="absolute core-member-node node-veronica z-20 cursor-pointer" onclick="activateCoreMember('janire')" onmouseenter="activateCoreMember('janire')">
+
+                        <!-- 2. Verónica Martín Node Circle (En la posición superior derecha donde estaba Janire) -->
+                        <div class="absolute core-member-node node-veronica z-20 cursor-pointer" onclick="activateCoreMember('veronica')" onmouseenter="activateCoreMember('veronica')">
+                            <div class="relative group">
+                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-cyan to-emerald-500 shadow-glowGold group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                                    <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
+                                        <img src="veronica.jpg" alt="Verónica Martín" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                    </div>
+                                </div>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-cyan text-slate-900 text-[10px] font-black tracking-wider whitespace-nowrap shadow-glowGold">
+                                    VERÓNICA
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 3. Janire Etxebeste Node Circle (En la posición inferior derecha donde estaba Verónica) -->
+                        <div class="absolute core-member-node node-janire z-20 cursor-pointer" onclick="activateCoreMember('janire')" onmouseenter="activateCoreMember('janire')">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                                     <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
-                                        <img src="janire.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                        <img src="janire.jpg" alt="Janire Etxebeste" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                                     </div>
                                 </div>
                                 <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-slate-900 text-[10px] font-black tracking-wider whitespace-nowrap shadow-plasma">
@@ -316,8 +316,8 @@ e<!DOCTYPE html>
                             </div>
                         </div>
 
-                        <!-- 4. David Tena Node Circle -->
-                        <div class="absolute core-member-node node-belen z-20 cursor-pointer" onclick="activateCoreMember('david')" onmouseenter="activateCoreMember('david')">
+                        <!-- 4. David Tena Node Circle (En la posición inferior izquierda donde estaba Belén) -->
+                        <div class="absolute core-member-node node-david z-20 cursor-pointer" onclick="activateCoreMember('david')" onmouseenter="activateCoreMember('david')">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-cyan to-blue-500 shadow-glowGold group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                                     <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
@@ -420,7 +420,6 @@ e<!DOCTYPE html>
                          onclick="openModal('david')">
                         <div class="flex items-start justify-between mb-6">
                             <div class="relative">
-                                <!-- Avatar Circle -->
                                 <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-energy-gold to-yellow-600 p-0.5 shadow-plasma group-hover:scale-110 transition-transform duration-300">
                                     <div class="w-full h-full bg-energy-surface rounded-[14px] overflow-hidden">
                                         <img src="david.jpg" alt="David Tena" class="w-full h-full object-cover" />
@@ -450,7 +449,7 @@ e<!DOCTYPE html>
                         </div>
                     </div>
 
-                   
+                    
                     <!-- 3. Verónica Martín -->
                     <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" 
                          data-role="administracion" 
@@ -699,7 +698,7 @@ e<!DOCTYPE html>
                 tag: "Gestión y Atención al Cliente",
                 bio: "Belén, al igual que su socio David, lleva también once años en el sector energético y desde hace siete dirige el departamento comercial. Se encarga de los acuerdos de colaboración con las compañías energéticas y asociaciones, negociación de precios de luz y gas, orientación para gestionar las subvenciones de las entidades públicas, así como de la expansión comercial de toda la provincia."
             },
-           veronica: {
+            veronica: {
                 name: "Verónica Martín",
                 role: "Departamento de Administración",
                 tag: "Departamento de Administración",
@@ -757,16 +756,18 @@ e<!DOCTYPE html>
             const beamIds = ['david', 'janire', 'veronica', 'belen', 'olatz'];
             beamIds.forEach(bId => {
                 const line = document.getElementById(`beam-${bId}`);
-                if (bId === key) {
-                    line.setAttribute('stroke', '#00E6A8');
-                    line.setAttribute('stroke-width', '4');
-                    line.setAttribute('opacity', '1');
-                    line.removeAttribute('stroke-dasharray');
-                } else {
-                    line.setAttribute('stroke', '#F5B800');
-                    line.setAttribute('stroke-width', '2');
-                    line.setAttribute('opacity', '0.2');
-                    line.setAttribute('stroke-dasharray', '4,4');
+                if (line) {
+                    if (bId === key) {
+                        line.setAttribute('stroke', '#00E6A8');
+                        line.setAttribute('stroke-width', '4');
+                        line.setAttribute('opacity', '1');
+                        line.removeAttribute('stroke-dasharray');
+                    } else {
+                        line.setAttribute('stroke', '#F5B800');
+                        line.setAttribute('stroke-width', '2');
+                        line.setAttribute('opacity', '0.2');
+                        line.setAttribute('stroke-dasharray', '4,4');
+                    }
                 }
             });
         }
