@@ -746,14 +746,42 @@
         </div>
     </section>
 
-    <!-- Banner Imagen de Financiación Institucional -->
-    <section class="pb-16 px-6 relative z-10">
-        <div class="max-w-5xl mx-auto">
-            <div class="p-4 md:p-6 rounded-2xl bg-white/95 border border-white/20 flex justify-center items-center shadow-lg">
+<!-- Banner Imagen de Financiación Institucional -->
+            <div class="p-4 md:p-6 rounded-none bg-white/95 border border-white/20 flex justify-center items-center shadow-lg">
                 <img src="financiacion.png" alt="Financiado por la Unión Europea - NextGenerationEU, Gobierno de España, Plan de Recuperación" class="max-h-16 md:max-h-20 w-auto object-contain">
             </div>
         </div>
     </section>
+
+    <!-- Modal Window for Full Profile Details -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div id="modal-container" class="plasma-card max-w-2xl w-full rounded-3xl p-6 sm:p-10 border-2 border-energy-gold transform scale-95 transition-transform duration-300 relative overflow-hidden">
+            
+            <button onclick="closeModal()" class="absolute top-6 right-6 p-2 rounded-full bg-energy-surface text-slate-400 hover:text-white hover:bg-energy-surfaceLight transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-16 h-16 rounded-2xl bg-energy-gold/20 border border-energy-gold flex items-center justify-center text-energy-gold">
+                    <i data-lucide="zap" class="w-8 h-8"></i>
+                </div>
+                <div>
+                    <h3 id="modal-name" class="text-2xl sm:text-3xl font-black text-white"></h3>
+                    <span id="modal-role" class="text-xs font-bold uppercase tracking-widest text-energy-gold block"></span>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed border-t border-energy-border/50 pt-6">
+                <p id="modal-bio"></p>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-energy-border/50 flex justify-end">
+                <button onclick="closeModal()" class="px-6 py-2.5 rounded-full font-bold text-xs text-slate-900 bg-energy-gold hover:bg-energy-brightGold shadow-plasma transition-all">
+                    Cerrar Ficha
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Full Footer Exact Copy -->
     <footer class="bg-[#1d1d1d] border-t border-gold/20 pt-16 pb-12 text-slate-400 text-xs relative z-10">
