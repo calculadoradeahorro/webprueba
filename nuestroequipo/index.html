@@ -773,86 +773,86 @@
         }
 
         // Background Particles Matrix Canvas Setup
-        const canvas = document.getElementById('canvas-matrix');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
+const canvas = document.getElementById('canvas-matrix');
+const ctx = canvas.getContext('2d');
+let particles = [];
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            initParticles();
-        }
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    initParticles();
+}
 
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.8;
-                this.vy = (Math.random() - 0.5) * 0.8;
-                this.radius = Math.random() * 2 + 0.5;
-                this.color = Math.random() > 0.3 ? '#F5B800' : '#ffffff';
-            }
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.8;
+        this.vy = (Math.random() - 0.5) * 0.8;
+        this.radius = Math.random() * 2 + 0.5;
+        // Puntos dorados (#F5B800) y puntos blancos (#FFFFFF)
+        this.color = Math.random() > 0.3 ? '#F5B800' : '#FFFFFF';
+    }
 
-            draw() {
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = this.color;
+        ctx.fill();
+    }
+
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+    }
+}
+
+function initParticles() {
+    particles = [];
+    const count = Math.floor((canvas.width * canvas.height) / 22000);
+    for (let i = 0; i < count; i++) {
+        particles.push(new Particle());
+    }
+}
+
+function animateCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            let dx = particles[i].x - particles[j].x;
+            let dy = particles[i].y - particles[j].y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 120) {
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = this.color;
-                ctx.shadowBlur = 8;
-                ctx.shadowColor = this.color;
-                ctx.fill();
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                ctx.strokeStyle = `rgba(245, 184, 0, ${0.15 - dist / 800})`;
+                ctx.lineWidth = 0.5;
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
             }
         }
+    }
+    requestAnimationFrame(animateCanvas);
+}
 
-        function initParticles() {
-            particles = [];
-            const count = Math.floor((canvas.width * canvas.height) / 22000);
-            for (let i = 0; i < count; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animateCanvas() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    let dx = particles[i].x - particles[j].x;
-                    let dy = particles[i].y - particles[j].y;
-                    let dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 120) {
-                        ctx.beginPath();
-                        ctx.strokeStyle = `rgba(245, 184, 0, ${0.15 - dist / 800})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animateCanvas);
-        }
-
-        window.onload = function() {
-            resizeCanvas();
-            animateCanvas();
-            // Automatically unfold core after 500ms
-            setTimeout(() => {
-                coreWrapper.classList.add('core-deployed');
-            }, 500);
-        };
-        window.addEventListener('resize', resizeCanvas);
+window.onload = function() {
+    resizeCanvas();
+    animateCanvas();
+    setTimeout(() => {
+        coreWrapper.classList.add('core-deployed');
+    }, 500);
+};
+window.addEventListener('resize', resizeCanvas);
 
         // Filter Team Members
         function filterTeam(role) {
