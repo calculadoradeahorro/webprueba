@@ -87,19 +87,6 @@
         .imagen-redondeada {
             border-radius: 15px;
         }
-
-        /* Separadores con bordes/puntas difuminadas */
-        .divider-vertical {
-            width: 1px;
-            height: 65%;
-            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.25), transparent);
-        }
-
-        .divider-horizontal {
-            width: 80%;
-            height: 1px;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.25), transparent);
-        }
     </style>
 </head>
 <body class="relative min-h-screen selection:bg-gold selection:text-black flex flex-col justify-between font-sans">
@@ -373,13 +360,13 @@
                 </h2>
             </div>
 
-            <!-- Estructura de Grid exacta: 7 Columnas en PC (4 Cargadores + 3 Líneas al Centro exacto), 1 Columna en Celular -->
-            <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-y-10 lg:gap-y-14 items-center justify-items-center">
+            <!-- Grid de 4 Columnas alineadas al borde superior (items-start) -->
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-y-12 gap-x-8 items-start justify-items-center">
 
                 <!-- 1. Orbis Viaris ISI -->
-                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
-                    <div class="w-full overflow-hidden rounded-3xl">
-                        <img src="cargadorohme7kw.png" alt="Orbis Viaris ISI" class="w-full h-auto object-cover">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full aspect-square overflow-hidden rounded-3xl flex items-center justify-center">
+                        <img src="cargadorohme7kw.png" alt="Orbis Viaris ISI" class="w-full h-full object-cover">
                     </div>
                     <div class="space-y-4 text-white">
                         <h3 class="text-base font-bold text-white mb-3">Orbis Viaris ISI</h3>
@@ -393,20 +380,10 @@
                     </div>
                 </div>
 
-                <!-- LÍNEA SEPARADORA 1 -->
-                <div class="w-full flex items-start justify-center">
-                    <div class="hidden lg:flex h-full min-h-[300px] items-center justify-center px-2">
-                        <div class="divider-vertical"></div>
-                    </div>
-                    <div class="block lg:hidden my-2 w-full flex justify-center">
-                        <div class="divider-horizontal"></div>
-                    </div>
-                </div>
-
                 <!-- 2. Orbis Viaris Combi Doble -->
-                <div class="flex flex-col items-start text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
-                    <div class="w-full overflow-hidden rounded-3xl">
-                        <img src="cargadorohme7kw.png" alt="Orbis Viaris Combi Doble" class="w-full h-auto object-cover">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full aspect-square overflow-hidden rounded-3xl flex items-center justify-center">
+                        <img src="cargadorohme7kw.png" alt="Orbis Viaris Combi Doble" class="w-full h-full object-cover">
                     </div>
                     <div class="space-y-4 text-white">
                         <h3 class="text-base font-bold text-white mb-3">Orbis Viaris Combi Doble</h3>
@@ -420,20 +397,10 @@
                     </div>
                 </div>
 
-                <!-- LÍNEA SEPARADORA 2 -->
-                <div class="w-full flex items-center justify-center">
-                    <div class="hidden lg:flex h-full min-h-[300px] items-center justify-center px-2">
-                        <div class="divider-vertical"></div>
-                    </div>
-                    <div class="block lg:hidden my-2 w-full flex justify-center">
-                        <div class="divider-horizontal"></div>
-                    </div>
-                </div>
-
                 <!-- 3. Policharger NW T2 -->
-                <div class="flex flex-col items-start text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
-                    <div class="w-full overflow-hidden rounded-3xl">
-                        <img src="cargadorohme7kw.png" alt="Policharger NW T2" class="w-full h-auto object-cover">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full aspect-square overflow-hidden rounded-3xl flex items-center justify-center">
+                        <img src="cargadorohme7kw.png" alt="Policharger NW T2" class="w-full h-full object-cover">
                     </div>
                     <div class="space-y-4 text-white">
                         <h3 class="text-base font-bold text-white mb-3">Policharger NW T2</h3>
@@ -447,20 +414,10 @@
                     </div>
                 </div>
 
-                <!-- LÍNEA SEPARADORA 3 -->
-                <div class="w-full flex items-center justify-center">
-                    <div class="hidden lg:flex h-full min-h-[300px] items-center justify-center px-2">
-                        <div class="divider-vertical"></div>
-                    </div>
-                    <div class="block lg:hidden my-2 w-full flex justify-center">
-                        <div class="divider-horizontal"></div>
-                    </div>
-                </div>
-
                 <!-- 4. Policharger ÖN T2 -->
-                <div class="flex flex-col items-start text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
-                    <div class="w-full overflow-hidden rounded-3xl">
-                        <img src="cargadorohme7kw.png" alt="Policharger ÖN T2" class="w-full h-auto object-cover">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full aspect-square overflow-hidden rounded-3xl flex items-center justify-center">
+                        <img src="cargadorohme7kw.png" alt="Policharger ÖN T2" class="w-full h-full object-cover">
                     </div>
                     <div class="space-y-4 text-white">
                         <h3 class="text-base font-bold text-white mb-3">Policharger ÖN T2</h3>
@@ -474,15 +431,10 @@
                     </div>
                 </div>
 
-                <!-- SEPARADOR ENTRE FILA 1 Y FILA 2 (Solo Móvil) -->
-                <div class="block lg:hidden my-2 w-full flex justify-center">
-                    <div class="divider-horizontal"></div>
-                </div>
-
                 <!-- 5. V2C Trydan -->
-                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
-                    <div class="w-full overflow-hidden rounded-3xl">
-                        <img src="cargadortrydan.jpg" alt="V2C Trydan" class="w-full h-auto object-cover">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full aspect-square overflow-hidden rounded-3xl flex items-center justify-center">
+                        <img src="cargadortrydan.jpg" alt="V2C Trydan" class="w-full h-full object-cover">
                     </div>
                     <div class="space-y-4 text-white">
                         <h3 class="text-base font-bold text-white mb-3">V2C Trydan</h3>
@@ -496,20 +448,10 @@
                     </div>
                 </div>
 
-                <!-- LÍNEA SEPARADORA 4 -->
-                <div class="w-full flex items-center justify-center">
-                    <div class="hidden lg:flex h-full min-h-[300px] items-center justify-center px-2">
-                        <div class="divider-vertical"></div>
-                    </div>
-                    <div class="block lg:hidden my-2 w-full flex justify-center">
-                        <div class="divider-horizontal"></div>
-                    </div>
-                </div>
-
                 <!-- 6. V2C Trydan Pro -->
-                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
-                    <div class="w-full overflow-hidden rounded-3xl">
-                        <img src="cargadortrydanpro.png" alt="V2C Trydan Pro" class="w-full h-auto object-cover">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full aspect-square overflow-hidden rounded-3xl flex items-center justify-center">
+                        <img src="cargadortrydanpro.png" alt="V2C Trydan Pro" class="w-full h-full object-cover">
                     </div>
                     <div class="space-y-4 text-white">
                         <h3 class="text-base font-bold text-white mb-3">V2C Trydan Pro</h3>
@@ -523,20 +465,10 @@
                     </div>
                 </div>
 
-                <!-- LÍNEA SEPARADORA 5 -->
-                <div class="w-full flex items-center justify-center">
-                    <div class="hidden lg:flex h-full min-h-[300px] items-center justify-center px-2">
-                        <div class="divider-vertical"></div>
-                    </div>
-                    <div class="block lg:hidden my-2 w-full flex justify-center">
-                        <div class="divider-horizontal"></div>
-                    </div>
-                </div>
-
                 <!-- 7. Ohme Home Pro 7.4kW -->
-                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
-                    <div class="w-full overflow-hidden rounded-3xl">
-                        <img src="cargadorohme7kw.png" alt="V2C Ohme Home Pro 7.4kW" class="w-full h-auto object-cover">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full aspect-square overflow-hidden rounded-3xl flex items-center justify-center">
+                        <img src="cargadorohme7kw.png" alt="V2C Ohme Home Pro 7.4kW" class="w-full h-full object-cover">
                     </div>
                     <div class="space-y-4 text-white">
                         <h3 class="text-base font-bold text-white mb-3">Ohme Home Pro (7.4kW)</h3>
@@ -550,20 +482,10 @@
                     </div>
                 </div>
 
-                <!-- LÍNEA SEPARADORA 6 -->
-                <div class="w-full flex items-center justify-center">
-                    <div class="hidden lg:flex h-full min-h-[300px] items-center justify-center px-2">
-                        <div class="divider-vertical"></div>
-                    </div>
-                    <div class="block lg:hidden my-2 w-full flex justify-center">
-                        <div class="divider-horizontal"></div>
-                    </div>
-                </div>
-
                 <!-- 8. Ohme Home Pro 11kW -->
-                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
-                    <div class="w-full overflow-hidden rounded-3xl">
-                        <img src="cargadorohme7kw.png" alt="V2C Ohme Home Pro 11kW" class="w-full h-auto object-cover">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full aspect-square overflow-hidden rounded-3xl flex items-center justify-center">
+                        <img src="cargadorohme7kw.png" alt="V2C Ohme Home Pro 11kW" class="w-full h-full object-cover">
                     </div>
                     <div class="space-y-4 text-white">
                         <h3 class="text-base font-bold text-white mb-3">Ohme Home Pro (11kW)</h3>
