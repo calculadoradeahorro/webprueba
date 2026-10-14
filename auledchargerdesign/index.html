@@ -83,10 +83,23 @@
         .text-glow-gold {
             text-shadow: 0 0 18px rgba(227, 168, 39, 0.6);
         }
-        css
-.imagen-redondeada {
-  border-radius: 15px; /* Cambia este valor para más o menos curvatura */
-}
+
+        .imagen-redondeada {
+            border-radius: 15px;
+        }
+
+        /* Separadores con bordes/puntas difuminadas */
+        .divider-vertical {
+            width: 1px;
+            height: 60%;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.25), transparent);
+        }
+
+        .divider-horizontal {
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.25), transparent);
+        }
     </style>
 </head>
 <body class="relative min-h-screen selection:bg-gold selection:text-black flex flex-col justify-between font-sans">
@@ -222,135 +235,135 @@
         </section>
 
         <!-- Sección Deslizador de Servicios e Información -->
-<section class="max-w-4xl mx-auto relative px-4 sm:px-12">
-    
-    <!-- Flechas de Navegación -->
-    <button onclick="moveSlide(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 border border-gold/30 text-gold flex items-center justify-center hover:bg-gold hover:text-black transition-all shadow-glow-gold">
-        <i data-lucide="chevron-left" class="w-6 h-6"></i>
-    </button>
-    <button onclick="moveSlide(1)" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 border border-gold/30 text-gold flex items-center justify-center hover:bg-gold hover:text-black transition-all shadow-glow-gold">
-        <i data-lucide="chevron-right" class="w-6 h-6"></i>
-    </button>
-
-    <!-- Contenedor del Slider -->
-    <div class="overflow-hidden relative rounded-3xl">
-        <div id="sliderTrack" class="flex transition-transform duration-500 ease-in-out w-full">
+        <section class="max-w-4xl mx-auto relative px-4 sm:px-12">
             
-            <!-- SLIDE 1: Asesoría LED -->
-            <div class="w-full shrink-0 space-y-6 text-center px-4 py-6">
-                <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
-                    Nuestra Asesoría en Tecnología Led puede aportarte:
-                </h2>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
-                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
-                        <i data-lucide="zap-off" class="w-5 h-5 text-gold shrink-0"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Reducción de potencia</span>
-                    </div>
-                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
-                        <i data-lucide="trending-down" class="w-5 h-5 text-gold shrink-0"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Reducción de consumo</span>
-                    </div>
-                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
-                        <i data-lucide="sun" class="w-5 h-5 text-gold shrink-0"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Aumento de lúmenes</span>
-                    </div>
-                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
-                        <i data-lucide="cpu" class="w-5 h-5 text-gold shrink-0"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Mejoras de equipo</span>
-                    </div>
-                    <div class="sm:col-span-2 gold-glass-card rounded-xl p-4 border border-gold/50 bg-gold/10 flex items-center justify-center gap-3 text-center shadow-glow-gold">
-                        <i data-lucide="calculator" class="w-5 h-5 text-gold shrink-0"></i>
-                        <span class="text-xs sm:text-sm font-bold text-gold uppercase tracking-wider">Estudio final de ahorro</span>
-                    </div>
-                </div>
+            <!-- Flechas de Navegación -->
+            <button onclick="moveSlide(-1)" class="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 border border-gold/30 text-gold flex items-center justify-center hover:bg-gold hover:text-black transition-all shadow-glow-gold">
+                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+            </button>
+            <button onclick="moveSlide(1)" class="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 border border-gold/30 text-gold flex items-center justify-center hover:bg-gold hover:text-black transition-all shadow-glow-gold">
+                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </button>
 
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto pt-2">
-                    Cambiar tu iluminación a led es: más <strong class="text-white">económico</strong>, más <strong class="text-white">personalizable</strong>, más <strong class="text-white">duradero</strong> y cuenta con una <strong class="text-gold">mejor iluminación</strong>.
-                </p>
+            <!-- Contenedor del Slider -->
+            <div class="overflow-hidden relative rounded-3xl">
+                <div id="sliderTrack" class="flex transition-transform duration-500 ease-in-out w-full">
+                    
+                    <!-- SLIDE 1: Asesoría LED -->
+                    <div class="w-full shrink-0 space-y-6 text-center px-4 py-6">
+                        <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+                            Nuestra Asesoría en Tecnología Led puede aportarte:
+                        </h2>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
+                            <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                                <i data-lucide="zap-off" class="w-5 h-5 text-gold shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-semibold text-slate-200">Reducción de potencia</span>
+                            </div>
+                            <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                                <i data-lucide="trending-down" class="w-5 h-5 text-gold shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-semibold text-slate-200">Reducción de consumo</span>
+                            </div>
+                            <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                                <i data-lucide="sun" class="w-5 h-5 text-gold shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-semibold text-slate-200">Aumento de lúmenes</span>
+                            </div>
+                            <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                                <i data-lucide="cpu" class="w-5 h-5 text-gold shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-semibold text-slate-200">Mejoras de equipo</span>
+                            </div>
+                            <div class="sm:col-span-2 gold-glass-card rounded-xl p-4 border border-gold/50 bg-gold/10 flex items-center justify-center gap-3 text-center shadow-glow-gold">
+                                <i data-lucide="calculator" class="w-5 h-5 text-gold shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-bold text-gold uppercase tracking-wider">Estudio final de ahorro</span>
+                            </div>
+                        </div>
 
-                <div class="pt-2">
-                    <a href="https://wa.me/34604113451" target="_blank" class="inline-block py-3 px-8 rounded-full bg-emerald-500 text-white font-black text-xs uppercase tracking-wider hover:bg-emerald-400 hover:shadow-glow-green transition-all transform hover:scale-105">
-                        Envíanos tu consulta
-                    </a>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto pt-2">
+                            Cambiar tu iluminación a led es: más <strong class="text-white">económico</strong>, más <strong class="text-white">personalizable</strong>, más <strong class="text-white">duradero</strong> y cuenta con una <strong class="text-gold">mejor iluminación</strong>.
+                        </p>
+
+                        <div class="pt-2">
+                            <a href="https://wa.me/34604113451" target="_blank" class="inline-block py-3 px-8 rounded-full bg-emerald-500 text-white font-black text-xs uppercase tracking-wider hover:bg-emerald-400 hover:shadow-glow-green transition-all transform hover:scale-105">
+                                Envíanos tu consulta
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 2: Instalación de Cargadores -->
+                    <div class="w-full shrink-0 space-y-6 text-center px-4 py-6">
+                        <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+                            Instalación de Cargador de Coche Eléctrico en:
+                        </h2>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+                            <div class="gold-glass-card rounded-2xl p-6 border border-gold/30 flex flex-col items-center justify-center gap-3 text-center hover:border-gold transition-all">
+                                <i data-lucide="home" class="w-8 h-8 text-gold"></i>
+                                <span class="text-sm font-bold text-white">Tu domicilio o edificio comunitario</span>
+                            </div>
+                            <div class="gold-glass-card rounded-2xl p-6 border border-gold/30 flex flex-col items-center justify-center gap-3 text-center hover:border-gold transition-all">
+                                <i class="fa-solid fa-charging-station text-3xl text-gold"></i>
+                                <span class="text-sm font-bold text-white">Electrogasolinera</span>
+                            </div>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto pt-2">
+                            Si desea hacer un estudio <strong class="text-white">personalizado</strong> póngase en contacto con nosotros y un técnico <strong class="text-white">especializado</strong> lo visitará <strong class="text-gold">sin compromiso</strong>.
+                        </p>
+
+                        <div class="pt-2">
+                            <a href="https://wa.me/34604113451" target="_blank" class="inline-block py-3 px-8 rounded-full bg-emerald-500 text-white font-black text-xs uppercase tracking-wider hover:bg-emerald-400 hover:shadow-glow-green transition-all transform hover:scale-105">
+                                Envíanos tu consulta
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 3: Mantenimiento Eléctrico -->
+                    <div class="w-full shrink-0 space-y-6 text-center px-4 py-6">
+                        <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
+                            Mantenimiento eléctrico:
+                        </h2>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
+                            <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                                <i data-lucide="shield-check" class="w-5 h-5 text-gold shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-semibold text-slate-200">Mantenimientos eléctricos de baja tensión</span>
+                            </div>
+                            <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                                <i data-lucide="refresh-cw" class="w-5 h-5 text-gold shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-semibold text-slate-200">Sustitución de iluminación</span>
+                            </div>
+                            <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                                <i data-lucide="factory" class="w-5 h-5 text-gold shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-semibold text-slate-200">Instalaciones industriales o domesticas</span>
+                            </div>
+                            <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
+                                <i data-lucide="file-check" class="w-5 h-5 text-gold shrink-0"></i>
+                                <span class="text-xs sm:text-sm font-semibold text-slate-200">Boletines eléctricos</span>
+                            </div>
+                        </div>
+
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto pt-2">
+                            Somos <strong class="text-gold uppercase tracking-wide">especialistas</strong> en Diseños Led.
+                        </p>
+
+                        <div class="pt-2">
+                            <a href="https://wa.me/34604113451" target="_blank" class="inline-block py-3 px-8 rounded-full bg-emerald-500 text-white font-black text-xs uppercase tracking-wider hover:bg-emerald-400 hover:shadow-glow-green transition-all transform hover:scale-105">
+                                Envíanos tu consulta
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- SLIDE 2: Instalación de Cargadores -->
-            <div class="w-full shrink-0 space-y-6 text-center px-4 py-6">
-                <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
-                    Instalación de Cargador de Coche Eléctrico en:
-                </h2>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-                    <div class="gold-glass-card rounded-2xl p-6 border border-gold/30 flex flex-col items-center justify-center gap-3 text-center hover:border-gold transition-all">
-                        <i data-lucide="home" class="w-8 h-8 text-gold"></i>
-                        <span class="text-sm font-bold text-white">Tu domicilio o edificio comunitario</span>
-                    </div>
-                    <div class="gold-glass-card rounded-2xl p-6 border border-gold/30 flex flex-col items-center justify-center gap-3 text-center hover:border-gold transition-all">
-                        <i class="fa-solid fa-charging-station text-3xl text-gold"></i>
-                        <span class="text-sm font-bold text-white">Electrogasolinera</span>
-                    </div>
-                </div>
-
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto pt-2">
-                    Si desea hacer un estudio <strong class="text-white">personalizado</strong> póngase en contacto con nosotros y un técnico <strong class="text-white">especializado</strong> lo visitará <strong class="text-gold">sin compromiso</strong>.
-                </p>
-
-                <div class="pt-2">
-                    <a href="https://wa.me/34604113451" target="_blank" class="inline-block py-3 px-8 rounded-full bg-emerald-500 text-white font-black text-xs uppercase tracking-wider hover:bg-emerald-400 hover:shadow-glow-green transition-all transform hover:scale-105">
-                        Envíanos tu consulta
-                    </a>
-                </div>
+            <!-- Indicadores de Puntos (Dots) -->
+            <div class="flex justify-center items-center gap-2 mt-6">
+                <button onclick="goToSlide(0)" class="dot-btn w-2.5 h-2.5 rounded-full bg-gold transition-all duration-300 opacity-100 scale-125"></button>
+                <button onclick="goToSlide(1)" class="dot-btn w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 opacity-50 hover:opacity-100"></button>
+                <button onclick="goToSlide(2)" class="dot-btn w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 opacity-50 hover:opacity-100"></button>
             </div>
 
-            <!-- SLIDE 3: Mantenimiento Eléctrico -->
-            <div class="w-full shrink-0 space-y-6 text-center px-4 py-6">
-                <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
-                    Mantenimiento eléctrico:
-                </h2>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
-                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
-                        <i data-lucide="shield-check" class="w-5 h-5 text-gold shrink-0"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Mantenimientos eléctricos de baja tensión</span>
-                    </div>
-                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
-                        <i data-lucide="refresh-cw" class="w-5 h-5 text-gold shrink-0"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Sustitución de iluminación</span>
-                    </div>
-                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
-                        <i data-lucide="factory" class="w-5 h-5 text-gold shrink-0"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Instalaciones industriales o domesticas</span>
-                    </div>
-                    <div class="gold-glass-card rounded-xl p-3.5 border border-gold/20 flex items-center gap-3 text-left">
-                        <i data-lucide="file-check" class="w-5 h-5 text-gold shrink-0"></i>
-                        <span class="text-xs sm:text-sm font-semibold text-slate-200">Boletines eléctricos</span>
-                    </div>
-                </div>
-
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mx-auto pt-2">
-                    Somos <strong class="text-gold uppercase tracking-wide">especialistas</strong> en Diseños Led.
-                </p>
-
-                <div class="pt-2">
-                    <a href="https://wa.me/34604113451" target="_blank" class="inline-block py-3 px-8 rounded-full bg-emerald-500 text-white font-black text-xs uppercase tracking-wider hover:bg-emerald-400 hover:shadow-glow-green transition-all transform hover:scale-105">
-                        Envíanos tu consulta
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Indicadores de Puntos (Dots) -->
-    <div class="flex justify-center items-center gap-2 mt-6">
-        <button onclick="goToSlide(0)" class="dot-btn w-2.5 h-2.5 rounded-full bg-gold transition-all duration-300 opacity-100 scale-125"></button>
-        <button onclick="goToSlide(1)" class="dot-btn w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 opacity-50 hover:opacity-100"></button>
-        <button onclick="goToSlide(2)" class="dot-btn w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 opacity-50 hover:opacity-100"></button>
-    </div>
-
-</section>
+        </section>
 
         <!-- Sección Catálogo de Cargadores -->
         <section class="space-y-12">
@@ -360,350 +373,207 @@
                 </h2>
             </div>
 
-            <!-- Grid Fila 1: Orbis y Policharger -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            <!-- Listado Flex con Líneas Separadoras (Verticales en PC, Horizontales en Celular) -->
+            <div class="flex flex-col lg:flex-row flex-wrap items-center justify-center gap-y-10 lg:gap-y-12">
 
-<!-- Orbis Viaris ISI -->
-<div class="flex flex-col items-center text-center space-y-4 max-w-xs mx-auto">
-    <!-- Contenedor de la Imagen con Bordes Redondeados -->
-    <div class="w-full overflow-hidden rounded-3xl">
-        <img src="cargadorohme7kw.png" alt="Orbis Viaris ISI" class="w-full h-auto object-cover">
-    </div>
+                <!-- 1. Orbis Viaris ISI -->
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full overflow-hidden rounded-3xl">
+                        <img src="cargadorohme7kw.png" alt="Orbis Viaris ISI" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="space-y-4 text-white">
+                        <h3 class="text-base font-bold text-white mb-3">Orbis Viaris ISI</h3>
+                        <div class="text-xs space-y-3 leading-snug">
+                            <p><strong class="block font-bold mb-0.5">Carga Inteligente y Configurable:</strong> Módulo modulador de potencia para optimizar el consumo instalacional sin sobrepasar el límite.</p>
+                            <p><strong class="block font-bold mb-0.5">Ahorro en tu Factura:</strong> Programa tus cargas destacadas en horas viales económicas.</p>
+                            <p><strong class="block font-bold mb-0.5">Preparado para Solar:</strong> Integración directa con paneles fotovoltaicos (versión SOLAR).</p>
+                            <p><strong class="block font-bold mb-0.5">Listo para Usar:</strong> Incluye manguera de 5m o manguera recta/espiral y conectividad Wi-Fi.</p>
+                            <p><strong class="block font-bold mb-0.5">Máxima Protección y Durabilidad:</strong> Protector de corriente de fuga integrada, envolvente ultra resistente IP54 e IK10 para intemperie.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Bloque de Texto -->
-    <div class="space-y-4 text-white">
-        <!-- Título Principal -->
-        <h3 class="text-base font-bold text-white mb-3">Orbis Viaris ISI</h3>
+                <!-- SEPARADOR 1 -->
+                <div class="hidden lg:flex items-center justify-center self-stretch px-4">
+                    <div class="divider-vertical"></div>
+                </div>
+                <div class="block lg:hidden my-2 w-full flex justify-center">
+                    <div class="divider-horizontal"></div>
+                </div>
 
-        <!-- Párrafos Informativos -->
-        <div class="text-xs space-y-3 leading-snug">
-            <p>
-                <strong class="block font-bold mb-0.5">Carga Inteligente y Configurable:</strong>
-                Módulo modulador de potencia para optimizar el consumo instalacional sin sobrepasar el límite.
-            </p>
+                <!-- 2. Orbis Viaris Combi Doble -->
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full overflow-hidden rounded-3xl">
+                        <img src="cargadorohme7kw.png" alt="Orbis Viaris Combi Doble" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="space-y-4 text-white">
+                        <h3 class="text-base font-bold text-white mb-3">Orbis Viaris Combi Doble</h3>
+                        <div class="text-xs space-y-3 leading-snug">
+                            <p><strong class="block font-bold mb-0.5">Carga Doble e Inteligente:</strong> Carga dos vehículos simultáneamente regulando la potencia entregada a cada uno sin superar la potencia contratada.</p>
+                            <p><strong class="block font-bold mb-0.5">Máxima Seguridad Integrada:</strong> Incorpora un espacio para integrar protecciones eléctricas en su interior.</p>
+                            <p><strong class="block font-bold mb-0.5">Conectividad Total:</strong> Conexión Wi-Fi, Ethernet y opcional módem 4G para gestión en la nube.</p>
+                            <p><strong class="block font-bold mb-0.5">Uniones Exclusivas:</strong> Selector de potencia con llavero RFID, mangueras integradas conector tipo 2.</p>
+                            <p><strong class="block font-bold mb-0.5">Versátil y Robusto:</strong> Compatible con mangueras o tomas tipo 2/Schuko. Envolvente robusta IK10 e IP54.</p>
+                        </div>
+                    </div>
+                </div>
 
-            <p>
-                <strong class="block font-bold mb-0.5">Ahorro en tu Factura:</strong>
-                Programa tus cargas destacadas en horas viales económicas.
-            </p>
+                <!-- SEPARADOR 2 -->
+                <div class="hidden lg:flex items-center justify-center self-stretch px-4">
+                    <div class="divider-vertical"></div>
+                </div>
+                <div class="block lg:hidden my-2 w-full flex justify-center">
+                    <div class="divider-horizontal"></div>
+                </div>
 
-            <p>
-                <strong class="block font-bold mb-0.5">Preparado para Solar:</strong>
-                Integración directa con paneles fotovoltaicos (versión SOLAR).
-            </p>
+                <!-- 3. Policharger NW T2 -->
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full overflow-hidden rounded-3xl">
+                        <img src="cargadorohme7kw.png" alt="Policharger NW T2" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="space-y-4 text-white">
+                        <h3 class="text-base font-bold text-white mb-3">Policharger NW T2</h3>
+                        <div class="text-xs space-y-3 leading-snug">
+                            <p><strong class="block font-bold mb-0.5">Carga Inteligente de Serie:</strong> Regulación automática para recargar a la máxima potencia disponible en cada momento.</p>
+                            <p><strong class="block font-bold mb-0.5">Compatible con Solar:</strong> Integración fotovoltaica para recargar directamente de paneles solares.</p>
+                            <p><strong class="block font-bold mb-0.5">Instalación Más Limpia:</strong> Espacio interior para protecciones eléctricas incorporadas.</p>
+                            <p><strong class="block font-bold mb-0.5">Robusto y para Intemperie:</strong> Envolvente compacta de alta resistencia con protección IP65 e IK10.</p>
+                            <p><strong class="block font-bold mb-0.5">Personalización y Registro:</strong> Pantalla LCD integrativa, clave de seguridad, doble regulación programable por horas.</p>
+                        </div>
+                    </div>
+                </div>
 
-            <p>
-                <strong class="block font-bold mb-0.5">Listo para Usar:</strong>
-                Incluye manguera de 5m o manguera recta/espiral y conectividad Wi-Fi.
-            </p>
+                <!-- SEPARADOR 3 -->
+                <div class="hidden lg:flex items-center justify-center self-stretch px-4">
+                    <div class="divider-vertical"></div>
+                </div>
+                <div class="block lg:hidden my-2 w-full flex justify-center">
+                    <div class="divider-horizontal"></div>
+                </div>
 
-            <p>
-                <strong class="block font-bold mb-0.5">Máxima Protección y Durabilidad:</strong>
-                 Protector de corriente de fuga integrada, envolvente ultra resistente IP54 e IK10 para intemperie.
-            </p>
-        </div>
-    </div>
-</div>
+                <!-- 4. Policharger ÖN T2 -->
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full overflow-hidden rounded-3xl">
+                        <img src="cargadorohme7kw.png" alt="Policharger ÖN T2" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="space-y-4 text-white">
+                        <h3 class="text-base font-bold text-white mb-3">Policharger ÖN T2</h3>
+                        <div class="text-xs space-y-3 leading-snug">
+                            <p><strong class="block font-bold mb-0.5">Carga Inteligente de Serie:</strong> Modula la potencia automáticamente para recargar rápido sin cortar la luz en casa.</p>
+                            <p><strong class="block font-bold mb-0.5">Diseño Compacto y Moderno:</strong> Pensado para espacios reducidos en garaje o pared externa.</p>
+                            <p><strong class="block font-bold mb-0.5">Control Teclado y Mando Integrado:</strong> Mando o teclado integrados directamente en el frontal para su uso fácil e intuitivo.</p>
+                            <p><strong class="block font-bold mb-0.5">Conectividad Opcional por App:</strong> Opción de añadir Wi-Fi y App móvil para un control total desde el móvil.</p>
+                            <p><strong class="block font-bold mb-0.5">Resistencia Extrema (IP65 / IK10):</strong> Preparado para soportar lluvia, polvo y golpes.</p>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Orbis Viaris Combi Doble -->
-<div class="flex flex-col items-center text-center space-y-4 max-w-xs mx-auto">
-    <!-- Contenedor de la Imagen con Bordes Redondeados -->
-    <div class="w-full overflow-hidden rounded-3xl">
-        <img src="cargadorohme7kw.png" alt=Orbis Viaris Combi Doble" class="w-full h-auto object-cover">
-    </div>
+                <!-- SEPARADOR 4 -->
+                <div class="hidden lg:flex items-center justify-center self-stretch px-4">
+                    <div class="divider-vertical"></div>
+                </div>
+                <div class="block lg:hidden my-2 w-full flex justify-center">
+                    <div class="divider-horizontal"></div>
+                </div>
 
-    <!-- Bloque de Texto -->
-    <div class="space-y-4 text-white">
-        <!-- Título Principal -->
-        <h3 class="text-base font-bold text-white mb-3">Orbis Viaris Combi Doble</h3>
+                <!-- 5. V2C Trydan -->
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full overflow-hidden rounded-3xl">
+                        <img src="cargadortrydan.jpg" alt="V2C Trydan" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="space-y-4 text-white">
+                        <h3 class="text-base font-bold text-white mb-3">V2C Trydan</h3>
+                        <div class="text-xs space-y-3 leading-snug">
+                            <p><strong class="block font-bold mb-0.5">Carga Inteligente y Configurable:</strong> Hasta 22kW de potencia. Control dinámico de carga.</p>
+                            <p><strong class="block font-bold mb-0.5">Compatible con Monofásica y Trifásica:</strong> Disponible para instalaciones de 230V y 400V.</p>
+                            <p><strong class="block font-bold mb-0.5">Ecosistema de Conectividad V2C Cloud:</strong> Controla el cargador mediante App V2C Cloud gratuita, Wi-Fi y Bluetooth.</p>
+                            <p><strong class="block font-bold mb-0.5">Integración y Control Avanzado:</strong> Compatible con Alexa, Google Home, OCPP y REST API.</p>
+                            <p><strong class="block font-bold mb-0.5">Preparado para Entornos Exigentes:</strong> Resistencia a impactos y agua. Funcionamiento entre -25°C y 50°C</p>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- Párrafos Informativos -->
-        <div class="text-xs space-y-3 leading-snug">
-            <p>
-                <strong class="block font-bold mb-0.5">Carga Doble e Inteligente:</strong>
-                Carga dos vehículos simultáneamente regulando la potencia entregada a cada uno sin superar la potencia contratada.
-            </p>
+                <!-- SEPARADOR 5 -->
+                <div class="hidden lg:flex items-center justify-center self-stretch px-4">
+                    <div class="divider-vertical"></div>
+                </div>
+                <div class="block lg:hidden my-2 w-full flex justify-center">
+                    <div class="divider-horizontal"></div>
+                </div>
 
-            <p>
-                <strong class="block font-bold mb-0.5">Máxima Seguridad Integrada:</strong>
-                Incorpora un espacio para integrar protecciones eléctricas en su interior.
-            </p>
+                <!-- 6. V2C Trydan Pro -->
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full overflow-hidden rounded-3xl">
+                        <img src="cargadortrydanpro.png" alt="V2C Trydan Pro" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="space-y-4 text-white">
+                        <h3 class="text-base font-bold text-white mb-3">V2C Trydan Pro</h3>
+                        <div class="text-xs space-y-3 leading-snug">
+                            <p><strong class="block font-bold mb-0.5">Carga Potente y Configurable:</strong> Hasta 22 kW de potencia y corriente configurable de 6 a 32A por fase para adaptar la carga a cada instalación.</p>
+                            <p><strong class="block font-bold mb-0.5">Compatible con Monofásica y Trifásica:</strong> Compatible con redes de 230/400V para adaptarse a diferentes tipos de instalaciones.</p>
+                            <p><strong class="block font-bold mb-0.5">Gestión Inteligente desde V2C Cloud:</strong> Controla y monitoriza el cargador mediante app y portal, con conectividad Wi-Fi, Bluetooth, Ethernet y 4G.</p>
+                            <p><strong class="block font-bold mb-0.5">Integración y Control Avanzado:</strong> Compatible con Alexa, Google Home, RFID, OCPP y REST API Cloud para una gestión flexible y conectada.</p>
+                            <p><strong class="block font-bold mb-0.5">Preparado para Entornos Exigentes:</strong> Protección frente a agentes externos y golpes, con funcionamiento entre -25°C y 50°C.</p>
+                        </div>
+                    </div>
+                </div>
 
-            <p>
-                <strong class="block font-bold mb-0.5">Conectividad Total:</strong>
-                Conexión Wi-Fi, Ethernet y opcional módem 4G para gestión en la nube.
-            </p>
+                <!-- SEPARADOR 6 -->
+                <div class="hidden lg:flex items-center justify-center self-stretch px-4">
+                    <div class="divider-vertical"></div>
+                </div>
+                <div class="block lg:hidden my-2 w-full flex justify-center">
+                    <div class="divider-horizontal"></div>
+                </div>
 
-            <p>
-                <strong class="block font-bold mb-0.5">Uniones Exclusivas:</strong>
-                Selector de potencia con llavero RFID, mangueras integradas conector tipo 2.
-            </p>
+                <!-- 7. Ohme Home Pro 7.4kW -->
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full overflow-hidden rounded-3xl">
+                        <img src="cargadorohme7kw.png" alt="V2C Ohme Home Pro 7.4kW" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="space-y-4 text-white">
+                        <h3 class="text-base font-bold text-white mb-3">Ohme Home Pro (7.4kW)</h3>
+                        <div class="text-xs space-y-3 leading-snug">
+                            <p><strong class="block font-bold mb-0.5">Carga Rápida de Serie:</strong> Carga a 7.4kW (32A), ideal para cargas nocturnas.</p>
+                            <p><strong class="block font-bold mb-0.5">Control desde App:</strong> Modula la potencia y ajusta las tarifas horarias desde la App Ohme.</p>
+                            <p><strong class="block font-bold mb-0.5">Carga Inteligente y Económica:</strong> Integración con tarifas para recargar en las horas más baratas.</p>
+                            <p><strong class="block font-bold mb-0.5">Balanceo de Carga:</strong> Incluye pinza amperimétrica (CT) para balanceo dinámico.</p>
+                            <p><strong class="block font-bold mb-0.5">Conectividad 3G/4G:</strong> Tarjeta SIM multired integrada sin coste adicional.</p>
+                        </div>
+                    </div>
+                </div>
 
-            <p>
-                <strong class="block font-bold mb-0.5">Versátil y Robusto:</strong>
-                 Compatible con mangueras o tomas tipo 2/Schuko. Envolvente robusta IK10 e IP54.
-            </p>
-        </div>
-    </div>
-</div>
+                <!-- SEPARADOR 7 -->
+                <div class="hidden lg:flex items-center justify-center self-stretch px-4">
+                    <div class="divider-vertical"></div>
+                </div>
+                <div class="block lg:hidden my-2 w-full flex justify-center">
+                    <div class="divider-horizontal"></div>
+                </div>
 
-<!-- Policharger NW T2 -->
-<div class="flex flex-col items-center text-center space-y-4 max-w-xs mx-auto">
-    <!-- Contenedor de la Imagen con Bordes Redondeados -->
-    <div class="w-full overflow-hidden rounded-3xl">
-        <img src="cargadorohme7kw.png" alt=Policharger NW T2" class="w-full h-auto object-cover">
-    </div>
+                <!-- 8. Ohme Home Pro 11kW -->
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs w-full">
+                    <div class="w-full overflow-hidden rounded-3xl">
+                        <img src="cargadorohme7kw.png" alt="V2C Ohme Home Pro 11kW" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="space-y-4 text-white">
+                        <h3 class="text-base font-bold text-white mb-3">Ohme Home Pro (11kW)</h3>
+                        <div class="text-xs space-y-3 leading-snug">
+                            <p><strong class="block font-bold mb-0.5">Carga Rápida de Serie:</strong> 32A para una carga rápida y segura.</p>
+                            <p><strong class="block font-bold mb-0.5">Control desde App:</strong> Ajustes directos de la carga y tarifas reducidas.</p>
+                            <p><strong class="block font-bold mb-0.5">Carga Inteligente y Económica:</strong> Carga programada automática en periodos económicos.</p>
+                            <p><strong class="block font-bold mb-0.5">Balanceo de Carga:</strong> Incluye pinza amperimétrica (CT) para evitar sobrecargas.</p>
+                            <p><strong class="block font-bold mb-0.5">Conectividad 4G y Diseño Resistente:</strong> SIM multired integrada y protección IP65 para exterior.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Bloque de Texto -->
-    <div class="space-y-4 text-white">
-        <!-- Título Principal -->
-        <h3 class="text-base font-bold text-white mb-3">Policharger NW T2</h3>
-
-        <!-- Párrafos Informativos -->
-        <div class="text-xs space-y-3 leading-snug">
-            <p>
-                <strong class="block font-bold mb-0.5">Carga Inteligente de Serie:</strong>
-                Regulación automática para recargar a la máxima potencia disponible en cada momento.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Compatible con Solar:</strong>
-                Integración fotovoltaica para recargar directamente de paneles solares.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Instalación Más Limpia:</strong>
-                Espacio interior para protecciones eléctricas incorporadas.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Robusto y para Intemperie:</strong>
-                Envolvente compacta de alta resistencia con protección IP65 e IK10.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Personalización y Registro:</strong>
-                 Pantalla LCD integrativa, clave de seguridad, doble regulación programable por horas.
-            </p>
-        </div>
-    </div>
-</div>
-
-<!-- Policharger ÖN T2 -->
-<div class="flex flex-col items-center text-center space-y-4 max-w-xs mx-auto">
-    <!-- Contenedor de la Imagen con Bordes Redondeados -->
-    <div class="w-full overflow-hidden rounded-3xl">
-        <img src="cargadorohme7kw.png" alt=Policharger ÖN T2" class="w-full h-auto object-cover">
-    </div>
-
-    <!-- Bloque de Texto -->
-    <div class="space-y-4 text-white">
-        <!-- Título Principal -->
-        <h3 class="text-base font-bold text-white mb-3">Policharger ÖN T2</h3>
-
-        <!-- Párrafos Informativos -->
-        <div class="text-xs space-y-3 leading-snug">
-            <p>
-                <strong class="block font-bold mb-0.5">Carga Inteligente de Serie:</strong>
-                Modula la potencia automáticamente para recargar rápido sin cortar la luz en casa.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Diseño Compacto y Moderno:</strong>
-                Pensado para espacios reducidos en garaje o pared externa.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Control Teclado y Mando Integrado:</strong>
-                Mando o teclado integrados directamente en el frontal para su uso fácil e intuitivo.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Conectividad Opcional por App:</strong>
-                Opción de añadir Wi-Fi y App móvil para un control total desde el móvil.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Resistencia Extrema (IP65 / IK10):</strong>
-                 Preparado para soportar lluvia, polvo y golpes.
-            </p>
-        </div>
-    </div>
-</div>
-                
-<!-- V2C Trydan -->
-<div class="flex flex-col items-center text-center space-y-4 max-w-xs mx-auto">
-    <!-- Contenedor de la Imagen con Bordes Redondeados -->
-    <div class="w-full overflow-hidden rounded-3xl">
-        <img src="cargadortrydan.jpg" alt="V2C Trydan" class="w-full h-auto object-cover">
-    </div>
-
-    <!-- Bloque de Texto -->
-    <div class="space-y-4 text-white">
-        <!-- Título Principal -->
-        <h3 class="text-base font-bold text-white mb-3">V2C Trydan</h3>
-
-        <!-- Párrafos Informativos -->
-        <div class="text-xs space-y-3 leading-snug">
-            <p>
-                <strong class="block font-bold mb-0.5">Carga Inteligente y Configurable:</strong>
-                Hasta 22kW de potencia. Control dinámico de carga.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Compatible con Monofásica y Trifásica:</strong>
-                Disponible para instalaciones de 230V y 400V.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Ecosistema de Conectividad V2C Cloud:</strong>
-                Controla el cargador mediante App V2C Cloud gratuita, Wi-Fi y Bluetooth.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Integración y Control Avanzado:</strong>
-                Compatible con Alexa, Google Home, OCPP y REST API.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Preparado para Entornos Exigentes:</strong>
-                Resistencia a impactos y agua. Funcionamiento entre -25°C y 50°C
-            </p>
-        </div>
-    </div>
-</div>
-                
-<!-- V2C Trydan Pro -->
-<div class="flex flex-col items-center text-center space-y-4 max-w-xs mx-auto">
-    <!-- Contenedor de la Imagen con Bordes Redondeados -->
-    <div class="w-full overflow-hidden rounded-3xl">
-        <img src="cargadortrydanpro.png" alt="V2C Trydan Pro" class="w-full h-auto object-cover">
-    </div>
-
-    <!-- Bloque de Texto -->
-    <div class="space-y-4 text-white">
-        <!-- Título Principal -->
-        <h3 class="text-base font-bold text-white mb-3">V2C Trydan Pro</h3>
-
-        <!-- Párrafos Informativos -->
-        <div class="text-xs space-y-3 leading-snug">
-            <p>
-                <strong class="block font-bold mb-0.5">Carga Potente y Configurable:</strong>
-                Hasta 22 kW de potencia y corriente configurable de 6 a 32A por fase para adaptar la carga a cada instalación.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Compatible con Monofásica y Trifásica:</strong>
-                Compatible con redes de 230/400V para adaptarse a diferentes tipos de instalaciones.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Gestión Inteligente desde V2C Cloud:</strong>
-                Controla y monitoriza el cargador mediante app y portal, con conectividad Wi-Fi, Bluetooth, Ethernet y 4G.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Integración y Control Avanzado:</strong>
-                Compatible con Alexa, Google Home, RFID, OCPP y REST API Cloud para una gestión flexible y conectada.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Preparado para Entornos Exigentes:</strong>
-                Protección frente a agentes externos y golpes, con funcionamiento entre -25°C y 50°C.
-            </p>
-        </div>
-    </div>
-</div>
-                
-<!-- Ohme Home Pro 7.4kW -->
-<div class="flex flex-col items-center text-center space-y-4 max-w-xs mx-auto">
-    <!-- Contenedor de la Imagen con Bordes Redondeados -->
-    <div class="w-full overflow-hidden rounded-3xl">
-        <img src="cargadorohme7kw.png" alt="V2C Ohme Home Pro 7.4kW" class="w-full h-auto object-cover">
-    </div>
-
-    <!-- Bloque de Texto -->
-    <div class="space-y-4 text-white">
-        <!-- Título Principal -->
-        <h3 class="text-base font-bold text-white mb-3">Ohme Home Pro (7.4kW)</h3>
-
-        <!-- Párrafos Informativos -->
-        <div class="text-xs space-y-3 leading-snug">
-            <p>
-                <strong class="block font-bold mb-0.5">Carga Rápida de Serie:</strong>
-                Carga a 7.4kW (32A), ideal para cargas nocturnas.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Control desde App:</strong>
-                Modula la potencia y ajusta las tarifas horarias desde la App Ohme.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Carga Inteligente y Económica:</strong>
-                Integración con tarifas para recargar en las horas más baratas.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Balanceo de Carga:</strong>
-                Incluye pinza amperimétrica (CT) para balanceo dinámico.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Conectividad 3G/4G:</strong>
-                 Tarjeta SIM multired integrada sin coste adicional.
-            </p>
-        </div>
-    </div>
-</div>
-
-<!-- Ohme Home Pro 11kW -->
-<div class="flex flex-col items-center text-center space-y-4 max-w-xs mx-auto">
-    <!-- Contenedor de la Imagen con Bordes Redondeados -->
-    <div class="w-full overflow-hidden rounded-3xl">
-        <img src="cargadorohme7kw.png" alt="V2C Ohme Home Pro 11kW" class="w-full h-auto object-cover">
-    </div>
-
-    <!-- Bloque de Texto -->
-    <div class="space-y-4 text-white">
-        <!-- Título Principal -->
-        <h3 class="text-base font-bold text-white mb-3">Ohme Home Pro (11kW)</h3>
-
-        <!-- Párrafos Informativos -->
-        <div class="text-xs space-y-3 leading-snug">
-            <p>
-                <strong class="block font-bold mb-0.5">Carga Rápida de Serie:</strong>
-                32A para una carga rápida y segura.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Control desde App:</strong>
-                Ajustes directos de la carga y tarifas reducidas.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Carga Inteligente y Económica:</strong>
-                Carga programada automática en periodos económicos.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Balanceo de Carga:</strong>
-                Incluye pinza amperimétrica (CT) para evitar sobrecargas.
-            </p>
-
-            <p>
-                <strong class="block font-bold mb-0.5">Conectividad 4G y Diseño Resistente:</strong>
-                 SIM multired integrada y protección IP65 para exterior.
-            </p>
-        </div>
-    </div>
-</div>
-            
+            </div>
         </section>
 
     </main>
 
-    <!-- Banner Imagen de Financiación Institucional (De lado a lado y pegado al footer) -->
+    <!-- Banner Imagen de Financiación Institucional -->
     <section class="w-full relative z-10 bg-white/95 border-t border-white/20 py-4 md:py-6 flex justify-center items-center shadow-lg">
         <img src="financiacion.png" alt="Financiado por la Unión Europea" class="max-h-16 md:max-h-20 w-auto object-contain">
     </section>
@@ -852,37 +722,37 @@
             lucide.createIcons();
         };
         window.addEventListener('resize', resizeCanvas);
-// Lógica para el Slider de Servicios
-let currentSlide = 0;
-const totalSlides = 3;
 
-function updateSlider() {
-    const track = document.getElementById('sliderTrack');
-    const dots = document.querySelectorAll('.dot-btn');
-    
-    if (track) {
-        track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    }
-    
-    dots.forEach((dot, index) => {
-        if (index === currentSlide) {
-            dot.className = "dot-btn w-2.5 h-2.5 rounded-full bg-gold transition-all duration-300 opacity-100 scale-125";
-        } else {
-            dot.className = "dot-btn w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 opacity-50 hover:opacity-100";
+        // Lógica para el Slider de Servicios
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function updateSlider() {
+            const track = document.getElementById('sliderTrack');
+            const dots = document.querySelectorAll('.dot-btn');
+            
+            if (track) {
+                track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            }
+            
+            dots.forEach((dot, index) => {
+                if (index === currentSlide) {
+                    dot.className = "dot-btn w-2.5 h-2.5 rounded-full bg-gold transition-all duration-300 opacity-100 scale-125";
+                } else {
+                    dot.className = "dot-btn w-2.5 h-2.5 rounded-full bg-white/30 transition-all duration-300 opacity-50 hover:opacity-100";
+                }
+            });
         }
-    });
-}
 
-function moveSlide(direction) {
-    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-    updateSlider();
-}
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateSlider();
+        }
 
-function goToSlide(index) {
-    currentSlide = index;
-    updateSlider();
-}
-        
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
     </script>
 </body>
 </html>
