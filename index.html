@@ -121,11 +121,15 @@
     <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold transition-colors py-1">Contacto</a>
     
     <!-- Botón Verde Estilo Pill -->
-    <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-xs font-bold uppercase tracking-wider hover:bg-emerald-500/20 hover:border-emerald-400 hover:shadow-[0_0_20px_rgba(52,211,153,0.3)] transition-all duration-300">
-        <i class="fa-solid fa-euro-sign text-emerald-400 text-xs"></i>
-        <span>CALCULA TU AHORRO CON AULED</span>
-    </a>
-</nav>
+<a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="inline-flex items-center gap-1.5 px-3 md:px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-xs font-bold uppercase tracking-wider hover:bg-emerald-500/20 hover:border-emerald-400 hover:shadow-[0_0_20px_rgba(52,211,153,0.3)] transition-all duration-300">
+    <i class="fa-solid fa-euro-sign text-emerald-400 text-xs"></i>
+    
+    <!-- Texto visible solo en celulares -->
+    <span class="md:hidden">ahorra</span>
+    
+    <!-- Texto visible en pantallas medianas (PC) y superiores -->
+    <span class="hidden md:inline">CALCULA TU AHORRO CON AULED</span>
+</a>
 
             <!-- Logo Derecho: logoauled.png -->
             <a href="#metricas" class="flex items-center shrink-0 group">
