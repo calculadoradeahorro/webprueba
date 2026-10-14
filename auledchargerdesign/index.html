@@ -90,10 +90,9 @@
 
         /* Separadores con bordes/puntas difuminadas */
         .divider-vertical {
-    width: 1px;
-    height: 60%; /* Ajusta la altura deseada para la línea */
-    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.25), transparent);
-    margin: 0 auto;
+            width: 1px;
+            height: 65%;
+            background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.25), transparent);
         }
 
         .divider-horizontal {
@@ -374,11 +373,11 @@
                 </h2>
             </div>
 
-            <!-- Contenedor Grid: 1 Columna en Celular / 4 Columnas Exactas en PC (4 Arriba, 4 Abajo) -->
-            <div class="grid grid-cols-1 lg:grid-cols-4 gap-y-12 gap-x-6 lg:gap-x-8 items-start justify-items-center">
+            <!-- Estructura de Grid exacta: 7 Columnas en PC (4 Cargadores + 3 Líneas al Centro exacto), 1 Columna en Celular -->
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] gap-y-10 lg:gap-y-14 items-center justify-items-center">
 
                 <!-- 1. Orbis Viaris ISI -->
-                <div class="relative flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[260px] w-full">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
                     <div class="w-full overflow-hidden rounded-3xl">
                         <img src="cargadorohme7kw.png" alt="Orbis Viaris ISI" class="w-full h-auto object-cover">
                     </div>
@@ -392,18 +391,20 @@
                             <p><strong class="block font-bold mb-0.5">Máxima Protección y Durabilidad:</strong> Protector de corriente de fuga integrada, envolvente ultra resistente IP54 e IK10 para intemperie.</p>
                         </div>
                     </div>
-                    <!-- Línea Vertical PC (Centrada exactamente en el espacio intermedio) -->
-<div class="hidden lg:flex absolute -right-3.5 sm:-right-4 lg:-right-4.5 top-1/2 -translate-y-1/2 h-full w-[1px] items-center justify-center pointer-events-none">
-    <div class="divider-vertical h-3/4"></div>
-</div>
-                    <!-- Línea Horizontal Celular (Abajo) -->
-                    <div class="block lg:hidden pt-6 w-full flex justify-center">
+                </div>
+
+                <!-- LÍNEA SEPARADORA 1 -->
+                <div class="w-full flex items-center justify-center">
+                    <div class="hidden lg:flex h-full min-h-[300px] items-center justify-center px-2">
+                        <div class="divider-vertical"></div>
+                    </div>
+                    <div class="block lg:hidden my-2 w-full flex justify-center">
                         <div class="divider-horizontal"></div>
                     </div>
                 </div>
 
                 <!-- 2. Orbis Viaris Combi Doble -->
-                <div class="relative flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[260px] w-full">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
                     <div class="w-full overflow-hidden rounded-3xl">
                         <img src="cargadorohme7kw.png" alt="Orbis Viaris Combi Doble" class="w-full h-auto object-cover">
                     </div>
@@ -417,19 +418,20 @@
                             <p><strong class="block font-bold mb-0.5">Versátil y Robusto:</strong> Compatible con mangueras o tomas tipo 2/Schuko. Envolvente robusta IK10 e IP54.</p>
                         </div>
                     </div>
-                    
-                    <!-- Línea Vertical PC (Centrada exactamente en el espacio intermedio) -->
-<div class="hidden lg:flex absolute -right-3.5 sm:-right-4 lg:-right-4.5 top-1/2 -translate-y-1/2 h-full w-[1px] items-center justify-center pointer-events-none">
-    <div class="divider-vertical h-3/4"></div>
-</div>
-                    <!-- Línea Horizontal Celular (Abajo) -->
-                    <div class="block lg:hidden pt-6 w-full flex justify-center">
+                </div>
+
+                <!-- LÍNEA SEPARADORA 2 -->
+                <div class="w-full flex items-center justify-center">
+                    <div class="hidden lg:flex h-full min-h-[300px] items-center justify-center px-2">
+                        <div class="divider-vertical"></div>
+                    </div>
+                    <div class="block lg:hidden my-2 w-full flex justify-center">
                         <div class="divider-horizontal"></div>
                     </div>
                 </div>
 
                 <!-- 3. Policharger NW T2 -->
-                <div class="relative flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[260px] w-full">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
                     <div class="w-full overflow-hidden rounded-3xl">
                         <img src="cargadorohme7kw.png" alt="Policharger NW T2" class="w-full h-auto object-cover">
                     </div>
@@ -443,18 +445,20 @@
                             <p><strong class="block font-bold mb-0.5">Personalización y Registro:</strong> Pantalla LCD integrativa, clave de seguridad, doble regulación programable por horas.</p>
                         </div>
                     </div>
-                    <!-- Línea Vertical PC (Derecha) -->
-                    <div class="hidden lg:block absolute -right-3 lg:-right-4 top-1/2 -translate-y-1/2 h-full">
-                        <div class="divider-vertical h-3/4"></div>
+                </div>
+
+                <!-- LÍNEA SEPARADORA 3 -->
+                <div class="w-full flex items-center justify-center">
+                    <div class="hidden lg:flex h-full min-h-[300px] items-center justify-center px-2">
+                        <div class="divider-vertical"></div>
                     </div>
-                    <!-- Línea Horizontal Celular (Abajo) -->
-                    <div class="block lg:hidden pt-6 w-full flex justify-center">
+                    <div class="block lg:hidden my-2 w-full flex justify-center">
                         <div class="divider-horizontal"></div>
                     </div>
                 </div>
 
                 <!-- 4. Policharger ÖN T2 -->
-                <div class="relative flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[260px] w-full">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
                     <div class="w-full overflow-hidden rounded-3xl">
                         <img src="cargadorohme7kw.png" alt="Policharger ÖN T2" class="w-full h-auto object-cover">
                     </div>
@@ -468,14 +472,15 @@
                             <p><strong class="block font-bold mb-0.5">Resistencia Extrema (IP65 / IK10):</strong> Preparado para soportar lluvia, polvo y golpes.</p>
                         </div>
                     </div>
-                    <!-- Línea Horizontal Celular (Abajo) -->
-                    <div class="block lg:hidden pt-6 w-full flex justify-center">
-                        <div class="divider-horizontal"></div>
-                    </div>
+                </div>
+
+                <!-- SEPARADOR ENTRE FILA 1 Y FILA 2 (Solo Móvil) -->
+                <div class="block lg:hidden my-2 w-full flex justify-center">
+                    <div class="divider-horizontal"></div>
                 </div>
 
                 <!-- 5. V2C Trydan -->
-                <div class="relative flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[260px] w-full">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
                     <div class="w-full overflow-hidden rounded-3xl">
                         <img src="cargadortrydan.jpg" alt="V2C Trydan" class="w-full h-auto object-cover">
                     </div>
@@ -489,18 +494,20 @@
                             <p><strong class="block font-bold mb-0.5">Preparado para Entornos Exigentes:</strong> Resistencia a impactos y agua. Funcionamiento entre -25°C y 50°C</p>
                         </div>
                     </div>
-                    <!-- Línea Vertical PC (Derecha) -->
-                    <div class="hidden lg:block absolute -right-3 lg:-right-4 top-1/2 -translate-y-1/2 h-full">
-                        <div class="divider-vertical h-3/4"></div>
+                </div>
+
+                <!-- LÍNEA SEPARADORA 4 -->
+                <div class="w-full flex items-center justify-center">
+                    <div class="hidden lg:flex h-full min-h-[300px] items-center justify-center px-2">
+                        <div class="divider-vertical"></div>
                     </div>
-                    <!-- Línea Horizontal Celular (Abajo) -->
-                    <div class="block lg:hidden pt-6 w-full flex justify-center">
+                    <div class="block lg:hidden my-2 w-full flex justify-center">
                         <div class="divider-horizontal"></div>
                     </div>
                 </div>
 
                 <!-- 6. V2C Trydan Pro -->
-                <div class="relative flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[260px] w-full">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
                     <div class="w-full overflow-hidden rounded-3xl">
                         <img src="cargadortrydanpro.png" alt="V2C Trydan Pro" class="w-full h-auto object-cover">
                     </div>
@@ -514,18 +521,20 @@
                             <p><strong class="block font-bold mb-0.5">Preparado para Entornos Exigentes:</strong> Protección frente a agentes externos y golpes, con funcionamiento entre -25°C y 50°C.</p>
                         </div>
                     </div>
-                    <!-- Línea Vertical PC (Derecha) -->
-                    <div class="hidden lg:block absolute -right-3 lg:-right-4 top-1/2 -translate-y-1/2 h-full">
-                        <div class="divider-vertical h-3/4"></div>
+                </div>
+
+                <!-- LÍNEA SEPARADORA 5 -->
+                <div class="w-full flex items-center justify-center">
+                    <div class="hidden lg:flex h-full min-h-[300px] items-center justify-center px-2">
+                        <div class="divider-vertical"></div>
                     </div>
-                    <!-- Línea Horizontal Celular (Abajo) -->
-                    <div class="block lg:hidden pt-6 w-full flex justify-center">
+                    <div class="block lg:hidden my-2 w-full flex justify-center">
                         <div class="divider-horizontal"></div>
                     </div>
                 </div>
 
                 <!-- 7. Ohme Home Pro 7.4kW -->
-                <div class="relative flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[260px] w-full">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
                     <div class="w-full overflow-hidden rounded-3xl">
                         <img src="cargadorohme7kw.png" alt="V2C Ohme Home Pro 7.4kW" class="w-full h-auto object-cover">
                     </div>
@@ -539,18 +548,20 @@
                             <p><strong class="block font-bold mb-0.5">Conectividad 3G/4G:</strong> Tarjeta SIM multired integrada sin coste adicional.</p>
                         </div>
                     </div>
-                    <!-- Línea Vertical PC (Derecha) -->
-                    <div class="hidden lg:block absolute -right-3 lg:-right-4 top-1/2 -translate-y-1/2 h-full">
-                        <div class="divider-vertical h-3/4"></div>
+                </div>
+
+                <!-- LÍNEA SEPARADORA 6 -->
+                <div class="w-full flex items-center justify-center">
+                    <div class="hidden lg:flex h-full min-h-[300px] items-center justify-center px-2">
+                        <div class="divider-vertical"></div>
                     </div>
-                    <!-- Línea Horizontal Celular (Abajo) -->
-                    <div class="block lg:hidden pt-6 w-full flex justify-center">
+                    <div class="block lg:hidden my-2 w-full flex justify-center">
                         <div class="divider-horizontal"></div>
                     </div>
                 </div>
 
                 <!-- 8. Ohme Home Pro 11kW -->
-                <div class="relative flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[260px] w-full">
+                <div class="flex flex-col items-center text-center space-y-4 max-w-xs lg:max-w-[250px] w-full">
                     <div class="w-full overflow-hidden rounded-3xl">
                         <img src="cargadorohme7kw.png" alt="V2C Ohme Home Pro 11kW" class="w-full h-auto object-cover">
                     </div>
