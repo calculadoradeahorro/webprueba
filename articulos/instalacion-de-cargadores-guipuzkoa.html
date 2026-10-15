@@ -1,1 +1,570 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla de Noticia - Modo Claro</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#d97706',
+                            goldLight: '#f59e0b',
+                            goldSoft: '#fef3c7',
+                            emerald: '#059669',
+                            emeraldSoft: '#d1fae5',
+                            lightBg: '#f8fafc',
+                            cardBg: '#ffffff',
+                            cardBorder: '#e2e8f0',
+                            textPrimary: '#0f172a',
+                            textSecondary: '#475569'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos en fondo blanco con máxima legibilidad */
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Canvas de partículas animadas suaves */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Tarjetas estilo Cristal Claro */
+        .glow-card-light {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glow-card-light:hover {
+            border-color: rgba(217, 119, 6, 0.4);
+            box-shadow: 0 12px 30px -4px rgba(217, 119, 6, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #0f172a 0%, #b45309 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-badge {
+            background: #fef3c7;
+            border: 1px solid #fde68a;
+            color: #b45309;
+        }
+
+        /* Barra de progreso de lectura */
+        #reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #d97706, #059669);
+            z-index: 100;
+            width: 0%;
+            transition: width 0.1s ease-out;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-amber-200 selection:text-amber-900">
+
+    <!-- Canvas de Partículas doradas y verdes flotando suavemente sobre blanco -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Barra de progreso superior -->
+    <div id="reading-progress"></div>
+
+    <!-- 1. HEADER / NAVEGACIÓN -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-slate-200/80 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-bolt text-lg"></i>
+                </div>
+                <div>
+                    <span class="font-extrabold text-lg text-slate-900 tracking-wider block leading-none">TECH<span class="text-amber-600">NEWS</span></span>
+                    <span class="text-[10px] text-slate-500 font-medium tracking-widest uppercase">Portal de Innovación</span>
+                </div>
+            </a>
+
+            <!-- Navegación Central -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                <a href="#" class="hover:text-amber-600 transition-colors">Inicio</a>
+                <a href="#" class="text-amber-600 border-b-2 border-amber-500 pb-1">Noticias</a>
+                <a href="#" class="hover:text-amber-600 transition-colors">Tecnología</a>
+                <a href="#" class="hover:text-amber-600 transition-colors">Sostenibilidad</a>
+            </nav>
+
+            <!-- Botones de Acción -->
+            <div class="flex items-center gap-4">
+                <button onclick="copiarEnlace()" class="hidden sm:flex items-center gap-2 bg-slate-100 hover:bg-amber-50 text-slate-700 hover:text-amber-700 border border-slate-200 px-4 py-2 rounded-xl text-xs font-bold transition-all active:scale-95">
+                    <i class="fa-regular fa-share-from-square"></i> Compartir
+                </button>
+                <a href="#suscribirse" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition-all transform hover:-translate-y-0.5 shadow-md shadow-amber-500/20">
+                    Suscribirse
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL DE LA NOTICIA -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-12 relative z-10">
+
+        <!-- Categoría & Metadata -->
+        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3 mb-6">
+            <span class="gold-badge text-xs font-bold px-3.5 py-1 rounded-full uppercase tracking-widest flex items-center gap-1.5">
+                <i class="fa-solid fa-atom text-[10px]"></i> INNOVACIÓN ENERGÉTICA
+            </span>
+            <span class="text-slate-500 text-xs font-medium flex items-center gap-1">
+                <i class="fa-regular fa-clock"></i> 5 min de lectura
+            </span>
+            <span class="text-slate-300">•</span>
+            <span class="text-slate-500 text-xs font-medium">Publicado: 15 Oct, 2026</span>
+        </div>
+
+        <!-- TÍTULO PRINCIPAL EN GRANDE -->
+        <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 text-center sm:text-left leading-tight tracking-tight mb-8">
+            Revolución Solar: La nueva generación de micro-paneles integrados en hogares
+        </h1>
+
+        <!-- DATOS DEL AUTOR Y REDES -->
+        <div class="glow-card-light p-4 rounded-2xl flex flex-wrap items-center justify-between gap-4 mb-10">
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full border-2 border-amber-500/40 p-0.5 bg-slate-100">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Autor" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/150x150/ffffff/d97706?text=Autor'">
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-slate-900">Dra. Elena Rostova</h4>
+                    <p class="text-xs text-slate-500 font-medium">Especialista en Eficiencia Energética</p>
+                </div>
+            </div>
+
+            <!-- Botones de redes sociales -->
+            <div class="flex items-center gap-2">
+                <button onclick="notificarAccion('Añadido a marcadores')" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-amber-100 hover:text-amber-700 text-slate-600 border border-slate-200 flex items-center justify-center transition-all" title="Guardar">
+                    <i class="fa-regular fa-bookmark"></i>
+                </button>
+                <button onclick="copiarEnlace()" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-amber-100 hover:text-amber-700 text-slate-600 border border-slate-200 flex items-center justify-center transition-all" title="Copiar enlace">
+                    <i class="fa-solid fa-link"></i>
+                </button>
+                <a href="https://twitter.com" target="_blank" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-amber-100 hover:text-amber-700 text-slate-600 border border-slate-200 flex items-center justify-center transition-all" title="Compartir en X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- ARTÍCULO - CUERPO DE TEXTO -->
+        <article class="prose prose-slate max-w-none text-slate-700 space-y-6 text-base sm:text-lg leading-relaxed">
+            
+            <!-- Resumen / Intro destacada -->
+            <div class="glow-card-light p-6 rounded-2xl border-l-4 border-l-amber-500 text-slate-800 font-medium my-6 text-lg bg-amber-50/40">
+                <p class="m-0 leading-relaxed">
+                    <strong>Resumen ejecutivo:</strong> Las últimas tecnologías fotovoltaicas prometen transformar la fachada urbana mediante la captación de energía de alta eficiencia, reduciendo costes hasta un 40% en consumo eléctrico residencial.
+                </p>
+            </div>
+
+            <p>
+                El avance sin precedentes en el campo de las renovables ha permitido dar un salto cuantitativo en la autogeneración doméstica. A diferencia de las pesadas e invasivas placas tradicionales, la arquitectura moderna se prepara para dar la bienvenida a sistemas modulares casi imperceptibles.
+            </p>
+
+            <h2 class="text-2xl font-bold text-slate-900 tracking-tight pt-4 border-b border-slate-200 pb-2 flex items-center gap-2">
+                <i class="fa-solid fa-bolt-lightning text-amber-600 text-xl"></i>
+                Optimizando cada fotón de luz
+            </h2>
+
+            <p>
+                Gracias a la inteligencia artificial aplicada a micro-inversores, cada unidad instalada en ventanas o techos puede redistribuir en tiempo real el flujo de energía excedente hacia baterías inteligentes comunitarias.
+            </p>
+
+            <!-- IMAGEN DESTACADA EN MEDIO DEL TEXTO -->
+            <figure class="my-8">
+                <div class="relative group rounded-2xl overflow-hidden border border-slate-200 shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1509391365360-2e959784a276?w=1200&auto=format&fit=crop&q=80" 
+                         alt="Instalación Solar" 
+                         class="w-full h-auto max-h-[450px] object-cover transition-transform duration-700 group-hover:scale-105"
+                         onerror="this.src='https://placehold.co/800x450/f8fafc/d97706?text=Imagen+del+Artículo'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4 text-xs text-white flex justify-between items-center bg-slate-900/80 backdrop-blur-md p-3 rounded-xl border border-white/10">
+                        <span><i class="fa-solid fa-camera text-amber-400 mr-2"></i>Micro-celdas inteligentes de alta absorción instaladas en entorno residencial.</span>
+                        <span class="text-amber-300 font-semibold">HD / Tech</span>
+                    </div>
+                </div>
+                <figcaption class="text-center text-xs text-slate-500 mt-2">Fotografía tomada durante las pruebas de campo en Europa del Norte (2026).</figcaption>
+            </figure>
+
+            <p>
+                Los test preliminares realizados durante el último trimestre revelan datos contundentes que transformarán por completo las decisiones de inversión en energía limpia para los próximos años:
+            </p>
+
+            <!-- TARJETAS DE ESTADÍSTICAS / MÉTRICAS -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-10">
+                
+                <div class="glow-card-light p-6 rounded-2xl text-center relative overflow-hidden bg-white">
+                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-amber-500/10 rounded-full blur-xl"></div>
+                    <span class="text-4xl sm:text-5xl font-extrabold text-amber-600 mb-2 block">85%</span>
+                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">EFICIENCIA EN HORAS PICO</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Mejora de conversión lumínica directa en comparación con la tecnología de silicio comercial convencional.
+                    </p>
+                </div>
+
+                <div class="glow-card-light p-6 rounded-2xl text-center relative overflow-hidden bg-white">
+                    <div class="absolute -right-6 -bottom-6 w-24 h-24 bg-emerald-500/10 rounded-full blur-xl"></div>
+                    <span class="text-4xl sm:text-5xl font-extrabold text-emerald-600 mb-2 block">70%</span>
+                    <h3 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2">REDUCCIÓN DE HUELLA</h3>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Disminución directa del impacto en el recibo energético tras los primeros 3 meses de despliegue.
+                    </p>
+                </div>
+
+            </div>
+
+            <p>
+                Incluso en días nublados o climas adversos, el recubrimiento sintético de espectro amplio absorbe la radiación ultravioleta difusa, garantizando que el flujo eléctrico no sufra caídas drásticas.
+            </p>
+
+            <!-- CITA DESTACADA EN FONDO CLARO -->
+            <blockquote class="my-8 p-6 rounded-2xl bg-amber-500/10 border-l-4 border-amber-600 relative">
+                <i class="fa-solid fa-quote-left text-3xl text-amber-600/20 absolute top-4 left-4"></i>
+                <p class="text-slate-800 font-semibold italic relative z-10 pl-6 m-0">
+                    "No se trata solo de generar más energía, sino de aprender a gestionarla en el punto exacto donde se consume."
+                </p>
+                <cite class="block text-right text-xs text-amber-700 font-bold mt-3 uppercase tracking-wider">— Informe Anual de Transición Energética</cite>
+            </blockquote>
+
+            <p>
+                En conclusión, el panorama para los consumidores se muestra más prometedor que nunca. La democratización de estas tecnologías está cada vez más cerca, abriendo la puerta a ciudades verdaderamente autosostenibles.
+            </p>
+
+        </article>
+
+        <!-- ETIQUETAS DE LA NOTICIA -->
+        <div class="mt-12 pt-6 border-t border-slate-200 flex flex-wrap gap-2 items-center">
+            <span class="text-xs font-bold text-slate-500 mr-2"><i class="fa-solid fa-tags text-amber-600"></i> Temas:</span>
+            <a href="#" class="text-xs bg-slate-100 hover:bg-amber-100 text-slate-700 hover:text-amber-800 px-3 py-1.5 rounded-lg border border-slate-200 transition-colors">#Fotovoltaica</a>
+            <a href="#" class="text-xs bg-slate-100 hover:bg-amber-100 text-slate-700 hover:text-amber-800 px-3 py-1.5 rounded-lg border border-slate-200 transition-colors">#AhorroDoméstico</a>
+            <a href="#" class="text-xs bg-slate-100 hover:bg-amber-100 text-slate-700 hover:text-amber-800 px-3 py-1.5 rounded-lg border border-slate-200 transition-colors">#Tecnología2026</a>
+        </div>
+
+        <!-- 2. ARTÍCULOS RELACIONADOS -->
+        <section class="mt-20">
+            <div class="text-center mb-10">
+                <span class="text-amber-600 text-xs font-bold uppercase tracking-widest block mb-1">MÁS CONTENIDO</span>
+                <h3 class="text-2xl font-extrabold text-slate-900">Noticias Relacionadas</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                <!-- Tarjeta 1 -->
+                <div class="glow-card-light rounded-2xl overflow-hidden flex flex-col justify-between group">
+                    <div class="h-40 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&auto=format&fit=crop&q=80" alt="Baterías" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/ffffff/d97706?text=Noticia+1'">
+                        <span class="absolute top-3 left-3 bg-amber-500 text-white font-extrabold text-[10px] px-2.5 py-1 rounded-md uppercase shadow-sm">Baterías</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-2 mb-2">
+                                Nueva red de almacenamiento doméstico de alta densidad
+                            </h4>
+                            <p class="text-xs text-slate-500 line-clamp-3 mb-4">
+                                Soluciones que optimizan la reserva eléctrica durante los meses de invierno.
+                            </p>
+                        </div>
+                        <a href="#" class="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
+                            Leer artículo <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="glow-card-light rounded-2xl overflow-hidden flex flex-col justify-between group">
+                    <div class="h-40 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&auto=format&fit=crop&q=80" alt="Eólica" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/ffffff/059669?text=Noticia+2'">
+                        <span class="absolute top-3 left-3 bg-emerald-600 text-white font-extrabold text-[10px] px-2.5 py-1 rounded-md uppercase shadow-sm">Sostenible</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-slate-900 group-hover:text-emerald-600 transition-colors line-clamp-2 mb-2">
+                                Turbinas micro-eólicas urbanas para edificios altos
+                            </h4>
+                            <p class="text-xs text-slate-500 line-clamp-3 mb-4">
+                                Aprovechamiento de corrientes de aire en las grandes metrópolis europeas.
+                            </p>
+                        </div>
+                        <a href="#" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1">
+                            Leer artículo <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="glow-card-light rounded-2xl overflow-hidden flex flex-col justify-between group">
+                    <div class="h-40 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1558441719-677242504856?w=600&auto=format&fit=crop&q=80" alt="Smart Grid" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/ffffff/d97706?text=Noticia+3'">
+                        <span class="absolute top-3 left-3 bg-amber-500 text-white font-extrabold text-[10px] px-2.5 py-1 rounded-md uppercase shadow-sm">Smart Grid</span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-2 mb-2">
+                                ¿Cómo saber si tu factura eléctrica refleja un ahorro real?
+                            </h4>
+                            <p class="text-xs text-slate-500 line-clamp-3 mb-4">
+                                Claves para auditar tu consumo mes a mes sin complicaciones.
+                            </p>
+                        </div>
+                        <a href="#" class="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
+                            Leer artículo <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. CAJA DE SUSCRIPCIÓN -->
+        <section id="suscribirse" class="mt-20">
+            <div class="glow-card-light p-8 sm:p-12 rounded-3xl text-center relative overflow-hidden bg-white border border-amber-200">
+                <div class="absolute -top-12 -left-12 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl"></div>
+                
+                <span class="gold-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">BOLETÍN SEMANAL</span>
+                
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
+                    Recibe las últimas novedades en tu email
+                </h3>
+                <p class="text-sm text-slate-600 max-w-lg mx-auto mb-8">
+                    Sin spam. Solo análisis profundos, tendencias y noticias seleccionadas sobre tecnología y energía.
+                </p>
+
+                <form onsubmit="handleSubscribe(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+                    <input type="email" 
+                           placeholder="Tu correo electrónico..." 
+                           required 
+                           class="bg-slate-50 border border-slate-300 focus:border-amber-500 text-slate-900 placeholder-slate-400 rounded-xl px-4 py-3 text-sm flex-grow outline-none transition-all focus:ring-2 focus:ring-amber-500/20">
+                    <button type="submit" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition-all transform hover:-translate-y-0.5 whitespace-nowrap shadow-md shadow-amber-500/20">
+                        Suscribirse <i class="fa-solid fa-paper-plane ml-1"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER CLARO -->
+    <footer class="mt-20 border-t border-slate-200 bg-white/80 backdrop-blur-md relative z-10 text-slate-600 text-xs">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600">
+                        <i class="fa-solid fa-bolt text-xs"></i>
+                    </div>
+                    <span class="font-extrabold text-sm text-slate-900">TECH<span class="text-amber-600">NEWS</span></span>
+                </div>
+                <p class="text-slate-500 text-xs leading-relaxed">
+                    Plataforma independiente dedicada al análisis e innovación energética para el hogar del futuro.
+                </p>
+            </div>
+
+            <div>
+                <h5 class="text-slate-900 font-bold mb-3 uppercase text-[11px] tracking-wider">Navegación</h5>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-amber-600 transition-colors">Últimas Noticias</a></li>
+                    <li><a href="#" class="hover:text-amber-600 transition-colors">Estudios de Eficiencia</a></li>
+                    <li><a href="#" class="hover:text-amber-600 transition-colors">Guías e Informes</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="text-slate-900 font-bold mb-3 uppercase text-[11px] tracking-wider">Legal</h5>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-amber-600 transition-colors">Política de Privacidad</a></li>
+                    <li><a href="#" class="hover:text-amber-600 transition-colors">Términos del Servicio</a></li>
+                    <li><a href="#" class="hover:text-amber-600 transition-colors">Aviso Legal</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="text-slate-900 font-bold mb-3 uppercase text-[11px] tracking-wider">Síguenos</h5>
+                <div class="flex gap-3">
+                    <a href="#" class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 hover:text-amber-600 hover:bg-amber-50 transition-all border border-slate-200">
+                        <i class="fa-brands fa-x-twitter text-sm"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 hover:text-amber-600 hover:bg-amber-50 transition-all border border-slate-200">
+                        <i class="fa-brands fa-linkedin-in text-sm"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 hover:text-amber-600 hover:bg-amber-50 transition-all border border-slate-200">
+                        <i class="fa-brands fa-github text-sm"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="border-t border-slate-200 py-6 text-center text-slate-500 text-[11px]">
+            © 2026 TechNews. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- MENSAJE TOAST PERSONALIZADO -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-amber-600 text-white font-bold px-4 py-3 rounded-xl shadow-2xl transition-all duration-300 transform translate-y-20 opacity-0 z-50 flex items-center gap-2 text-xs">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Notificación</span>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // 1. ANIMACIÓN DEL CANVAS DE PARTÍCULAS (Partículas suaves sobre fondo claro)
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let particlesArray = [];
+        const numberOfParticles = 55;
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2.5 + 1;
+                this.speedX = (Math.random() * 0.3) - 0.15;
+                this.speedY = (Math.random() * 0.3) - 0.15;
+                
+                // Colores dorados y verdes suaves sobre fondo claro
+                const rand = Math.random();
+                if (rand > 0.5) {
+                    this.color = '#d97706'; // Ámbar/Dorado
+                } else if (rand > 0.2) {
+                    this.color = '#059669'; // Esmeralda
+                } else {
+                    this.color = '#cbd5e1'; // Gris suave
+                }
+                
+                this.opacity = Math.random() * 0.35 + 0.15;
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+                if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            requestAnimationFrame(animateParticles);
+        }
+
+        window.onload = function() {
+            initParticles();
+            animateParticles();
+        };
+
+        // 2. BARRA DE PROGRESO DE LECTURA
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('reading-progress').style.width = scrolled + '%';
+        });
+
+        // 3. TOAST & ACCIONES
+        function notificarAccion(mensaje) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            
+            toastMsg.textContent = mensaje;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        function copiarEnlace() {
+            const tempInput = document.createElement('input');
+            tempInput.value = window.location.href;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            
+            notificarAccion('¡Enlace copiado al portapapeles!');
+        }
+
+        function handleSubscribe(e) {
+            e.preventDefault();
+            notificarAccion('¡Gracias por suscribirte!');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
