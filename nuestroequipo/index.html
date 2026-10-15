@@ -8,14 +8,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Línea del Favicon (.png) -->
     <link rel="icon" type="image/png" href="logoargieder.png">
     
     <title>Auled Charger Design</title>
-</head>
     
     <script>
         tailwind.config = {
@@ -40,7 +37,7 @@
                         sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
                     },
                     boxShadow: {
-                        'plasma': '0 0 35px -5px rgba(245f, 184, 0, 0.35)',
+                        'plasma': '0 0 35px -5px rgba(245, 184, 0, 0.35)',
                         'cyan-glow': '0 0 30px -5px rgba(0, 230, 168, 0.35)',
                         'node-hover': '0 0 50px 10px rgba(245, 184, 0, 0.5)'
                     }
@@ -70,7 +67,7 @@
             margin-left: -160px;
             margin-top: -160px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(245, 184, 0, 0.15) 0%, rgbargba( 255, 255, 255, 0.4) 40%, transparent 70%);
+            background: radial-gradient(circle, rgba(245, 184, 0, 0.15) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 70%);
             transition: transform 0.08s ease-out, opacity 0.3s ease;
             z-index: 9999;
             mix-blend-mode: screen;
@@ -114,7 +111,7 @@
 
         .plasma-card:hover::before {
             opacity: 1;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.8), rgbargba(255, 255, 255, 0.8));
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.8), rgba(255, 255, 255, 0.8));
         }
 
         /* Core Node Radial Deployment Animations */
@@ -128,19 +125,21 @@
             opacity: 1;
         }
 
-        /* Specific positions for 5 team nodes in orbital geometry */
+        /* Specific positions for 6 team nodes in orbital geometry */
         .core-deployed .node-belen { transform: translate(0px, -170px) scale(1); }
-        .core-deployed .node-veronica { transform: translate(160px, -50px) scale(1); }
-        .core-deployed .node-janire { transform: translate(100px, 140px) scale(1); }
-        .core-deployed .node-david { transform: translate(-100px, 140px) scale(1); }
-        .core-deployed .node-olatz { transform: translate(-160px, -50px) scale(1); }
+        .core-deployed .node-veronica { transform: translate(150px, -85px) scale(1); }
+        .core-deployed .node-janire { transform: translate(150px, 85px) scale(1); }
+        .core-deployed .node-david { transform: translate(0px, 170px) scale(1); }
+        .core-deployed .node-olatz { transform: translate(-150px, 85px) scale(1); }
+        .core-deployed .node-maialen { transform: translate(-150px, -85px) scale(1); }
 
         @media (max-width: 640px) {
             .core-deployed .node-belen { transform: translate(0px, -130px) scale(0.85); }
-            .core-deployed .node-veronica { transform: translate(120px, -40px) scale(0.85); }
-            .core-deployed .node-janire { transform: translate(75px, 110px) scale(0.85); }
-            .core-deployed .node-david { transform: translate(-75px, 110px) scale(0.85); }
-            .core-deployed .node-olatz { transform: translate(-120px, -40px) scale(0.85); }
+            .core-deployed .node-veronica { transform: translate(115px, -65px) scale(0.85); }
+            .core-deployed .node-janire { transform: translate(115px, 65px) scale(0.85); }
+            .core-deployed .node-david { transform: translate(0px, 130px) scale(0.85); }
+            .core-deployed .node-olatz { transform: translate(-115px, 65px) scale(0.85); }
+            .core-deployed .node-maialen { transform: translate(-115px, -65px) scale(0.85); }
         }
 
         /* Glow effects */
@@ -206,21 +205,11 @@
             <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/" class="hover:text-gold">Equipo</a>
             <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="hover:text-gold">Servicios</a>
             <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold">Contacto</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[11px] font-bold uppercase tracking-wider">
+                <i class="fa-solid fa-euro-sign text-[10px]"></i>
+                <span>Calcula tu ahorro</span>
+            </a>
         </div>
-    </header>
-
-      <!-- Menú Móvil -->
-<div class="md:hidden flex justify-center items-center gap-4 pt-3 border-t border-white/5 mt-2 text-xs font-medium text-slate-300 overflow-x-auto whitespace-nowrap">
-    <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold">Inicio</a>
-    <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold">Factura</a>
-    <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/" class="hover:text-gold">Equipo</a>
-    <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="hover:text-gold">Servicios</a>
-    <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold">Contacto</a>
-    <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[11px] font-bold uppercase tracking-wider">
-        <i class="fa-solid fa-euro-sign text-[10px]"></i>
-        <span>Calcula tu ahorro</span>
-    </a>
-</div>
     </header>
     
     <!-- Hero / Intro Section: "Somos Argieder" with Interactive Core Orbit -->
@@ -275,7 +264,7 @@
                             <span class="block text-[11px] uppercase text-slate-400 font-bold tracking-wider mt-1">Fundación</span>
                         </div>
                         <div class="p-4 rounded-2xl bg-energy-surface/50 border border-energy-border text-center">
-                            <span class="text-2xl sm:text-3xl font-black text-white">5</span>
+                            <span class="text-2xl sm:text-3xl font-black text-white">6</span>
                             <span class="block text-[11px] uppercase text-slate-400 font-bold tracking-wider mt-1">Especialistas</span>
                         </div>
                     </div>
@@ -293,10 +282,11 @@
                             
                             <!-- Dynamic Beam Lines to Nodes -->
                             <line id="beam-belen" x1="0" y1="0" x2="0" y2="-170" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
-                            <line id="beam-veronica" x1="0" y1="0" x2="160" y2="-50" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
-                            <line id="beam-janire" x1="0" y1="0" x2="100" y2="140" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
-                            <line id="beam-david" x1="0" y1="0" x2="-100" y2="140" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
-                            <line id="beam-olatz" x1="0" y1="0" x2="-160" y2="-50" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
+                            <line id="beam-veronica" x1="0" y1="0" x2="150" y2="-85" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
+                            <line id="beam-janire" x1="0" y1="0" x2="150" y2="85" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
+                            <line id="beam-david" x1="0" y1="0" x2="0" y2="170" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
+                            <line id="beam-olatz" x1="0" y1="0" x2="-150" y2="85" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
+                            <line id="beam-maialen" x1="0" y1="0" x2="-150" y2="-85" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4" />
                         </svg>
 
                         <!-- Center Core Hub -->
@@ -308,7 +298,7 @@
                             </div>
                         </div>
 
-                        <!-- 1. Belén Teijeira Node Circle (En la posición superior donde estaba David) -->
+                        <!-- 1. Belén Teijeira Node Circle -->
                         <div class="absolute core-member-node node-belen z-20 cursor-pointer" onclick="activateCoreMember('belen')" onmouseenter="activateCoreMember('belen')">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
@@ -322,7 +312,7 @@
                             </div>
                         </div>
 
-                        <!-- 2. Verónica Martín Node Circle (En la posición superior derecha donde estaba Janire) -->
+                        <!-- 2. Verónica Martín Node Circle -->
                         <div class="absolute core-member-node node-veronica z-20 cursor-pointer" onclick="activateCoreMember('veronica')" onmouseenter="activateCoreMember('veronica')">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-glowGold group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
@@ -336,7 +326,7 @@
                             </div>
                         </div>
 
-                        <!-- 3. Janire Etxebeste Node Circle (En la posición inferior derecha donde estaba Verónica) -->
+                        <!-- 3. Janire Etxebeste Node Circle -->
                         <div class="absolute core-member-node node-janire z-20 cursor-pointer" onclick="activateCoreMember('janire')" onmouseenter="activateCoreMember('janire')">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
@@ -350,7 +340,7 @@
                             </div>
                         </div>
 
-                        <!-- 4. David Tena Node Circle (En la posición inferior izquierda donde estaba Belén) -->
+                        <!-- 4. David Tena Node Circle -->
                         <div class="absolute core-member-node node-david z-20 cursor-pointer" onclick="activateCoreMember('david')" onmouseenter="activateCoreMember('david')">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-glowGold group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
@@ -374,6 +364,20 @@
                                 </div>
                                 <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-slate-900 text-[10px] font-black tracking-wider whitespace-nowrap shadow-plasma">
                                     OLATZ
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- 6. Maialen Node Circle -->
+                        <div class="absolute core-member-node node-maialen z-20 cursor-pointer" onclick="activateCoreMember('maialen')" onmouseenter="activateCoreMember('maialen')">
+                            <div class="relative group">
+                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                                    <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
+                                        <img src="maialen.jpg" alt="Maialen" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                    </div>
+                                </div>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-slate-900 text-[10px] font-black tracking-wider whitespace-nowrap shadow-plasma">
+                                    MAIALEN
                                 </span>
                             </div>
                         </div>
@@ -404,7 +408,7 @@
             <!-- SVG Circuit Connections Mesh Background for Desktop -->
             <div class="relative">
                 <svg class="absolute inset-0 w-full h-full pointer-events-none hidden lg:block opacity-30 z-0" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="20%" y1="20%" x2="50%" y2="20%" stroke="#FFFFF" stroke-width="2" class="circuit-line" />
+                    <line x1="20%" y1="20%" x2="50%" y2="20%" stroke="#FFFFFF" stroke-width="2" class="circuit-line" />
                     <line x1="50%" y1="20%" x2="80%" y2="20%" stroke="#FFFFFF" stroke-width="2" class="circuit-line" />
                     <line x1="30%" y1="70%" x2="70%" y2="70%" stroke="#FFFFFF" stroke-width="2" class="circuit-line" />
                     <line x1="50%" y1="20%" x2="50%" y2="70%" stroke="#FFFFFF" stroke-width="2" class="circuit-line" />
@@ -413,7 +417,7 @@
                 <!-- Team Cards Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10" id="team-grid">
 
-                     <!-- 1. Janire Etxebeste -->
+                    <!-- 1. Janire Etxebeste -->
                     <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" 
                          data-role="comercial" 
                          onclick="openModal('janire')">
@@ -483,7 +487,6 @@
                         </div>
                     </div>
 
-                    
                     <!-- 3. Verónica Martín -->
                     <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" 
                          data-role="administracion" 
@@ -553,7 +556,7 @@
                     </div>
 
                     <!-- 5. Olatz Garai -->
-                    <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2 lg:col-span-2" 
+                    <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" 
                          data-role="comercial" 
                          onclick="openModal('olatz')">
                         <div class="flex items-start justify-between mb-6">
@@ -576,8 +579,42 @@
                             Comercial
                         </span>
 
-                        <p class="text-slate-300 text-xs leading-relaxed mb-6">
+                        <p class="text-slate-300 text-xs leading-relaxed line-clamp-4 mb-6">
                             Olatz da su visión energética a gran parte de nuestros clientes que, de manera cercana y honesta, les asesora sobre la mejor manera de optimizar sus gastos energéticos.
+                        </p>
+
+                        <div class="pt-4 border-t border-energy-border/50 flex items-center justify-between text-xs font-bold text-energy-cyan group-hover:text-energy-gold transition-colors">
+                            <span>Ver Ficha Completa</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </div>
+
+                    <!-- 6. Maialen -->
+                    <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" 
+                         data-role="administracion" 
+                         onclick="openModal('maialen')">
+                        <div class="flex items-start justify-between mb-6">
+                            <div class="relative">
+                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-energy-gold to-energy-cyan p-0.5 shadow-plasma group-hover:scale-110 transition-transform duration-300">
+                                    <div class="w-full h-full bg-energy-surface rounded-[14px] overflow-hidden">
+                                        <img src="maialen.jpg" alt="Maialen" class="w-full h-full object-cover" />
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-energy-cyan/10 border border-energy-cyan/30 text-energy-cyan text-[11px] font-bold uppercase tracking-wider">
+                                Atención & Soporte
+                            </span>
+                        </div>
+
+                        <h4 class="text-2xl font-black text-white group-hover:text-energy-cyan transition-colors">
+                            Maialen
+                        </h4>
+                        <span class="text-xs font-bold uppercase tracking-widest text-energy-cyan block mb-4">
+                            Gestión y Administración
+                        </span>
+
+                        <p class="text-slate-300 text-xs leading-relaxed line-clamp-4 mb-6">
+                            Maialen apoya activamente en la gestión diaria de clientes y procesos administrativos, ofreciendo una atención cercana y un soporte eficiente para resolver consultas y agilizar la gestión energética.
                         </p>
 
                         <div class="pt-4 border-t border-energy-border/50 flex items-center justify-between text-xs font-bold text-energy-cyan group-hover:text-energy-gold transition-colors">
@@ -591,11 +628,9 @@
         </div>
     </section>
 
-  <!-- Banner Imagen de Financiación Institucional -->
-            <div class="p-4 md:p-6 rounded-none bg-white/95 border border-white/20 flex justify-center items-center shadow-lg">
-                <img src="financiacion.png" alt="Financiado por la Unión Europea - NextGenerationEU, Gobierno de España, Plan de Recuperación" class="max-h-16 md:max-h-20 w-auto object-contain">
-            </div>
-        </div>
+    <!-- Banner Imagen de Financiación Institucional -->
+    <section class="w-full relative z-10 bg-white/95 border-t border-white/20 py-4 md:py-6 flex justify-center items-center shadow-lg">
+        <img src="financiacion.png" alt="Financiado por la Unión Europea - NextGenerationEU, Gobierno de España, Plan de Recuperación" class="max-h-16 md:max-h-20 w-auto object-contain">
     </section>
 
     <!-- Modal Window for Full Profile Details -->
@@ -628,14 +663,14 @@
         </div>
     </div>
 
-    <!-- Full Footer Exact Copy from Image 01 -->
+    <!-- Full Footer -->
     <footer class="bg-[#1d1d1d] border-t border-energy-border/50 pt-16 pb-12 text-slate-400 text-xs relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
                 
                 <div class="space-y-4">
-                <div class="flex items-center gap-3">
-                    <img src="logoargieder.png" alt="Argieder Logo" class="h-8 w-auto object-contain">
+                    <div class="flex items-center gap-3">
+                        <img src="logoargieder.png" alt="Argieder Logo" class="h-8 w-auto object-contain">
                     </div>
                     <p class="leading-relaxed">
                         Argieder Gestión es una asesoría energética tecnológica dedicada a la optimización de gasto energético para empresas.
@@ -699,7 +734,7 @@
 
         // Detailed Team Data
         const teamData = {
-             belen: {
+            belen: {
                 name: "Belén Teijeira",
                 role: "Gestión y Atención al Cliente",
                 tag: "Gestión y Atención al Cliente",
@@ -728,6 +763,12 @@
                 role: "Comercial",
                 tag: "Comercial",
                 bio: "Olatz da su visión energética a gran parte de nuestros clientes que, de manera cercana y honesta, les asesora sobre la mejor manera de optimizar sus gastos energéticos, acompañándolos paso a paso en el proceso de análisis y ayudándoles a entender sus opciones de ahorro. Con su dedicación constante, logra que cada cliente tome decisiones informadas para lograr una gestión mucho más eficiente."
+            },
+            maialen: {
+                name: "Maialen",
+                role: "Gestión y Administración",
+                tag: "Gestión y Soporte",
+                bio: "Maialen forma parte esencial del equipo de atención y gestión en Argieder. Con un enfoque resolutivo y orientación al cliente, brinda soporte en los procesos administrativos del día a día, facilitando la comunicación continua, el seguimiento de expedientes y asegurando una experiencia ágil y transparente en cada consulta."
             }
         };
 
@@ -760,7 +801,7 @@
             document.getElementById('hud-desc').innerText = member.bio;
 
             // Highlight correspondend SVG Energy Beam line
-            const beamIds = ['david', 'janire', 'veronica', 'belen', 'olatz'];
+            const beamIds = ['david', 'janire', 'veronica', 'belen', 'olatz', 'maialen'];
             beamIds.forEach(bId => {
                 const line = document.getElementById(`beam-${bId}`);
                 if (line) {
@@ -780,86 +821,85 @@
         }
 
         // Background Particles Matrix Canvas Setup
-const canvas = document.getElementById('canvas-matrix');
-const ctx = canvas.getContext('2d');
-let particles = [];
+        const canvas = document.getElementById('canvas-matrix');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    initParticles();
-}
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        }
 
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.8;
-        this.vy = (Math.random() - 0.5) * 0.8;
-        this.radius = Math.random() * 2 + 0.5;
-        // Puntos dorados (#F5B800) y puntos blancos (#FFFFFF)
-        this.color = Math.random() > 0.3 ? '#F5B800' : '#FFFFFF';
-    }
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.radius = Math.random() * 2 + 0.5;
+                this.color = Math.random() > 0.3 ? '#F5B800' : '#FFFFFF';
+            }
 
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 8;
-        ctx.shadowColor = this.color;
-        ctx.fill();
-    }
-
-    update() {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-    }
-}
-
-function initParticles() {
-    particles = [];
-    const count = Math.floor((canvas.width * canvas.height) / 22000);
-    for (let i = 0; i < count; i++) {
-        particles.push(new Particle());
-    }
-}
-
-function animateCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-        p.update();
-        p.draw();
-    });
-
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-            let dx = particles[i].x - particles[j].x;
-            let dy = particles[i].y - particles[j].y;
-            let dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 120) {
+            draw() {
                 ctx.beginPath();
-                ctx.strokeStyle = `rgba(245, 184, 0, ${0.15 - dist / 800})`;
-                ctx.lineWidth = 0.5;
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.stroke();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
             }
         }
-    }
-    requestAnimationFrame(animateCanvas);
-}
 
-window.onload = function() {
-    resizeCanvas();
-    animateCanvas();
-    setTimeout(() => {
-        coreWrapper.classList.add('core-deployed');
-    }, 500);
-};
-window.addEventListener('resize', resizeCanvas);
+        function initParticles() {
+            particles = [];
+            const count = Math.floor((canvas.width * canvas.height) / 22000);
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(245, 184, 0, ${0.15 - dist / 800})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.onload = function() {
+            resizeCanvas();
+            animateCanvas();
+            setTimeout(() => {
+                coreWrapper.classList.add('core-deployed');
+            }, 500);
+        };
+        window.addEventListener('resize', resizeCanvas);
 
         // Filter Team Members
         function filterTeam(role) {
