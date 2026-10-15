@@ -33,7 +33,7 @@
                     },
                     boxShadow: {
                         'plasma': '0 0 35px -5px rgba(245, 184, 0, 0.35)',
-                        'cyan-glow': '0 0 30px -5px rgba(0, 230, 168, 0.35)',e
+                        'cyan-glow': '0 0 30px -5px rgba(0, 230, 168, 0.35)',
                         'node-hover': '0 0 50px 10px rgba(245, 184, 0, 0.5)'
                     }
                 }
@@ -58,9 +58,7 @@
         }
 
         @keyframes dash {
-            to {
-                stroke-dashoffset: -1000;
-            }
+            to { stroke-dashoffset: -1000; }
         }
 
         .plasma-card {
@@ -101,7 +99,7 @@
             );
         }
 
-        /* Nodos orbitales */
+        /* Nodos orbitales: comportamiento original de escritorio */
         .core-member-node {
             position: absolute;
             left: 50%;
@@ -114,22 +112,14 @@
                 opacity 0.8s ease,
                 filter 0.3s ease;
             will-change: transform;
+            cursor: pointer;
+            z-index: 20;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .core-deployed .core-member-node {
             opacity: 1;
         }
-
-        /*
-         * POSICIONES EN ORDEN ORBITAL
-         *
-         * Belén: arriba.
-         * Verónica: arriba a la derecha.
-         * Janire: abajo a la derecha.
-         * Olatz: abajo, antigua posición de David.
-         * David: abajo a la izquierda, antigua posición de Olatz.
-         * Maialen: arriba a la izquierda.
-         */
 
         .core-deployed .node-belen {
             transform: translate(-50%, calc(-50% - 170px)) scale(1);
@@ -143,12 +133,10 @@
             transform: translate(calc(-50% + 150px), calc(-50% + 85px)) scale(1);
         }
 
-        /* DAVID: nueva posición inferior izquierda */
         .core-deployed .node-david {
             transform: translate(calc(-50% - 150px), calc(-50% + 85px)) scale(1);
         }
 
-        /* OLATZ: nueva posición inferior */
         .core-deployed .node-olatz {
             transform: translate(-50%, calc(-50% + 170px)) scale(1);
         }
@@ -157,7 +145,7 @@
             transform: translate(calc(-50% - 150px), calc(-50% - 85px)) scale(1);
         }
 
-        /* Posiciones para móvil */
+        /* Posiciones originales para móvil */
         @media (max-width: 640px) {
             .core-deployed .node-belen {
                 transform: translate(-50%, calc(-50% - 130px)) scale(0.85);
@@ -171,18 +159,61 @@
                 transform: translate(calc(-50% + 115px), calc(-50% + 65px)) scale(0.85);
             }
 
-            /* DAVID: nueva posición inferior izquierda en móvil */
             .core-deployed .node-david {
                 transform: translate(calc(-50% - 115px), calc(-50% + 65px)) scale(0.85);
             }
 
-            /* OLATZ: nueva posición inferior en móvil */
             .core-deployed .node-olatz {
                 transform: translate(-50%, calc(-50% + 130px)) scale(0.85);
             }
 
             .core-deployed .node-maialen {
                 transform: translate(calc(-50% - 115px), calc(-50% - 65px)) scale(0.85);
+            }
+        }
+
+        /*
+         * CAMBIOS SOLO PARA MÓVIL:
+         * Ocultar el panel de información y permitir ampliar los nodos.
+         * El tamaño del avatar sigue siendo circular.
+         */
+        @media (max-width: 767px) {
+            #core-hud-card {
+                display: none !important;
+            }
+
+            .core-member-node.mobile-selected {
+                z-index: 60;
+                transform-origin: center center;
+                filter: brightness(1.12);
+            }
+
+            .core-deployed .node-belen.mobile-selected {
+                transform: translate(-50%, calc(-50% - 130px)) scale(1.12);
+            }
+
+            .core-deployed .node-veronica.mobile-selected {
+                transform: translate(calc(-50% + 115px), calc(-50% - 65px)) scale(1.12);
+            }
+
+            .core-deployed .node-janire.mobile-selected {
+                transform: translate(calc(-50% + 115px), calc(-50% + 65px)) scale(1.12);
+            }
+
+            .core-deployed .node-david.mobile-selected {
+                transform: translate(calc(-50% - 115px), calc(-50% + 65px)) scale(1.12);
+            }
+
+            .core-deployed .node-olatz.mobile-selected {
+                transform: translate(-50%, calc(-50% + 130px)) scale(1.12);
+            }
+
+            .core-deployed .node-maialen.mobile-selected {
+                transform: translate(calc(-50% - 115px), calc(-50% - 65px)) scale(1.12);
+            }
+
+            .core-member-node.mobile-selected .rounded-full {
+                box-shadow: 0 0 24px rgba(245, 184, 0, 0.65);
             }
         }
 
@@ -224,49 +255,39 @@
 
 <body class="relative min-h-screen selection:bg-energy-gold selection:text-black">
 
+    <!-- Un único canvas de fondo -->
     <canvas id="canvas-matrix" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-    <!-- Background Dynamic Particle Mesh Canvas -->
-    <canvas id="canvas-matrix" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
-
-   <!-- Header con logos a los extremos, menú centrado y efecto Blur translúcido -->
+    <!-- Cabecera -->
     <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
         <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
-            
-            <!-- Logo Izquierdo: logoargieder.png -->
             <a href="https://calculadoradeahorro.github.io/webprueba/" class="flex items-center shrink-0 group">
                 <img src="logoargieder.png" alt="Argieder Logo" class="h-8 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
             </a>
 
-            <!-- Menú de Navegación Central (Solo visible en PC) -->
             <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-slate-300">
                 <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold transition-colors py-1">Inicio</a>
                 <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold transition-colors py-1">Ahorra en tu factura</a>
                 <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/" class="hover:text-gold transition-colors py-1">Nuestro equipo</a>
                 <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="hover:text-gold transition-colors py-1">Servicios</a>
                 <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold transition-colors py-1">Contacto</a>
-                
-                <!-- Botón Verde visible en PC -->
+
                 <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-xs font-bold uppercase tracking-wider hover:bg-emerald-500/20 hover:border-emerald-400 hover:shadow-[0_0_20px_rgba(52,211,153,0.3)] transition-all duration-300 whitespace-nowrap">
-                    <i class="fa-solid fa-euro-sign text-emerald-400 text-xs"></i>
+                    <span>€</span>
                     <span>CALCULA TU AHORRO CON AULED</span>
                 </a>
             </nav>
 
-            <!-- Botón Verde visible SOLO en Celular (Ubicado en la cabecera principal) -->
             <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="md:hidden inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[11px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">
-                <i class="fa-solid fa-euro-sign text-emerald-400 text-[10px]"></i>
+                <span>€</span>
                 <span>ahorra con auled</span>
             </a>
 
-            <!-- Logo Derecho: logoauled.png -->
             <a href="https://calculadoradeahorro.github.io/webprueba/auledchargerdesign/" class="flex items-center shrink-0 group">
                 <img src="logoauled.png" alt="Auled Logo" class="h-8 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
             </a>
-
         </div>
 
-        <!-- Menú Móvil Secundario -->
         <div class="md:hidden flex justify-center items-center gap-4 pt-3 border-t border-white/5 mt-2 text-xs font-medium text-slate-300 overflow-x-auto whitespace-nowrap">
             <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold">Inicio</a>
             <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold">Factura</a>
@@ -276,8 +297,7 @@
         </div>
     </header>
 
-
-    <!-- INTRODUCCIÓN Y NÚCLEO ORBITAL -->
+    <!-- Introducción y núcleo orbital -->
     <section id="core-section" class="relative pt-36 md:pt-44 pb-16 lg:pb-24 z-10 min-h-[90vh] flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center md:text-left">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -301,6 +321,7 @@
                         </p>
                     </div>
 
+                    <!-- Visible en escritorio; oculto en móvil mediante CSS -->
                     <div id="core-hud-card" class="plasma-card rounded-2xl p-5 border border-energy-gold/40 bg-energy-surface/90 transition-all duration-300 min-h-[120px] flex items-center">
                         <div class="flex items-center gap-4 w-full">
                             <div class="w-12 h-12 rounded-xl bg-energy-gold/20 border border-energy-gold flex items-center justify-center shrink-0">
@@ -332,31 +353,22 @@
                     </div>
                 </div>
 
-                <!-- NÚCLEO ORBITAL -->
+                <!-- Núcleo orbital -->
                 <div class="lg:col-span-6 relative flex justify-center items-center py-12">
                     <div id="core-orbital-wrapper" class="relative w-[360px] h-[360px] sm:w-[460px] sm:h-[460px] flex items-center justify-center">
 
-                        <!-- LÍNEAS SVG: COORDENADAS SINCRONIZADAS CON LOS NODOS -->
                         <svg id="core-beam-svg" class="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" viewBox="-230 -230 460 460" preserveAspectRatio="xMidYMid meet">
                             <circle cx="0" cy="0" r="170" fill="none" stroke="rgba(245, 184, 0, 0.15)" stroke-width="1.5" stroke-dasharray="6, 6"/>
                             <circle cx="0" cy="0" r="110" fill="none" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1"/>
 
                             <line id="beam-belen" x1="0" y1="0" x2="0" y2="-170" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4"/>
-
                             <line id="beam-veronica" x1="0" y1="0" x2="150" y2="-85" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4"/>
-
                             <line id="beam-janire" x1="0" y1="0" x2="150" y2="85" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4"/>
-
-                            <!-- DAVID: línea hacia abajo a la izquierda -->
                             <line id="beam-david" x1="0" y1="0" x2="-150" y2="85" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4"/>
-
-                            <!-- OLATZ: línea hacia abajo -->
                             <line id="beam-olatz" x1="0" y1="0" x2="0" y2="170" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4"/>
-
                             <line id="beam-maialen" x1="0" y1="0" x2="-150" y2="-85" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4"/>
                         </svg>
 
-                        <!-- NÚCLEO CENTRAL -->
                         <div class="relative w-36 h-36 rounded-full bg-energy-surface/50 p-1 shadow-node-hover z-10 flex items-center justify-center transition-transform duration-500 hover:scale-105">
                             <div class="w-full h-full bg-energy-surface/90 rounded-full flex flex-col items-center justify-center text-center p-3">
                                 <img src="logoargieder.png" alt="Icono Núcleo" class="w-8 h-8 object-contain">
@@ -365,8 +377,8 @@
                             </div>
                         </div>
 
-                        <!-- BELÉN -->
-                        <div class="core-member-node node-belen z-20 cursor-pointer" data-member="belen" role="button" tabindex="0" aria-label="Ver información de Belén Teijeira">
+                        <!-- Belén -->
+                        <div class="core-member-node node-belen z-20" data-member="belen" role="button" tabindex="0" aria-label="Ver información de Belén Teijeira">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                                     <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
@@ -377,8 +389,8 @@
                             </div>
                         </div>
 
-                        <!-- VERÓNICA -->
-                        <div class="core-member-node node-veronica z-20 cursor-pointer" data-member="veronica" role="button" tabindex="0" aria-label="Ver información de Verónica Martín">
+                        <!-- Verónica -->
+                        <div class="core-member-node node-veronica z-20" data-member="veronica" role="button" tabindex="0" aria-label="Ver información de Verónica Martín">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-glowGold group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                                     <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
@@ -389,8 +401,8 @@
                             </div>
                         </div>
 
-                        <!-- JANIRE -->
-                        <div class="core-member-node node-janire z-20 cursor-pointer" data-member="janire" role="button" tabindex="0" aria-label="Ver información de Janire Etxebeste">
+                        <!-- Janire -->
+                        <div class="core-member-node node-janire z-20" data-member="janire" role="button" tabindex="0" aria-label="Ver información de Janire Etxebeste">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                                     <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
@@ -401,8 +413,8 @@
                             </div>
                         </div>
 
-                        <!-- DAVID: AHORA ABAJO A LA IZQUIERDA -->
-                        <div class="core-member-node node-david z-20 cursor-pointer" data-member="david" role="button" tabindex="0" aria-label="Ver información de David Tena">
+                        <!-- David -->
+                        <div class="core-member-node node-david z-20" data-member="david" role="button" tabindex="0" aria-label="Ver información de David Tena">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-glowGold group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                                     <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
@@ -413,8 +425,8 @@
                             </div>
                         </div>
 
-                        <!-- OLATZ: AHORA ABAJO -->
-                        <div class="core-member-node node-olatz z-20 cursor-pointer" data-member="olatz" role="button" tabindex="0" aria-label="Ver información de Olatz Garai">
+                        <!-- Olatz -->
+                        <div class="core-member-node node-olatz z-20" data-member="olatz" role="button" tabindex="0" aria-label="Ver información de Olatz Garai">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                                     <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
@@ -425,8 +437,8 @@
                             </div>
                         </div>
 
-                        <!-- MAIALEN -->
-                        <div class="core-member-node node-maialen z-20 cursor-pointer" data-member="maialen" role="button" tabindex="0" aria-label="Ver información de Maialen">
+                        <!-- Maialen -->
+                        <div class="core-member-node node-maialen z-20" data-member="maialen" role="button" tabindex="0" aria-label="Ver información de Maialen">
                             <div class="relative group">
                                 <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
                                     <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
@@ -443,10 +455,9 @@
         </div>
     </section>
 
-    <!-- FICHAS DEL EQUIPO -->
+    <!-- Fichas del equipo -->
     <section class="py-20 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
                 <h2 class="text-xs font-bold uppercase tracking-widest text-energy-cyan">Nodos de Energía Humana</h2>
                 <h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
@@ -467,7 +478,6 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10" id="team-grid">
 
-                    <!-- JANIRE -->
                     <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" data-role="comercial" onclick="openModal('janire')">
                         <div class="flex items-start justify-between mb-6">
                             <div class="relative">
@@ -491,7 +501,6 @@
                         </div>
                     </div>
 
-                    <!-- DAVID -->
                     <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" data-role="direccion" onclick="openModal('david')">
                         <div class="flex items-start justify-between mb-6">
                             <div class="relative">
@@ -515,7 +524,6 @@
                         </div>
                     </div>
 
-                    <!-- VERÓNICA -->
                     <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" data-role="administracion" onclick="openModal('veronica')">
                         <div class="flex items-start justify-between mb-6">
                             <div class="relative">
@@ -538,7 +546,6 @@
                         </div>
                     </div>
 
-                    <!-- BELÉN -->
                     <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" data-role="comercial" onclick="openModal('belen')">
                         <div class="flex items-start justify-between mb-6">
                             <div class="relative">
@@ -561,7 +568,6 @@
                         </div>
                     </div>
 
-                    <!-- OLATZ -->
                     <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" data-role="comercial" onclick="openModal('olatz')">
                         <div class="flex items-start justify-between mb-6">
                             <div class="relative">
@@ -584,7 +590,6 @@
                         </div>
                     </div>
 
-                    <!-- MAIALEN -->
                     <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" data-role="administracion" onclick="openModal('maialen')">
                         <div class="flex items-start justify-between mb-6">
                             <div class="relative">
@@ -612,12 +617,12 @@
         </div>
     </section>
 
-    <!-- FINANCIACIÓN -->
+    <!-- Financiación -->
     <section class="w-full relative z-10 bg-white/95 border-t border-white/20 py-4 md:py-6 flex justify-center items-center shadow-lg">
         <img src="financiacion.png" alt="Financiado por la Unión Europea - NextGenerationEU, Gobierno de España, Plan de Recuperación" class="max-h-16 md:max-h-20 w-auto object-contain">
     </section>
 
-    <!-- MODAL -->
+    <!-- Modal -->
     <div id="modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
         <div id="modal-container" class="plasma-card max-w-2xl w-full rounded-3xl p-6 sm:p-10 border-2 border-energy-gold transform scale-95 transition-transform duration-300 relative overflow-y-auto max-h-[90vh]">
 
@@ -645,7 +650,7 @@
         </div>
     </div>
 
-    <!-- PIE DE PÁGINA -->
+    <!-- Pie de página -->
     <footer class="bg-[#1d1d1d] border-t border-energy-border/50 pt-16 pb-12 text-slate-400 text-xs relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
@@ -710,10 +715,8 @@
     </footer>
 
     <script>
-        // Inicializar iconos
         lucide.createIcons();
 
-        // Información de los integrantes
         const teamData = {
             belen: {
                 name: "Belén Teijeira",
@@ -753,9 +756,9 @@
             }
         };
 
-        // Activación del núcleo al entrar en pantalla
         const coreWrapper = document.getElementById('core-orbital-wrapper');
         const coreSection = document.getElementById('core-section');
+        const isMobile = () => window.matchMedia('(max-width: 767px)').matches;
 
         if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries) => {
@@ -771,14 +774,20 @@
             coreWrapper.classList.add('core-deployed');
         }
 
-        // Activación de miembros y líneas
         function activateCoreMember(key) {
             const member = teamData[key];
             if (!member) return;
 
-            document.getElementById('hud-name').textContent = member.name;
-            document.getElementById('hud-tag').textContent = member.tag;
-            document.getElementById('hud-desc').textContent = member.bio;
+            /* No actualizamos ni mostramos información dinámica en móvil. */
+            if (!isMobile()) {
+                document.getElementById('hud-name').textContent = member.name;
+                document.getElementById('hud-tag').textContent = member.tag;
+                document.getElementById('hud-desc').textContent = member.bio;
+            }
+
+            document.querySelectorAll('.core-member-node').forEach(node => {
+                node.classList.toggle('active', node.dataset.member === key);
+            });
 
             const beamIds = [
                 'belen',
@@ -794,7 +803,6 @@
                 if (!line) return;
 
                 const active = id === key;
-
                 line.setAttribute('stroke', active ? '#e7bb55' : '#F5B800');
                 line.setAttribute('stroke-width', active ? '4' : '2');
                 line.setAttribute('opacity', active ? '1' : '0.2');
@@ -807,32 +815,64 @@
             });
         }
 
-        // Vincular interacción a cada nodo.
-        // Se utiliza el identificador del integrante, no su posición visual.
+        /*
+         * En móvil, tocar un nodo lo amplía.
+         * Tocar el mismo nodo otra vez lo reduce.
+         * Tocar otro nodo cambia la selección.
+         * En escritorio se conserva la activación original.
+         */
         document.querySelectorAll('.core-member-node[data-member]').forEach(node => {
             const key = node.dataset.member;
 
             node.addEventListener('mouseenter', () => {
-                activateCoreMember(key);
+                if (!isMobile()) activateCoreMember(key);
             });
 
             node.addEventListener('focus', () => {
-                activateCoreMember(key);
+                if (!isMobile()) activateCoreMember(key);
             });
 
-            node.addEventListener('click', () => {
-                activateCoreMember(key);
+            node.addEventListener('click', event => {
+                if (isMobile()) {
+                    event.preventDefault();
+
+                    const wasSelected = node.classList.contains('mobile-selected');
+
+                    document.querySelectorAll('.core-member-node.mobile-selected').forEach(selected => {
+                        selected.classList.remove('mobile-selected');
+                    });
+
+                    if (!wasSelected) {
+                        node.classList.add('mobile-selected');
+                    }
+
+                    activateCoreMember(key);
+                } else {
+                    activateCoreMember(key);
+                }
             });
 
             node.addEventListener('keydown', event => {
                 if (event.key === 'Enter' || event.key === ' ') {
                     event.preventDefault();
-                    activateCoreMember(key);
+
+                    if (isMobile()) {
+                        node.click();
+                    } else {
+                        activateCoreMember(key);
+                    }
                 }
             });
         });
 
-        // Fondo animado de partículas
+        /* Si se cambia de móvil a escritorio, se quita la selección ampliada. */
+        window.matchMedia('(min-width: 768px)').addEventListener?.('change', () => {
+            document.querySelectorAll('.core-member-node.mobile-selected').forEach(node => {
+                node.classList.remove('mobile-selected');
+            });
+        });
+
+        /* Fondo animado de partículas */
         const canvas = document.getElementById('canvas-matrix');
         const ctx = canvas.getContext('2d');
 
@@ -841,8 +881,8 @@
 
         class Particle {
             constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
+                this.x = Math.random() * window.innerWidth;
+                this.y = Math.random() * window.innerHeight;
                 this.vx = (Math.random() - 0.5) * 0.8;
                 this.vy = (Math.random() - 0.5) * 0.8;
                 this.radius = Math.random() * 2 + 0.5;
@@ -862,8 +902,8 @@
                 this.x += this.vx;
                 this.y += this.vy;
 
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+                if (this.x < 0 || this.x > window.innerWidth) this.vx *= -1;
+                if (this.y < 0 || this.y > window.innerHeight) this.vy *= -1;
             }
         }
 
@@ -872,21 +912,16 @@
 
             canvas.width = Math.floor(window.innerWidth * dpr);
             canvas.height = Math.floor(window.innerHeight * dpr);
-
             canvas.style.width = window.innerWidth + 'px';
             canvas.style.height = window.innerHeight + 'px';
 
             ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-
             initParticles();
         }
 
         function initParticles() {
             particles = [];
-
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-            const count = Math.floor((width * height) / 22000);
+            const count = Math.floor((window.innerWidth * window.innerHeight) / 22000);
 
             for (let i = 0; i < count; i++) {
                 particles.push(new Particle());
@@ -937,7 +972,7 @@
             }
         });
 
-        // Fichas emergentes
+        /* Fichas emergentes del equipo */
         const backdrop = document.getElementById('modal-backdrop');
         const modalContainer = document.getElementById('modal-container');
 
@@ -968,14 +1003,12 @@
             }, 300);
         }
 
-        // Cerrar al pulsar fuera de la ficha
         backdrop.addEventListener('click', event => {
             if (event.target === backdrop) {
                 closeModal();
             }
         });
 
-        // Cerrar con Escape
         document.addEventListener('keydown', event => {
             if (event.key === 'Escape' && !backdrop.classList.contains('hidden')) {
                 closeModal();
