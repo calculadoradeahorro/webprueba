@@ -56,23 +56,6 @@
             cursor: default;
         }
 
-        /* Custom Interactive Energy Cursor Halo */
-        #energy-cursor {
-            pointer-events: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 320px;
-            height: 320px;
-            margin-left: -160px;
-            margin-top: -160px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(245, 184, 0, 0.15) 0%, rgba(255, 255, 255, 0.4) 40%, transparent 70%);
-            transition: transform 0.08s ease-out, opacity 0.3s ease;
-            z-index: 9999;
-            mix-blend-mode: screen;
-        }
-
         /* Circuit line pulses */
         .circuit-line {
             stroke-dasharray: 10, 15;
@@ -154,9 +137,6 @@
     </style>
 </head>
 <body class="relative min-h-screen selection:bg-energy-gold selection:text-black">
-
-    <!-- Custom Energy Plasma Cursor -->
-    <div id="energy-cursor"></div>
 
     <!-- Background Dynamic Particle Mesh Canvas -->
     <canvas id="canvas-matrix" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
@@ -772,11 +752,6 @@
             }
         };
 
-        // Custom Plasma Energy Cursor Follower
-        const cursor = document.getElementById('energy-cursor');
-        window.addEventListener('mousemove', (e) => {
-            cursor.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`;
-        });
 
         // IntersectionObserver to auto-deploy the Core Nodes on Scroll
         const coreWrapper = document.getElementById('core-orbital-wrapper');
