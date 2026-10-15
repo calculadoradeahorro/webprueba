@@ -221,7 +221,7 @@
             </div>
         </section>
 
-        <!-- Sección Deslizador de Servicios e Información -->
+        <!-- Sección Deslizador de Servicios e Información (CORREGIDO) -->
         <section class="max-w-4xl mx-auto relative px-4 sm:px-12">
             
             <!-- Flechas de Navegación -->
@@ -232,8 +232,10 @@
                 <i data-lucide="chevron-right" class="w-6 h-6"></i>
             </button>
 
-            <!-- Contenedor del Slider -->
-            <section class="max-w-4xl mx-auto relative px-4 sm:px-12">
+            <!-- Ventana Máscara del Deslizador -->
+            <div class="overflow-hidden w-full">
+                <!-- Pista deslizable horizontal -->
+                <div id="sliderTrack" class="flex transition-transform duration-500 ease-in-out w-full">
                     
                     <!-- SLIDE 1: Asesoría LED -->
                     <div class="w-full shrink-0 space-y-6 text-center px-4 py-6">
@@ -351,28 +353,26 @@
 
         </section>
 
-<!-- Sección Catálogo de Cargadores -->
-        <section class="space-y-12">
+        <!-- Sección Catálogo de Cargadores (TAMAÑO Y MÁSCARA AMPLIADOS) -->
+        <section class="space-y-12 max-w-6xl mx-auto">
             <div class="text-center">
                 <h2 class="text-lg sm:text-xl font-bold text-slate-300">
                     Elige el <span class="text-gold uppercase font-black">cargador perfecto</span> para tu hogar
                 </h2>
             </div>
 
-            <!-- Grid de 8 Cargadores: 1 col en Móvil, 2 en Tablet, 4 columnas x 2 filas en PC -->
+            <!-- Grid de 8 Cargadores -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
 
                 <!-- Cargador 1: Orbis Viaris ISI -->
                 <div onclick="openChargerModal('modal-1')" class="group relative overflow-hidden rounded-3xl aspect-[3/4] gold-glass-card border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold hover:shadow-glow-gold">
                     <img src="cargadororbisisi.png" alt="Orbis Viaris ISI" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     
-                    <!-- Degradado permanente inferior para el título inicial -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-center p-5 transition-opacity duration-300 group-hover:opacity-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-5 transition-opacity duration-300 group-hover:opacity-0">
                         <h3 class="text-base font-bold text-white text-center">Orbis Viaris ISI</h3>
                         <span class="text-[11px] text-gold/80 text-center mt-1 lg:hidden">Toca para ver detalles</span>
                     </div>
 
-                    <!-- Panel deslizable en PC (Hover desde abajo) -->
                     <div class="hidden lg:flex absolute inset-0 bg-darkBg/95 backdrop-blur-md p-6 flex-col justify-center transform translate-y-full transition-transform duration-500 ease-out group-hover:translate-y-0 text-center">
                         <h3 class="text-lg font-bold text-gold mb-3 border-b border-gold/20 pb-2">Orbis Viaris ISI</h3>
                         <div class="text-xs space-y-2 text-slate-200 overflow-y-auto max-h-[75%] pr-1 leading-snug">
@@ -389,7 +389,7 @@
                 <div onclick="openChargerModal('modal-2')" class="group relative overflow-hidden rounded-3xl aspect-[3/4] gold-glass-card border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold hover:shadow-glow-gold">
                     <img src="cargadororbisviarisdoble.png" alt="Orbis Viaris Combi Doble" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-center p-5 transition-opacity duration-300 group-hover:opacity-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-5 transition-opacity duration-300 group-hover:opacity-0">
                         <h3 class="text-base font-bold text-white text-center">Orbis Viaris Combi Doble</h3>
                         <span class="text-[11px] text-gold/80 text-center mt-1 lg:hidden">Toca para ver detalles</span>
                     </div>
@@ -409,7 +409,7 @@
                 <div onclick="openChargerModal('modal-3')" class="group relative overflow-hidden rounded-3xl aspect-[3/4] gold-glass-card border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold hover:shadow-glow-gold">
                     <img src="cargadorpolichargernwt2.png" alt="Policharger NW T2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-center p-5 transition-opacity duration-300 group-hover:opacity-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-5 transition-opacity duration-300 group-hover:opacity-0">
                         <h3 class="text-base font-bold text-white text-center">Policharger NW T2</h3>
                         <span class="text-[11px] text-gold/80 text-center mt-1 lg:hidden">Toca para ver detalles</span>
                     </div>
@@ -429,7 +429,7 @@
                 <div onclick="openChargerModal('modal-4')" class="group relative overflow-hidden rounded-3xl aspect-[3/4] gold-glass-card border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold hover:shadow-glow-gold">
                     <img src="cargadorpolichargeront2.png" alt="Policharger ÖN T2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-center p-5 transition-opacity duration-300 group-hover:opacity-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-5 transition-opacity duration-300 group-hover:opacity-0">
                         <h3 class="text-base font-bold text-white text-center">Policharger ÖN T2</h3>
                         <span class="text-[11px] text-gold/80 text-center mt-1 lg:hidden">Toca para ver detalles</span>
                     </div>
@@ -449,7 +449,7 @@
                 <div onclick="openChargerModal('modal-5')" class="group relative overflow-hidden rounded-3xl aspect-[3/4] gold-glass-card border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold hover:shadow-glow-gold">
                     <img src="cargadortrydan.jpg" alt="V2C Trydan" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-center p-5 transition-opacity duration-300 group-hover:opacity-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-5 transition-opacity duration-300 group-hover:opacity-0">
                         <h3 class="text-base font-bold text-white text-center">V2C Trydan</h3>
                         <span class="text-[11px] text-gold/80 text-center mt-1 lg:hidden">Toca para ver detalles</span>
                     </div>
@@ -469,7 +469,7 @@
                 <div onclick="openChargerModal('modal-6')" class="group relative overflow-hidden rounded-3xl aspect-[3/4] gold-glass-card border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold hover:shadow-glow-gold">
                     <img src="cargadortrydanpro.png" alt="V2C Trydan Pro" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-center p-5 transition-opacity duration-300 group-hover:opacity-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-5 transition-opacity duration-300 group-hover:opacity-0">
                         <h3 class="text-base font-bold text-white text-center">V2C Trydan Pro</h3>
                         <span class="text-[11px] text-gold/80 text-center mt-1 lg:hidden">Toca para ver detalles</span>
                     </div>
@@ -487,9 +487,9 @@
 
                 <!-- Cargador 7: Ohme Home Pro 7.4kW -->
                 <div onclick="openChargerModal('modal-7')" class="group relative overflow-hidden rounded-3xl aspect-[3/4] gold-glass-card border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold hover:shadow-glow-gold">
-                    <img src="cargadorohme7kw.png" alt="Ohme Home Pro 7.4kW" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="cargadorohme7kw.png" alt="Ohme Home Pro 7.4kW" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-center p-5 transition-opacity duration-300 group-hover:opacity-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-5 transition-opacity duration-300 group-hover:opacity-0">
                         <h3 class="text-base font-bold text-white text-center">Ohme Home Pro (7.4kW)</h3>
                         <span class="text-[11px] text-gold/80 text-center mt-1 lg:hidden">Toca para ver detalles</span>
                     </div>
@@ -507,9 +507,9 @@
 
                 <!-- Cargador 8: Ohme Home Pro 11kW -->
                 <div onclick="openChargerModal('modal-8')" class="group relative overflow-hidden rounded-3xl aspect-[3/4] gold-glass-card border border-gold/30 cursor-pointer transition-all duration-500 hover:border-gold hover:shadow-glow-gold">
-                    <img src="cargadorhome11kw.png" alt="Ohme Home Pro 11kW" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-110">
+                    <img src="cargadorhome11kw.png" alt="Ohme Home Pro 11kW" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                     
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-center p-5 transition-opacity duration-300 group-hover:opacity-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-5 transition-opacity duration-300 group-hover:opacity-0">
                         <h3 class="text-base font-bold text-white text-center">Ohme Home Pro (11kW)</h3>
                         <span class="text-[11px] text-gold/80 text-center mt-1 lg:hidden">Toca para ver detalles</span>
                     </div>
@@ -671,7 +671,7 @@
         }
     </script>
 
-    <!-- Banner Imagen de Financiación Institucional (De lado a lado y pegado al footer) -->
+    <!-- Banner Imagen de Financiación Institucional -->
     <section class="w-full relative z-10 bg-white/95 border-t border-white/20 py-4 md:py-6 flex justify-center items-center shadow-lg">
         <img src="financiacion.png" alt="Financiado por la Unión Europea" class="max-h-16 md:max-h-20 w-auto object-contain">
     </section>
