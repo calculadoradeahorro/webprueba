@@ -409,67 +409,106 @@
 
     </main>
 
-    <!-- FOOTER CLARO -->
-    <footer class="mt-20 border-t border-slate-200 bg-white/80 backdrop-blur-md relative z-10 text-slate-600 text-xs">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
-            
-            <div class="space-y-3">
-                <div class="flex items-center gap-2">
-                    <div class="w-7 h-7 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600">
-                        <i class="fa-solid fa-bolt text-xs"></i>
-                    </div>
-                    <span class="font-extrabold text-sm text-slate-900">TECH<span class="text-amber-600">NEWS</span></span>
-                </div>
-                <p class="text-slate-500 text-xs leading-relaxed">
-                    Plataforma independiente dedicada al análisis e innovación energética para el hogar del futuro.
-                </p>
+    <!-- Banner Imagen de Financiación Institucional -->
+            <div class="p-4 md:p-6 rounded-none bg-white/95 border border-white/20 flex justify-center items-center shadow-lg">
+                <img src="financiacion.png" alt="Financiado por la Unión Europea - NextGenerationEU, Gobierno de España, Plan de Recuperación" class="max-h-16 md:max-h-20 w-auto object-contain">
             </div>
-
-            <div>
-                <h5 class="text-slate-900 font-bold mb-3 uppercase text-[11px] tracking-wider">Navegación</h5>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-amber-600 transition-colors">Últimas Noticias</a></li>
-                    <li><a href="#" class="hover:text-amber-600 transition-colors">Estudios de Eficiencia</a></li>
-                    <li><a href="#" class="hover:text-amber-600 transition-colors">Guías e Informes</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h5 class="text-slate-900 font-bold mb-3 uppercase text-[11px] tracking-wider">Legal</h5>
-                <ul class="space-y-2">
-                    <li><a href="#" class="hover:text-amber-600 transition-colors">Política de Privacidad</a></li>
-                    <li><a href="#" class="hover:text-amber-600 transition-colors">Términos del Servicio</a></li>
-                    <li><a href="#" class="hover:text-amber-600 transition-colors">Aviso Legal</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h5 class="text-slate-900 font-bold mb-3 uppercase text-[11px] tracking-wider">Síguenos</h5>
-                <div class="flex gap-3">
-                    <a href="#" class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 hover:text-amber-600 hover:bg-amber-50 transition-all border border-slate-200">
-                        <i class="fa-brands fa-x-twitter text-sm"></i>
-                    </a>
-                    <a href="#" class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 hover:text-amber-600 hover:bg-amber-50 transition-all border border-slate-200">
-                        <i class="fa-brands fa-linkedin-in text-sm"></i>
-                    </a>
-                    <a href="#" class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 hover:text-amber-600 hover:bg-amber-50 transition-all border border-slate-200">
-                        <i class="fa-brands fa-github text-sm"></i>
-                    </a>
-                </div>
-            </div>
-
         </div>
+    </section>
 
-        <div class="border-t border-slate-200 py-6 text-center text-slate-500 text-[11px]">
-            © 2026 TechNews. Todos los derechos reservados.
+    <!-- Modal Window for Full Profile Details -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+        <div id="modal-container" class="plasma-card max-w-2xl w-full rounded-3xl p-6 sm:p-10 border-2 border-energy-gold transform scale-95 transition-transform duration-300 relative overflow-hidden">
+            
+            <button onclick="closeModal()" class="absolute top-6 right-6 p-2 rounded-full bg-energy-surface text-slate-400 hover:text-white hover:bg-energy-surfaceLight transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="flex items-center gap-4 mb-6">
+                <div class="w-16 h-16 rounded-2xl bg-energy-gold/20 border border-energy-gold flex items-center justify-center text-energy-gold">
+                    <i data-lucide="zap" class="w-8 h-8"></i>
+                </div>
+                <div>
+                    <h3 id="modal-name" class="text-2xl sm:text-3xl font-black text-white"></h3>
+                    <span id="modal-role" class="text-xs font-bold uppercase tracking-widest text-energy-gold block"></span>
+                </div>
+            </div>
+
+            <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed border-t border-energy-border/50 pt-6">
+                <p id="modal-bio"></p>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-energy-border/50 flex justify-end">
+                <button onclick="closeModal()" class="px-6 py-2.5 rounded-full font-bold text-xs text-slate-900 bg-energy-gold hover:bg-energy-brightGold shadow-plasma transition-all">
+                    Cerrar Ficha
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Footer Exact Copy -->
+    <footer class="bg-[#1d1d1d] border-t border-gold/20 pt-16 pb-12 text-slate-400 text-xs relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="logoargieder.png" alt="Argieder Logo" class="h-8 w-auto object-contain">
+                    </div>
+                    <p class="leading-relaxed">
+                        Argieder Gestión es una asesoría energética tecnológica dedicada a la optimización de gasto energético para empresas.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Información</h5>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="hover:text-gold transition-colors">Aviso Legal</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors">Política de Cookies</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Contáctanos</h5>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-gold shrink-0 mt-0.5"></i>
+                            <span>OFICINA: Aranguren Auzoa 2, Local 104/105, Galerías CC Mamut, La Planta (Frente a escaleras eléctricas) 20180 Oiartzun</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-phone text-gold shrink-0"></i>
+                            <span>(+34) 943 007 407</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-envelope text-gold shrink-0"></i>
+                            <span>info@argieder.es</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Últimas Noticias</h5>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="hover:text-gold transition-colors cursor-pointer">• Instalación de cargadores para coches eléctricos en Gipuzkoa</li>
+                        <li class="hover:text-gold transition-colors cursor-pointer">• Instalaciones eléctricas en Gipuzkoa: soluciones eficientes y seguras</li>
+                        <li class="hover:text-gold transition-colors cursor-pointer">• Cómo reducir el consumo energético con tecnología LED</li>
+                        <li class="hover:text-gold transition-colors cursor-pointer">• Cargadores de coche eléctrico para gasolineras: soluciones de carga rápida</li>
+                        <li class="hover:text-gold transition-colors cursor-pointer">• Eliminación de la energía reactiva: evita penalizaciones en tu factura eléctrica</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gold/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>Argieder Gestión S.L. © - Todos los derechos reservados.</p>
+                <div class="flex gap-4 text-slate-400">
+                    <a href="https://www.facebook.com/argieder/" class="hover:text-gold"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/argieder_gestion/" class="hover:text-gold"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
     </footer>
-
-    <!-- MENSAJE TOAST PERSONALIZADO -->
-    <div id="toast" class="fixed bottom-5 right-5 bg-amber-600 text-white font-bold px-4 py-3 rounded-xl shadow-2xl transition-all duration-300 transform translate-y-20 opacity-0 z-50 flex items-center gap-2 text-xs">
-        <i class="fa-solid fa-circle-check"></i>
-        <span id="toast-message">Notificación</span>
-    </div>
 
     <!-- JAVASCRIPT -->
     <script>
