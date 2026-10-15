@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Argieder | Nuestro Equipo</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="icon" type="image/png" href="logoargieder.png">
@@ -17,14 +18,14 @@
                     colors: {
                         energy: {
                             bg: '#08090C',
-                            surface: 'rgba(37, 37, 37, 0.3)',
+                            surface: 'rgba(37,37,37,.3)',
                             surfaceLight: '#181C28',
-                            border: 'rgba(245, 184, 0, 0.15)',
+                            border: 'rgba(245,184,0,.15)',
                             gold: '#F5B800',
                             brightGold: '#FFD700',
                             cyan: '#FFFFFF',
                             white: '#FFFFFF',
-                            glowGold: 'rgba(245, 184, 0, 0.4)',
+                            glowGold: 'rgba(245,184,0,.4)',
                             glowCyan: '#FFFFFF'
                         }
                     },
@@ -32,9 +33,9 @@
                         sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif']
                     },
                     boxShadow: {
-                        'plasma': '0 0 35px -5px rgba(245, 184, 0, 0.35)',
-                        'cyan-glow': '0 0 30px -5px rgba(0, 230, 168, 0.35)',
-                        'node-hover': '0 0 50px 10px rgba(245, 184, 0, 0.5)'
+                        plasma: '0 0 35px -5px rgba(245,184,0,.35)',
+                        'cyan-glow': '0 0 30px -5px rgba(0,230,168,.35)',
+                        'node-hover': '0 0 50px 10px rgba(245,184,0,.5)'
                     }
                 }
             }
@@ -46,14 +47,13 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #1d1d1d;
+            background: #1d1d1d;
             color: #E2E8F0;
             overflow-x: hidden;
-            cursor: default;
         }
 
         .circuit-line {
-            stroke-dasharray: 10, 15;
+            stroke-dasharray: 10,15;
             animation: dash 20s linear infinite;
         }
 
@@ -62,10 +62,10 @@
         }
 
         .plasma-card {
-            background: rgba(37, 37, 37, 0.3) !important;
+            background: rgba(37,37,37,.3);
             backdrop-filter: blur(4px);
-            border: 1px solid rgba(245, 184, 0, 0.12);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(245,184,0,.12);
+            transition: all .4s cubic-bezier(.16,1,.3,1);
             position: relative;
         }
 
@@ -75,179 +75,155 @@
             inset: -1px;
             border-radius: inherit;
             padding: 1px;
-            background: linear-gradient(
-                135deg,
-                rgba(245, 184, 0, 0.3),
-                transparent 60%,
-                rgba(255, 255, 255, 0.3)
-            );
-            -webkit-mask: linear-gradient(#fff 0 0) content-box,
-                          linear-gradient(#fff 0 0);
+            background: linear-gradient(135deg,rgba(245,184,0,.3),transparent 60%,rgba(255,255,255,.3));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             pointer-events: none;
-            transition: opacity 0.5s ease;
-            opacity: 0.5;
+            opacity: .5;
+            transition: opacity .4s;
         }
 
-        .plasma-card:hover::before {
-            opacity: 1;
-            background: linear-gradient(
-                135deg,
-                rgba(255, 215, 0, 0.8),
-                rgba(255, 255, 255, 0.8)
-            );
+        .plasma-card:hover::before { opacity: 1; }
+
+        #core-orbital-wrapper {
+            --orbit-radius: 170px;
         }
 
-        /* Nodos orbitales: comportamiento original de escritorio */
         .core-member-node {
             position: absolute;
             left: 50%;
             top: 50%;
             opacity: 0;
-            transform: translate(-50%, -50%) scale(0.2);
-            transform-origin: center center;
-            transition:
-                transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
-                opacity 0.8s ease,
-                filter 0.3s ease;
-            will-change: transform;
+            transform: translate(-50%,-50%) scale(.2);
+            transition: transform .8s cubic-bezier(.34,1.56,.64,1),opacity .8s,filter .3s;
+            transform-origin: center;
             cursor: pointer;
             z-index: 20;
             -webkit-tap-highlight-color: transparent;
         }
 
-        .core-deployed .core-member-node {
-            opacity: 1;
-        }
+        .core-deployed .core-member-node { opacity: 1; }
 
+        /*
+         * Siete nodos distribuidos alrededor del núcleo.
+         * Las posiciones también se utilizan para las conexiones SVG.
+         */
         .core-deployed .node-belen {
-            transform: translate(-50%, calc(-50% - 170px)) scale(1);
+            transform: translate(-50%,calc(-50% - 170px));
         }
 
         .core-deployed .node-veronica {
-            transform: translate(calc(-50% + 150px), calc(-50% - 85px)) scale(1);
+            transform: translate(calc(-50% + 133px),calc(-50% - 106px));
         }
 
         .core-deployed .node-janire {
-            transform: translate(calc(-50% + 150px), calc(-50% + 85px)) scale(1);
+            transform: translate(calc(-50% + 166px),calc(-50% + 38px));
         }
 
         .core-deployed .node-david {
-            transform: translate(calc(-50% - 150px), calc(-50% + 85px)) scale(1);
+            transform: translate(calc(-50% - 166px),calc(-50% + 38px));
         }
 
         .core-deployed .node-olatz {
-            transform: translate(-50%, calc(-50% + 170px)) scale(1);
+            transform: translate(calc(-50% + 106px),calc(-50% + 133px));
         }
 
         .core-deployed .node-maialen {
-            transform: translate(calc(-50% - 150px), calc(-50% - 85px)) scale(1);
+            transform: translate(calc(-50% - 106px),calc(-50% + 133px));
         }
 
-        /* Posiciones originales para móvil */
-        @media (max-width: 640px) {
-            .core-deployed .node-belen {
-                transform: translate(-50%, calc(-50% - 130px)) scale(0.85);
-            }
-
-            .core-deployed .node-veronica {
-                transform: translate(calc(-50% + 115px), calc(-50% - 65px)) scale(0.85);
-            }
-
-            .core-deployed .node-janire {
-                transform: translate(calc(-50% + 115px), calc(-50% + 65px)) scale(0.85);
-            }
-
-            .core-deployed .node-david {
-                transform: translate(calc(-50% - 115px), calc(-50% + 65px)) scale(0.85);
-            }
-
-            .core-deployed .node-olatz {
-                transform: translate(-50%, calc(-50% + 130px)) scale(0.85);
-            }
-
-            .core-deployed .node-maialen {
-                transform: translate(calc(-50% - 115px), calc(-50% - 65px)) scale(0.85);
-            }
-        }
-
-        /*
-         * CAMBIOS SOLO PARA MÓVIL:
-         * Ocultar el panel de información y permitir ampliar los nodos.
-         * El tamaño del avatar sigue siendo circular.
-         */
-        @media (max-width: 767px) {
-            #core-hud-card {
-                display: none !important;
-            }
-
-            .core-member-node.mobile-selected {
-                z-index: 60;
-                transform-origin: center center;
-                filter: brightness(1.12);
-            }
-
-            .core-deployed .node-belen.mobile-selected {
-                transform: translate(-50%, calc(-50% - 130px)) scale(1.12);
-            }
-
-            .core-deployed .node-veronica.mobile-selected {
-                transform: translate(calc(-50% + 115px), calc(-50% - 65px)) scale(1.12);
-            }
-
-            .core-deployed .node-janire.mobile-selected {
-                transform: translate(calc(-50% + 115px), calc(-50% + 65px)) scale(1.12);
-            }
-
-            .core-deployed .node-david.mobile-selected {
-                transform: translate(calc(-50% - 115px), calc(-50% + 65px)) scale(1.12);
-            }
-
-            .core-deployed .node-olatz.mobile-selected {
-                transform: translate(-50%, calc(-50% + 130px)) scale(1.12);
-            }
-
-            .core-deployed .node-maialen.mobile-selected {
-                transform: translate(calc(-50% - 115px), calc(-50% - 65px)) scale(1.12);
-            }
-
-            .core-member-node.mobile-selected .rounded-full {
-                box-shadow: 0 0 24px rgba(245, 184, 0, 0.65);
-            }
+        .core-deployed .node-ana {
+            transform: translate(calc(-50% - 133px),calc(-50% - 106px));
         }
 
         .text-glow-gold {
-            text-shadow: 0 0 15px rgba(245, 184, 0, 0.5);
+            text-shadow: 0 0 15px rgba(245,184,0,.5);
         }
 
-        .text-glow-cyan {
-            text-shadow: 0 0 15px rgba(0, 230, 168, 0.5);
+        @media (max-width: 640px) {
+            #core-orbital-wrapper {
+                --orbit-radius: 125px;
+            }
+
+            .core-deployed .node-belen {
+                transform: translate(-50%,calc(-50% - 130px)) scale(.76);
+            }
+
+            .core-deployed .node-veronica {
+                transform: translate(calc(-50% + 102px),calc(-50% - 81px)) scale(.76);
+            }
+
+            .core-deployed .node-janire {
+                transform: translate(calc(-50% + 127px),calc(-50% + 29px)) scale(.76);
+            }
+
+            .core-deployed .node-david {
+                transform: translate(calc(-50% - 127px),calc(-50% + 29px)) scale(.76);
+            }
+
+            .core-deployed .node-olatz {
+                transform: translate(calc(-50% + 81px),calc(-50% + 102px)) scale(.76);
+            }
+
+            .core-deployed .node-maialen {
+                transform: translate(calc(-50% - 81px),calc(-50% + 102px)) scale(.76);
+            }
+
+            .core-deployed .node-ana {
+                transform: translate(calc(-50% - 102px),calc(-50% - 81px)) scale(.76);
+            }
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
+        @media (max-width: 767px) {
+            #core-hud-card { display: none !important; }
+
+            .core-member-node.mobile-selected {
+                z-index: 60;
+                filter: brightness(1.15);
+            }
+
+            .core-deployed .node-belen.mobile-selected {
+                transform: translate(-50%,calc(-50% - 130px)) scale(.95);
+            }
+
+            .core-deployed .node-veronica.mobile-selected {
+                transform: translate(calc(-50% + 102px),calc(-50% - 81px)) scale(.95);
+            }
+
+            .core-deployed .node-janire.mobile-selected {
+                transform: translate(calc(-50% + 127px),calc(-50% + 29px)) scale(.95);
+            }
+
+            .core-deployed .node-david.mobile-selected {
+                transform: translate(calc(-50% - 127px),calc(-50% + 29px)) scale(.95);
+            }
+
+            .core-deployed .node-olatz.mobile-selected {
+                transform: translate(calc(-50% + 81px),calc(-50% + 102px)) scale(.95);
+            }
+
+            .core-deployed .node-maialen.mobile-selected {
+                transform: translate(calc(-50% - 81px),calc(-50% + 102px)) scale(.95);
+            }
+
+            .core-deployed .node-ana.mobile-selected {
+                transform: translate(calc(-50% - 102px),calc(-50% - 81px)) scale(.95);
+            }
         }
 
-        ::-webkit-scrollbar-track {
-            background: #08090C;
-        }
-
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #08090C; }
         ::-webkit-scrollbar-thumb {
             background: #181C28;
             border-radius: 4px;
-            border: 1px solid rgba(245, 184, 0, 0.2);
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #F5B800;
+            border: 1px solid rgba(245,184,0,.2);
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .core-member-node,
-            .circuit-line {
+            .core-member-node,.circuit-line {
                 animation: none !important;
-                transition-duration: 0.01ms !important;
+                transition-duration: .01ms !important;
             }
         }
     </style>
@@ -255,197 +231,201 @@
 
 <body class="relative min-h-screen selection:bg-energy-gold selection:text-black">
 
-    <!-- Un único canvas de fondo -->
     <canvas id="canvas-matrix" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-    <!-- Cabecera -->
-    <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
-        <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
-            <a href="https://calculadoradeahorro.github.io/webprueba/" class="flex items-center shrink-0 group">
-                <img src="logoargieder.png" alt="Argieder Logo" class="h-8 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+    <!-- CABECERA -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-[#1d1d1d]/90 backdrop-blur-md border-b border-energy-gold/20 px-4 lg:px-8 py-3.5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center gap-3">
+            <a href="https://calculadoradeahorro.github.io/webprueba/" class="shrink-0">
+                <img src="logoargieder.png" alt="Argieder Logo" class="h-8 md:h-10 w-auto">
             </a>
 
-            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-slate-300">
-                <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold transition-colors py-1">Inicio</a>
-                <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold transition-colors py-1">Ahorra en tu factura</a>
-                <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/" class="hover:text-gold transition-colors py-1">Nuestro equipo</a>
-                <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="hover:text-gold transition-colors py-1">Servicios</a>
-                <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold transition-colors py-1">Contacto</a>
-
-                <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-xs font-bold uppercase tracking-wider hover:bg-emerald-500/20 hover:border-emerald-400 hover:shadow-[0_0_20px_rgba(52,211,153,0.3)] transition-all duration-300 whitespace-nowrap">
-                    <span>€</span>
-                    <span>CALCULA TU AHORRO CON AULED</span>
-                </a>
+            <nav class="hidden md:flex items-center gap-5 text-sm font-medium text-slate-300">
+                <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-energy-gold">Inicio</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-energy-gold">Ahorra en tu factura</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/" class="hover:text-energy-gold">Nuestro equipo</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="hover:text-energy-gold">Servicios</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-energy-gold">Contacto</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="text-emerald-400 font-bold">€ CALCULA TU AHORRO CON AULED</a>
             </nav>
 
-            <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="md:hidden inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[11px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">
-                <span>€</span>
-                <span>ahorra con auled</span>
-            </a>
-
-            <a href="https://calculadoradeahorro.github.io/webprueba/auledchargerdesign/" class="flex items-center shrink-0 group">
-                <img src="logoauled.png" alt="Auled Logo" class="h-8 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+            <a href="https://calculadoradeahorro.github.io/webprueba/auledchargerdesign/" class="shrink-0">
+                <img src="logoauled.png" alt="Auled Logo" class="h-8 md:h-10 w-auto">
             </a>
         </div>
 
-        <div class="md:hidden flex justify-center items-center gap-4 pt-3 border-t border-white/5 mt-2 text-xs font-medium text-slate-300 overflow-x-auto whitespace-nowrap">
-            <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold">Inicio</a>
-            <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold">Factura</a>
-            <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/" class="hover:text-gold">Equipo</a>
-            <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="hover:text-gold">Servicios</a>
-            <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold">Contacto</a>
-        </div>
+        <nav class="md:hidden flex justify-center gap-4 pt-3 mt-2 border-t border-white/10 text-xs text-slate-300">
+            <a href="https://calculadoradeahorro.github.io/webprueba/">Inicio</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/#factura">Factura</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/">Equipo</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/#servicios">Servicios</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/#contacto">Contacto</a>
+        </nav>
     </header>
 
-    <!-- Introducción y núcleo orbital -->
+    <!-- INTRODUCCIÓN Y NÚCLEO ORBITAL -->
     <section id="core-section" class="relative pt-36 md:pt-44 pb-16 lg:pb-24 z-10 min-h-[90vh] flex items-center">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center md:text-left">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
                 <div class="lg:col-span-6 space-y-6 text-center md:text-left">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 mx-auto md:mx-0 rounded-full bg-energy-surface border border-energy-gold/30 text-energy-gold text-xs font-bold tracking-wider uppercase shadow-plasma">
-                        <i data-lucide="sparkles" class="w-4 h-4 text-energy-gold"></i>
-                        <span>Nuestra Esencia y Origen desde 2011</span>
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-energy-surface border border-energy-gold/30 text-energy-gold text-xs font-bold uppercase">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        Nuestra Esencia y Origen desde 2011
                     </div>
 
-                    <h1 class="text-4xl sm:text-6xl mx-auto md:mx-0 font-black text-white tracking-tight leading-tight">
-                        Somos <span class="bg-clip-text text-transparent bg-gradient-to-r from-energy-gold via-energy-brightGold to-energy-cyan text-glow-gold">Argieder</span>
+                    <h1 class="text-4xl sm:text-6xl font-black text-white">
+                        Somos <span class="text-energy-gold text-glow-gold">Argieder</span>
                     </h1>
 
-                    <div class="plasma-card mx-auto md:mx-0 rounded-3xl p-6 sm:p-8 space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed">
+                    <div class="plasma-card rounded-3xl p-6 sm:p-8 space-y-4 text-slate-300 leading-relaxed">
                         <p>
-                            <strong class="text-white font-bold">Argieder fue fundada en 2011 por David Tena y Janire Etxebeste</strong>, después de trabajar juntos durante cuatro años en otra empresa del sector energético.
+                            <strong class="text-white">Argieder fue fundada en 2011 por David Tena y Janire Etxebeste</strong>, después de trabajar juntos durante cuatro años en otra empresa del sector energético.
                         </p>
-                        <p class="text-slate-400 text-sm sm:text-base">
-                            Tomamos esta decisión al coincidir en la necesidad de transmitir a los usuarios, de manera muy personalizada, la <span class="text-energy-gold font-semibold">transparencia entre los precios energéticos</span>, priorizando el beneficio de sus clientes frente al de las grandes compañías energéticas.
+                        <p class="text-slate-400">
+                            Nuestro objetivo es transmitir a los usuarios, de manera personalizada, la
+                            <span class="text-energy-gold font-semibold">transparencia entre los precios energéticos</span>,
+                            priorizando el beneficio de nuestros clientes.
                         </p>
                     </div>
 
-                    <!-- Visible en escritorio; oculto en móvil mediante CSS -->
-                    <div id="core-hud-card" class="plasma-card rounded-2xl p-5 border border-energy-gold/40 bg-energy-surface/90 transition-all duration-300 min-h-[120px] flex items-center">
-                        <div class="flex items-center gap-4 w-full">
-                            <div class="w-12 h-12 rounded-xl bg-energy-gold/20 border border-energy-gold flex items-center justify-center shrink-0">
-                                <i id="hud-icon" data-lucide="zap" class="w-6 h-6 text-energy-gold"></i>
+                    <div id="core-hud-card" class="plasma-card rounded-2xl p-5 min-h-[120px] flex items-center">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-energy-gold/20 border border-energy-gold flex items-center justify-center">
+                                <i data-lucide="zap" class="w-6 h-6 text-energy-gold"></i>
                             </div>
-                            <div class="space-y-1">
+                            <div>
                                 <div class="flex items-center gap-2 flex-wrap">
                                     <span id="hud-name" class="text-lg font-black text-white">Interactúa con el Núcleo</span>
-                                    <span id="hud-tag" class="px-2 py-0.5 rounded-full bg-energy-surface/50 text-energy-cyan text-[10px] font-bold uppercase">En Línea</span>
+                                    <span id="hud-tag" class="px-2 py-0.5 rounded-full bg-energy-surface text-energy-cyan text-[10px] font-bold uppercase">En línea</span>
                                 </div>
-                                <p id="hud-desc" class="text-xs text-slate-400">Pasa el cursor o toca los círculos del mapa para activar la transmisión de datos de cada integrante.</p>
+                                <p id="hud-desc" class="text-xs text-slate-400">Selecciona un nodo para conocer a cada integrante del equipo.</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-3 gap-4 pt-2">
-                        <div class="p-4 rounded-2xl bg-energy-surface/50 border border-energy-border text-center">
-                            <span class="text-2xl sm:text-3xl font-black text-energy-cyan">100%</span>
-                            <span class="block text-[11px] uppercase text-slate-400 font-bold tracking-wider mt-1">Transparencia</span>
+                        <div class="p-4 rounded-2xl bg-energy-surface border border-energy-border text-center">
+                            <span class="text-2xl sm:text-3xl font-black text-white">100%</span>
+                            <span class="block text-[11px] uppercase text-slate-400 mt-1">Transparencia</span>
                         </div>
-                        <div class="p-4 rounded-2xl bg-energy-surface/50 border border-energy-border text-center">
-                            <span class="text-2xl sm:text-3xl font-black text-energy-gold text-glow-gold">2011</span>
-                            <span class="block text-[11px] uppercase text-slate-400 font-bold tracking-wider mt-1">Fundación</span>
+                        <div class="p-4 rounded-2xl bg-energy-surface border border-energy-border text-center">
+                            <span class="text-2xl sm:text-3xl font-black text-energy-gold">2011</span>
+                            <span class="block text-[11px] uppercase text-slate-400 mt-1">Fundación</span>
                         </div>
-                        <div class="p-4 rounded-2xl bg-energy-surface/50 border border-energy-border text-center">
-                            <span class="text-2xl sm:text-3xl font-black text-white">6</span>
-                            <span class="block text-[11px] uppercase text-slate-400 font-bold tracking-wider mt-1">Especialistas</span>
+                        <div class="p-4 rounded-2xl bg-energy-surface border border-energy-border text-center">
+                            <span class="text-2xl sm:text-3xl font-black text-white">7</span>
+                            <span class="block text-[11px] uppercase text-slate-400 mt-1">Especialistas</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Núcleo orbital -->
-                <div class="lg:col-span-6 relative flex justify-center items-center py-12">
+                <!-- NÚCLEO ORBITAL -->
+                <div class="lg:col-span-6 flex justify-center items-center py-12">
                     <div id="core-orbital-wrapper" class="relative w-[360px] h-[360px] sm:w-[460px] sm:h-[460px] flex items-center justify-center">
 
-                        <svg id="core-beam-svg" class="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" viewBox="-230 -230 460 460" preserveAspectRatio="xMidYMid meet">
-                            <circle cx="0" cy="0" r="170" fill="none" stroke="rgba(245, 184, 0, 0.15)" stroke-width="1.5" stroke-dasharray="6, 6"/>
-                            <circle cx="0" cy="0" r="110" fill="none" stroke="rgba(255, 255, 255, 0.3)" stroke-width="1"/>
+                        <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="-230 -230 460 460">
+                            <circle cx="0" cy="0" r="170" fill="none" stroke="rgba(245,184,0,.2)" stroke-width="1.5" stroke-dasharray="6,6"/>
+                            <circle cx="0" cy="0" r="110" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
 
-                            <line id="beam-belen" x1="0" y1="0" x2="0" y2="-170" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4"/>
-                            <line id="beam-veronica" x1="0" y1="0" x2="150" y2="-85" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4"/>
-                            <line id="beam-janire" x1="0" y1="0" x2="150" y2="85" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4"/>
-                            <line id="beam-david" x1="0" y1="0" x2="-150" y2="85" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4"/>
-                            <line id="beam-olatz" x1="0" y1="0" x2="0" y2="170" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4"/>
-                            <line id="beam-maialen" x1="0" y1="0" x2="-150" y2="-85" stroke="#FFFFFF" stroke-width="2" opacity="0.3" stroke-dasharray="4,4"/>
+                            <line id="beam-belen" x1="0" y1="0" x2="0" y2="-170" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-veronica" x1="0" y1="0" x2="133" y2="-106" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-janire" x1="0" y1="0" x2="166" y2="38" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-david" x1="0" y1="0" x2="-166" y2="38" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-olatz" x1="0" y1="0" x2="106" y2="133" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-maialen" x1="0" y1="0" x2="-106" y2="133" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-ana" x1="0" y1="0" x2="-133" y2="-106" stroke="#F5B800" stroke-width="2" opacity=".3"/>
                         </svg>
 
-                        <div class="relative w-36 h-36 rounded-full bg-energy-surface/50 p-1 shadow-node-hover z-10 flex items-center justify-center transition-transform duration-500 hover:scale-105">
-                            <div class="w-full h-full bg-energy-surface/90 rounded-full flex flex-col items-center justify-center text-center p-3">
-                                <img src="logoargieder.png" alt="Icono Núcleo" class="w-8 h-8 object-contain">
-                                <span class="text-xs uppercase text-white tracking-widest mt-1">EQUIPO</span>
+                        <div class="relative w-36 h-36 rounded-full bg-energy-surface p-1 shadow-node-hover z-10 flex items-center justify-center">
+                            <div class="w-full h-full rounded-full flex flex-col items-center justify-center text-center p-3">
+                                <img src="logoargieder.png" alt="Argieder" class="w-8 h-8 object-contain">
+                                <span class="text-xs uppercase text-white tracking-widest mt-2">EQUIPO</span>
                                 <span class="text-xs uppercase text-white tracking-widest mt-1">ARGIEDER</span>
                             </div>
                         </div>
 
-                        <!-- Belén -->
-                        <div class="core-member-node node-belen z-20" data-member="belen" role="button" tabindex="0" aria-label="Ver información de Belén Teijeira">
-                            <div class="relative group">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-                                    <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
+                        <!-- BELÉN -->
+                        <div class="core-member-node node-belen" data-member="belen" role="button" tabindex="0" aria-label="Ver información de Belén Teijeira">
+                            <div class="relative">
+                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="belen.jpg" alt="Belén Teijeira" class="w-full h-full object-cover">
                                     </div>
                                 </div>
-                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-slate-900 text-[10px] font-black tracking-wider whitespace-nowrap shadow-plasma">BELÉN</span>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">BELÉN</span>
                             </div>
                         </div>
 
-                        <!-- Verónica -->
-                        <div class="core-member-node node-veronica z-20" data-member="veronica" role="button" tabindex="0" aria-label="Ver información de Verónica Martín">
-                            <div class="relative group">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-glowGold group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-                                    <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
+                        <!-- VERÓNICA -->
+                        <div class="core-member-node node-veronica" data-member="veronica" role="button" tabindex="0" aria-label="Ver información de Verónica Martín">
+                            <div class="relative">
+                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="veronica.jpg" alt="Verónica Martín" class="w-full h-full object-cover">
                                     </div>
                                 </div>
-                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-slate-900 text-[10px] font-black tracking-wider whitespace-nowrap shadow-glowGold">VERÓNICA</span>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">VERÓNICA</span>
                             </div>
                         </div>
 
-                        <!-- Janire -->
-                        <div class="core-member-node node-janire z-20" data-member="janire" role="button" tabindex="0" aria-label="Ver información de Janire Etxebeste">
-                            <div class="relative group">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-                                    <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
+                        <!-- JANIRE -->
+                        <div class="core-member-node node-janire" data-member="janire" role="button" tabindex="0" aria-label="Ver información de Janire Etxebeste">
+                            <div class="relative">
+                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="janire.jpg" alt="Janire Etxebeste" class="w-full h-full object-cover">
                                     </div>
                                 </div>
-                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-slate-900 text-[10px] font-black tracking-wider whitespace-nowrap shadow-plasma">JANIRE</span>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">JANIRE</span>
                             </div>
                         </div>
 
-                        <!-- David -->
-                        <div class="core-member-node node-david z-20" data-member="david" role="button" tabindex="0" aria-label="Ver información de David Tena">
-                            <div class="relative group">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-glowGold group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-                                    <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
+                        <!-- DAVID -->
+                        <div class="core-member-node node-david" data-member="david" role="button" tabindex="0" aria-label="Ver información de David Tena">
+                            <div class="relative">
+                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="david.jpg" alt="David Tena" class="w-full h-full object-cover">
                                     </div>
                                 </div>
-                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-slate-900 text-[10px] font-black tracking-wider whitespace-nowrap shadow-glowGold">DAVID</span>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">DAVID</span>
                             </div>
                         </div>
 
-                        <!-- Olatz -->
-                        <div class="core-member-node node-olatz z-20" data-member="olatz" role="button" tabindex="0" aria-label="Ver información de Olatz Garai">
-                            <div class="relative group">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-                                    <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
+                        <!-- OLATZ -->
+                        <div class="core-member-node node-olatz" data-member="olatz" role="button" tabindex="0" aria-label="Ver información de Olatz Garai">
+                            <div class="relative">
+                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="olatz.jpg" alt="Olatz Garai" class="w-full h-full object-cover">
                                     </div>
                                 </div>
-                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-slate-900 text-[10px] font-black tracking-wider whitespace-nowrap shadow-plasma">OLATZ</span>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">OLATZ</span>
                             </div>
                         </div>
 
-                        <!-- Maialen -->
-                        <div class="core-member-node node-maialen z-20" data-member="maialen" role="button" tabindex="0" aria-label="Ver información de Maialen">
-                            <div class="relative group">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
-                                    <div class="w-full h-full rounded-full bg-energy-surface overflow-hidden flex items-center justify-center border-2 border-energy-bg">
+                        <!-- MAIALEN -->
+                        <div class="core-member-node node-maialen" data-member="maialen" role="button" tabindex="0" aria-label="Ver información de Maialen">
+                            <div class="relative">
+                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="sinfoto.png" alt="Maialen" class="w-full h-full object-cover">
                                     </div>
                                 </div>
-                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-slate-900 text-[10px] font-black tracking-wider whitespace-nowrap shadow-plasma">MAIALEN</span>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">MAIALEN</span>
+                            </div>
+                        </div>
+
+                        <!-- NUEVA INTEGRANTE: ANA -->
+                        <div class="core-member-node node-ana" data-member="ana" role="button" tabindex="0" aria-label="Ver información de Ana">
+                            <div class="relative">
+                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
+                                        <img src="sinfoto.png" alt="Ana" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">ANA</span>
                             </div>
                         </div>
 
@@ -455,178 +435,98 @@
         </div>
     </section>
 
-    <!-- Fichas del equipo -->
+    <!-- TARJETAS DEL EQUIPO -->
     <section class="py-20 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
                 <h2 class="text-xs font-bold uppercase tracking-widest text-energy-cyan">Nodos de Energía Humana</h2>
-                <h3 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
+                <h3 class="text-3xl sm:text-5xl font-black text-white">
                     Conoce a Nuestro <span class="text-energy-gold text-glow-gold">Equipo</span>
                 </h3>
                 <p class="text-slate-400 text-sm sm:text-base">
-                    Haz clic o pasa el cursor sobre cada especialista para explorar su trayectoria, responsabilidades e impacto en la optimización de tu energía.
+                    Selecciona cada especialista para conocer su trayectoria, responsabilidades e impacto en Argieder.
                 </p>
             </div>
 
-            <div class="relative">
-                <svg class="absolute inset-0 w-full h-full pointer-events-none hidden lg:block opacity-30 z-0" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="20%" y1="20%" x2="50%" y2="20%" stroke="#FFFFFF" stroke-width="2" class="circuit-line"/>
-                    <line x1="50%" y1="20%" x2="80%" y2="20%" stroke="#FFFFFF" stroke-width="2" class="circuit-line"/>
-                    <line x1="30%" y1="70%" x2="70%" y2="70%" stroke="#FFFFFF" stroke-width="2" class="circuit-line"/>
-                    <line x1="50%" y1="20%" x2="50%" y2="70%" stroke="#FFFFFF" stroke-width="2" class="circuit-line"/>
-                </svg>
+            <div id="team-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10" id="team-grid">
-
-                    <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" data-role="comercial" onclick="openModal('janire')">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="relative">
-                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-energy-gold to-energy-cyan p-0.5 shadow-plasma group-hover:scale-110 transition-transform duration-300">
-                                    <div class="w-full h-full bg-energy-surface rounded-[14px] overflow-hidden">
-                                        <img src="janire.jpg" alt="Janire Etxebeste" class="w-full h-full object-cover">
-                                    </div>
-                                </div>
-                                <span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-energy-gold border-2 border-energy-bg flex items-center justify-center text-[10px] text-black font-bold">★</span>
-                            </div>
-                            <span class="px-3 py-1 rounded-full bg-energy-cyan/10 border border-energy-cyan/30 text-energy-cyan text-[11px] font-bold uppercase tracking-wider">Estrategia Comercial</span>
-                        </div>
-                        <h4 class="text-2xl font-black text-white group-hover:text-energy-cyan transition-colors">Janire Etxebeste</h4>
-                        <span class="text-xs font-bold uppercase tracking-widest text-energy-cyan block mb-4">Directora Comercial</span>
-                        <p class="text-slate-300 text-xs leading-relaxed line-clamp-4 mb-6">
-                            Janire, al igual que su socio David, lleva también once años en el sector energético y desde hace siete dirige el departamento comercial. Se encarga de los acuerdos de colaboración con las compañías energéticas y asociaciones...
-                        </p>
-                        <div class="pt-4 border-t border-energy-border/50 flex items-center justify-between text-xs font-bold text-energy-cyan group-hover:text-energy-gold transition-colors">
-                            <span>Ver Ficha Completa</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-
-                    <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" data-role="direccion" onclick="openModal('david')">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="relative">
-                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-energy-gold to-yellow-600 p-0.5 shadow-plasma group-hover:scale-110 transition-transform duration-300">
-                                    <div class="w-full h-full bg-energy-surface rounded-[14px] overflow-hidden">
-                                        <img src="david.jpg" alt="David Tena" class="w-full h-full object-cover">
-                                    </div>
-                                </div>
-                                <span class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-energy-cyan border-2 border-energy-bg flex items-center justify-center text-[10px] text-black font-bold">✓</span>
-                            </div>
-                            <span class="px-3 py-1 rounded-full bg-energy-gold/10 border border-energy-gold/30 text-energy-gold text-[11px] font-bold uppercase tracking-wider">Dirección Técnica</span>
-                        </div>
-                        <h4 class="text-2xl font-black text-white group-hover:text-energy-gold transition-colors">David Tena</h4>
-                        <span class="text-xs font-bold uppercase tracking-widest text-energy-gold block mb-4">Gerente</span>
-                        <p class="text-slate-300 text-xs leading-relaxed line-clamp-4 mb-6">
-                            Es el encargado del día a día de Argieder y asume la dirección técnica. Lleva once años en el sector energético y se encarga de realizar tanto estudios y presupuestos como de gestionar las áreas de domótica, energía reactiva, energía solar, seguridad e iluminación...
-                        </p>
-                        <div class="pt-4 border-t border-energy-border/50 flex items-center justify-between text-xs font-bold text-energy-cyan group-hover:text-energy-gold transition-colors">
-                            <span>Ver Ficha Completa</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-
-                    <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" data-role="administracion" onclick="openModal('veronica')">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="relative">
-                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-energy-gold to-energy-cyan p-0.5 shadow-plasma group-hover:scale-110 transition-transform duration-300">
-                                    <div class="w-full h-full bg-energy-surface rounded-[14px] overflow-hidden">
-                                        <img src="veronica.jpg" alt="Verónica Martín" class="w-full h-full object-cover">
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="px-3 py-1 rounded-full bg-energy-gold/10 border border-energy-gold/30 text-energy-gold text-[11px] font-bold uppercase tracking-wider">Gestión Financiera</span>
-                        </div>
-                        <h4 class="text-2xl font-black text-white group-hover:text-energy-gold transition-colors">Verónica Martín</h4>
-                        <span class="text-xs font-bold uppercase tracking-widest text-energy-gold block mb-4">Departamento de Administración</span>
-                        <p class="text-slate-300 text-xs leading-relaxed line-clamp-4 mb-6">
-                            Diplomada en la especialidad de dirección de pymes de la Universidad de Deusto. Verónica lleva hasta hace 6 años la facturación y contabilidad de Argieder, además de realizar estudios como los comparativos energéticos...
-                        </p>
-                        <div class="pt-4 border-t border-energy-border/50 flex items-center justify-between text-xs font-bold text-energy-cyan group-hover:text-energy-gold transition-colors">
-                            <span>Ver Ficha Completa</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-
-                    <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" data-role="comercial" onclick="openModal('belen')">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="relative">
-                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-energy-cyan to-blue-500 p-0.5 shadow-glowGold group-hover:scale-110 transition-transform duration-300">
-                                    <div class="w-full h-full bg-energy-surface rounded-[14px] overflow-hidden">
-                                        <img src="belen.jpg" alt="Belén Teijeira" class="w-full h-full object-cover">
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="px-3 py-1 rounded-full bg-energy-cyan/10 border border-energy-cyan/30 text-energy-cyan text-[11px] font-bold uppercase tracking-wider">Atención & Expansión</span>
-                        </div>
-                        <h4 class="text-2xl font-black text-white group-hover:text-energy-cyan transition-colors">Belén Teijeira</h4>
-                        <span class="text-xs font-bold uppercase tracking-widest text-energy-cyan block mb-4">Gestión y Atención al Cliente</span>
-                        <p class="text-slate-300 text-xs leading-relaxed line-clamp-4 mb-6">
-                            Belén apoya activamente en la gestión diaria de clientes y procesos administrativos, ofreciendo una atención cercana y un soporte eficiente para resolver consultas y agilizar la gestión energética.
-                        </p>
-                        <div class="pt-4 border-t border-energy-border/50 flex items-center justify-between text-xs font-bold text-energy-cyan group-hover:text-energy-gold transition-colors">
-                            <span>Ver Ficha Completa</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-
-                    <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" data-role="comercial" onclick="openModal('olatz')">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="relative">
-                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-energy-gold to-energy-cyan p-0.5 shadow-plasma group-hover:scale-110 transition-transform duration-300">
-                                    <div class="w-full h-full bg-energy-surface rounded-[14px] overflow-hidden">
-                                        <img src="olatz.jpg" alt="Olatz Garai" class="w-full h-full object-cover">
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="px-3 py-1 rounded-full bg-energy-gold/10 border border-energy-gold/30 text-energy-gold text-[11px] font-bold uppercase tracking-wider">Asesora Senior</span>
-                        </div>
-                        <h4 class="text-2xl font-black text-white group-hover:text-energy-gold transition-colors">Olatz Garai</h4>
-                        <span class="text-xs font-bold uppercase tracking-widest text-energy-gold block mb-4">Comercial</span>
-                        <p class="text-slate-300 text-xs leading-relaxed line-clamp-4 mb-6">
-                            Olatz da su visión energética a gran parte de nuestros clientes que, de manera cercana y honesta, les asesora sobre la mejor manera de optimizar sus gastos energéticos.
-                        </p>
-                        <div class="pt-4 border-t border-energy-border/50 flex items-center justify-between text-xs font-bold text-energy-cyan group-hover:text-energy-gold transition-colors">
-                            <span>Ver Ficha Completa</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-
-                    <div class="team-card plasma-card rounded-3xl p-8 group transition-all duration-500 cursor-pointer hover:-translate-y-2" data-role="administracion" onclick="openModal('maialen')">
-                        <div class="flex items-start justify-between mb-6">
-                            <div class="relative">
-                                <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-energy-gold to-energy-cyan p-0.5 shadow-plasma group-hover:scale-110 transition-transform duration-300">
-                                    <div class="w-full h-full bg-energy-surface rounded-[14px] overflow-hidden">
-                                        <img src="sinfoto.png" alt="Maialen" class="w-full h-full object-cover">
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="px-3 py-1 rounded-full bg-energy-cyan/10 border border-energy-cyan/30 text-energy-cyan text-[11px] font-bold uppercase tracking-wider">Atención & Soporte</span>
-                        </div>
-                        <h4 class="text-2xl font-black text-white group-hover:text-energy-cyan transition-colors">Maialen</h4>
-                        <span class="text-xs font-bold uppercase tracking-widest text-energy-cyan block mb-4">Gestión y Administración</span>
-                        <p class="text-slate-300 text-xs leading-relaxed line-clamp-4 mb-6">
-                            Maialen apoya activamente en la gestión diaria de clientes y procesos administrativos, ofreciendo una atención cercana y un soporte eficiente para resolver consultas y agilizar la gestión energética.
-                        </p>
-                        <div class="pt-4 border-t border-energy-border/50 flex items-center justify-between text-xs font-bold text-energy-cyan group-hover:text-energy-gold transition-colors">
-                            <span>Ver Ficha Completa</span>
-                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                        </div>
-                    </div>
-
+                <div class="team-card plasma-card rounded-3xl p-8 cursor-pointer hover:-translate-y-2" onclick="openModal('janire')">
+                    <img src="janire.jpg" alt="Janire Etxebeste" class="w-20 h-20 rounded-2xl object-cover mb-5">
+                    <span class="text-xs uppercase font-bold text-energy-cyan">Estrategia Comercial</span>
+                    <h4 class="text-2xl font-black text-white mt-2">Janire Etxebeste</h4>
+                    <p class="text-xs uppercase tracking-widest text-energy-cyan mt-2 mb-4">Directora Comercial</p>
+                    <p class="text-sm text-slate-300 mb-5">Dirige el departamento comercial, los acuerdos de colaboración con compañías energéticas y asociaciones, y la expansión comercial.</p>
+                    <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
                 </div>
+
+                <div class="team-card plasma-card rounded-3xl p-8 cursor-pointer hover:-translate-y-2" onclick="openModal('david')">
+                    <img src="david.jpg" alt="David Tena" class="w-20 h-20 rounded-2xl object-cover mb-5">
+                    <span class="text-xs uppercase font-bold text-energy-gold">Dirección Técnica</span>
+                    <h4 class="text-2xl font-black text-white mt-2">David Tena</h4>
+                    <p class="text-xs uppercase tracking-widest text-energy-gold mt-2 mb-4">Gerente</p>
+                    <p class="text-sm text-slate-300 mb-5">Coordina el día a día de Argieder y la dirección técnica, incluyendo estudios, presupuestos, domótica, energía solar e iluminación.</p>
+                    <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
+                </div>
+
+                <div class="team-card plasma-card rounded-3xl p-8 cursor-pointer hover:-translate-y-2" onclick="openModal('veronica')">
+                    <img src="veronica.jpg" alt="Verónica Martín" class="w-20 h-20 rounded-2xl object-cover mb-5">
+                    <span class="text-xs uppercase font-bold text-energy-gold">Gestión Financiera</span>
+                    <h4 class="text-2xl font-black text-white mt-2">Verónica Martín</h4>
+                    <p class="text-xs uppercase tracking-widest text-energy-gold mt-2 mb-4">Departamento de Administración</p>
+                    <p class="text-sm text-slate-300 mb-5">Gestiona la facturación, la contabilidad y los estudios comparativos energéticos para empresas y clientes domésticos.</p>
+                    <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
+                </div>
+
+                <div class="team-card plasma-card rounded-3xl p-8 cursor-pointer hover:-translate-y-2" onclick="openModal('belen')">
+                    <img src="belen.jpg" alt="Belén Teijeira" class="w-20 h-20 rounded-2xl object-cover mb-5">
+                    <span class="text-xs uppercase font-bold text-energy-cyan">Atención al Cliente</span>
+                    <h4 class="text-2xl font-black text-white mt-2">Belén Teijeira</h4>
+                    <p class="text-xs uppercase tracking-widest text-energy-cyan mt-2 mb-4">Gestión y Atención al Cliente</p>
+                    <p class="text-sm text-slate-300 mb-5">Apoya la gestión diaria de clientes y los procesos administrativos, facilitando una atención cercana y resolutiva.</p>
+                    <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
+                </div>
+
+                <div class="team-card plasma-card rounded-3xl p-8 cursor-pointer hover:-translate-y-2" onclick="openModal('olatz')">
+                    <img src="olatz.jpg" alt="Olatz Garai" class="w-20 h-20 rounded-2xl object-cover mb-5">
+                    <span class="text-xs uppercase font-bold text-energy-gold">Asesora Senior</span>
+                    <h4 class="text-2xl font-black text-white mt-2">Olatz Garai</h4>
+                    <p class="text-xs uppercase tracking-widest text-energy-gold mt-2 mb-4">Comercial</p>
+                    <p class="text-sm text-slate-300 mb-5">Asesora a los clientes sobre cómo optimizar sus gastos energéticos y tomar decisiones informadas para ahorrar.</p>
+                    <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
+                </div>
+
+                <div class="team-card plasma-card rounded-3xl p-8 cursor-pointer hover:-translate-y-2" onclick="openModal('maialen')">
+                    <img src="sinfoto.png" alt="Maialen" class="w-20 h-20 rounded-2xl object-cover mb-5">
+                    <span class="text-xs uppercase font-bold text-energy-cyan">Atención y Soporte</span>
+                    <h4 class="text-2xl font-black text-white mt-2">Maialen</h4>
+                    <p class="text-xs uppercase tracking-widest text-energy-cyan mt-2 mb-4">Gestión y Administración</p>
+                    <p class="text-sm text-slate-300 mb-5">Colabora en la atención a clientes, el seguimiento de expedientes y los procesos administrativos del día a día.</p>
+                    <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
+                </div>
+
+                <!-- NUEVA TARJETA DE ANA -->
+                <div class="team-card plasma-card rounded-3xl p-8 cursor-pointer hover:-translate-y-2" onclick="openModal('ana')">
+                    <img src="sinfoto.png" alt="Ana" class="w-20 h-20 rounded-2xl object-cover mb-5">
+                    <span class="text-xs uppercase font-bold text-energy-cyan">Equipo Argieder</span>
+                    <h4 class="text-2xl font-black text-white mt-2">Ana</h4>
+                    <p class="text-xs uppercase tracking-widest text-energy-cyan mt-2 mb-4">Integrante del equipo</p>
+                    <p class="text-sm text-slate-300 mb-5">Ana forma parte del equipo de Argieder y contribuye al trabajo conjunto para ofrecer un servicio cercano y de calidad a los clientes.</p>
+                    <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Financiación -->
-    <section class="w-full relative z-10 bg-white/95 border-t border-white/20 py-4 md:py-6 flex justify-center items-center shadow-lg">
-        <img src="financiacion.png" alt="Financiado por la Unión Europea - NextGenerationEU, Gobierno de España, Plan de Recuperación" class="max-h-16 md:max-h-20 w-auto object-contain">
+    <!-- FINANCIACIÓN -->
+    <section class="w-full relative z-10 bg-white/95 border-t border-white/20 py-4 md:py-6 flex justify-center items-center">
+        <img src="financiacion.png" alt="Financiado por la Unión Europea - NextGenerationEU, Gobierno de España y Plan de Recuperación" class="max-h-16 md:max-h-20 w-auto object-contain">
     </section>
 
-    <!-- Modal -->
-    <div id="modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
-        <div id="modal-container" class="plasma-card max-w-2xl w-full rounded-3xl p-6 sm:p-10 border-2 border-energy-gold transform scale-95 transition-transform duration-300 relative overflow-y-auto max-h-[90vh]">
-
-            <button onclick="closeModal()" aria-label="Cerrar ficha" class="absolute top-6 right-6 p-2 rounded-full bg-energy-surface text-slate-400 hover:text-white hover:bg-energy-surfaceLight transition-colors">
+    <!-- MODAL DE INFORMACIÓN -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 items-center justify-center p-4">
+        <div id="modal-container" class="plasma-card max-w-2xl w-full rounded-3xl p-6 sm:p-10 border-2 border-energy-gold relative overflow-y-auto max-h-[90vh]">
+            <button onclick="closeModal()" aria-label="Cerrar ficha" class="absolute top-5 right-5 p-2 rounded-full text-slate-300 hover:text-white">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
 
@@ -640,75 +540,61 @@
                 </div>
             </div>
 
-            <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed border-t border-energy-border/50 pt-6">
+            <div class="border-t border-energy-border pt-6 text-slate-300 text-sm sm:text-base leading-relaxed">
                 <p id="modal-bio"></p>
             </div>
 
-            <div class="mt-8 pt-6 border-t border-energy-border/50 flex justify-end">
-                <button onclick="closeModal()" class="px-6 py-2.5 rounded-full font-bold text-xs text-slate-900 bg-energy-gold hover:bg-energy-brightGold shadow-plasma transition-all">Cerrar Ficha</button>
+            <div class="mt-8 pt-6 border-t border-energy-border flex justify-end">
+                <button onclick="closeModal()" class="px-6 py-2.5 rounded-full font-bold text-xs text-black bg-energy-gold hover:bg-energy-brightGold">Cerrar ficha</button>
             </div>
         </div>
     </div>
 
-    <!-- Pie de página -->
-    <footer class="bg-[#1d1d1d] border-t border-energy-border/50 pt-16 pb-12 text-slate-400 text-xs relative z-10">
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-[#1d1d1d] border-t border-energy-border pt-16 pb-12 text-slate-400 text-xs relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
 
                 <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                        <img src="logoargieder.png" alt="Argieder Logo" class="h-8 w-auto object-contain">
-                    </div>
-                    <p class="leading-relaxed">
-                        Argieder Gestión es una asesoría energética tecnológica dedicada a la optimización de gasto energético para empresas.
-                    </p>
+                    <img src="logoargieder.png" alt="Argieder Logo" class="h-8 w-auto">
+                    <p class="leading-relaxed">Argieder Gestión es una asesoría energética tecnológica dedicada a la optimización del gasto energético para empresas.</p>
                 </div>
 
                 <div>
-                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Información</h5>
+                    <h5 class="text-white font-bold uppercase mb-4 text-sm">Información</h5>
                     <ul class="space-y-2.5">
-                        <li><a href="#" class="hover:text-energy-gold transition-colors">Aviso Legal</a></li>
-                        <li><a href="#" class="hover:text-energy-gold transition-colors">Política de Cookies</a></li>
-                        <li><a href="#" class="hover:text-energy-gold transition-colors">Política de Privacidad</a></li>
+                        <li><a href="#" class="hover:text-energy-gold">Aviso Legal</a></li>
+                        <li><a href="#" class="hover:text-energy-gold">Política de Cookies</a></li>
+                        <li><a href="#" class="hover:text-energy-gold">Política de Privacidad</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Contáctanos</h5>
+                    <h5 class="text-white font-bold uppercase mb-4 text-sm">Contáctanos</h5>
                     <ul class="space-y-3">
-                        <li class="flex items-start gap-2.5">
-                            <i data-lucide="map-pin" class="w-4 h-4 text-energy-gold shrink-0 mt-0.5"></i>
-                            <span>OFICINA: Aranguren Auzoa 2, Local 104/105, Galerías CC Mamut, La Planta (Frente a escaleras eléctricas) 20180 Oiartzun</span>
-                        </li>
-                        <li class="flex items-center gap-2.5">
-                            <i data-lucide="phone" class="w-4 h-4 text-energy-gold shrink-0"></i>
-                            <span>(+34) 943 007 407</span>
-                        </li>
-                        <li class="flex items-center gap-2.5">
-                            <i data-lucide="mail" class="w-4 h-4 text-energy-gold shrink-0"></i>
-                            <span>info@argieder.es</span>
-                        </li>
+                        <li class="flex gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-energy-gold shrink-0"></i><span>Aranguren Auzoa 2, Local 104/105, Galerías CC Mamut, 20180 Oiartzun</span></li>
+                        <li class="flex gap-2"><i data-lucide="phone" class="w-4 h-4 text-energy-gold shrink-0"></i><span>(+34) 943 007 407</span></li>
+                        <li class="flex gap-2"><i data-lucide="mail" class="w-4 h-4 text-energy-gold shrink-0"></i><span>info@argieder.es</span></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Últimas Noticias</h5>
-                    <ul class="space-y-2 text-slate-400">
-                        <li>• Instalación de cargadores para coches eléctricos en Gipuzkoa</li>
-                        <li>• Instalaciones eléctricas en Gipuzkoa: soluciones eficientes y seguras</li>
-                        <li>• Cómo reducir el consumo energético con tecnología LED</li>
-                        <li>• Cargadores de coche eléctrico para gasolineras: soluciones de carga rápida</li>
-                        <li>• Eliminación de la energía reactiva: evita penalizaciones en tu factura eléctrica</li>
+                    <h5 class="text-white font-bold uppercase mb-4 text-sm">Últimas Noticias</h5>
+                    <ul class="space-y-2">
+                        <li>Instalación de cargadores para coches eléctricos en Gipuzkoa</li>
+                        <li>Instalaciones eléctricas: soluciones eficientes y seguras</li>
+                        <li>Cómo reducir el consumo energético con tecnología LED</li>
+                        <li>Cargadores de coche eléctrico para gasolineras</li>
+                        <li>Eliminación de la energía reactiva</li>
                     </ul>
                 </div>
-
             </div>
 
-            <div class="border-t border-energy-border/40 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="border-t border-energy-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p>Argieder Gestión S.L. © - Todos los derechos reservados.</p>
-                <div class="flex gap-4 text-slate-400">
-                    <a href="https://www.facebook.com/argieder/" class="hover:text-gold" aria-label="Facebook">Facebook</a>
-                    <a href="https://www.instagram.com/argieder_gestion/" class="hover:text-gold" aria-label="Instagram">Instagram</a>
+                <div class="flex gap-4">
+                    <a href="https://www.facebook.com/argieder/" class="hover:text-energy-gold">Facebook</a>
+                    <a href="https://www.instagram.com/argieder_gestion/" class="hover:text-energy-gold">Instagram</a>
                 </div>
             </div>
         </div>
@@ -717,42 +603,53 @@
     <script>
         lucide.createIcons();
 
+        /*
+         * Datos centrales de todos los integrantes.
+         * Ana queda registrada aquí para que el nodo orbital,
+         * el panel informativo y la ficha emergente funcionen.
+         */
         const teamData = {
             belen: {
                 name: "Belén Teijeira",
                 role: "Gestión y Atención al Cliente",
                 tag: "Gestión y Atención al Cliente",
-                bio: "Belén forma parte esencial del equipo de atención y gestión en Argieder. Con un enfoque resolutivo y orientación al cliente, brinda soporte en los procesos administrativos del día a día, facilitando la comunicación continua, el seguimiento de expedientes y asegurando una experiencia ágil y transparente en cada consulta."
+                bio: "Belén forma parte esencial del equipo de atención y gestión en Argieder. Brinda soporte en los procesos administrativos, facilita la comunicación con los clientes y realiza el seguimiento de expedientes para ofrecer una experiencia ágil y transparente."
             },
             veronica: {
                 name: "Verónica Martín",
                 role: "Departamento de Administración",
-                tag: "Departamento de Administración",
-                bio: "Diplomada en la especialidad de dirección de Pequeñas y Medianas Empresas en la Universidad de Deusto, San Sebastián, Guipúzcoa. Verónica lleva hace más de 6 años la facturación y contabilidad de Argieder, además de realizar estudios como los comparativos energéticos de Pequeñas y Medianas Empresas o clientes domésticos."
+                tag: "Gestión Financiera",
+                bio: "Diplomada en Dirección de Pequeñas y Medianas Empresas por la Universidad de Deusto. Verónica se encarga de tareas de facturación y contabilidad, además de realizar estudios comparativos energéticos para pymes y clientes domésticos."
             },
             janire: {
                 name: "Janire Etxebeste",
                 role: "Directora Comercial",
                 tag: "Fundadora / Directora Comercial",
-                bio: "Janire, al igual que su socio David, lleva también once años en el sector energético y desde hace siete dirige el departamento comercial. Se encarga de los acuerdos de colaboración con las compañías energéticas y asociaciones, negociación de precios de luz y gas, orientación para gestionar las subvenciones de las entidades públicas, así como de la expansión comercial de toda la provincia."
+                bio: "Janire dirige el departamento comercial. Se encarga de los acuerdos de colaboración con compañías energéticas y asociaciones, la negociación de precios de luz y gas, la orientación sobre subvenciones y la expansión comercial."
             },
             david: {
                 name: "David Tena",
                 role: "Gerente",
                 tag: "Fundador / Gerente",
-                bio: "Es el encargado del día a día de Argieder y asume la dirección técnica. Lleva once años en el sector energético y se encarga de realizar tanto estudios y presupuestos como de gestionar las áreas de domótica, energía reactiva, energía solar, seguridad e iluminación. Realiza periódicamente visitas presenciales a las instalaciones de cada cliente, sean pymes, industrias o comercios."
+                bio: "David coordina el día a día de Argieder y asume la dirección técnica. Realiza estudios y presupuestos y gestiona áreas como domótica, energía reactiva, energía solar, seguridad e iluminación. También visita las instalaciones de los clientes."
             },
             olatz: {
                 name: "Olatz Garai",
                 role: "Comercial",
-                tag: "Comercial",
-                bio: "Olatz da su visión energética a gran parte de nuestros clientes que, de manera cercana y honesta, les asesora sobre la mejor manera de optimizar sus gastos energéticos, acompañándolos paso a paso en el proceso de análisis y ayudándoles a entender sus opciones de ahorro. Con su dedicación constante, logra que cada cliente tome decisiones informadas para lograr una gestión mucho más eficiente."
+                tag: "Asesora Senior",
+                bio: "Olatz asesora a los clientes sobre cómo optimizar sus gastos energéticos. Les acompaña en el análisis de sus opciones de ahorro y les ayuda a tomar decisiones informadas para lograr una gestión energética más eficiente."
             },
             maialen: {
                 name: "Maialen",
                 role: "Gestión y Administración",
                 tag: "Gestión y Soporte",
-                bio: "Maialen forma parte esencial del equipo de atención y gestión en Argieder. Con un enfoque resolutivo y orientación al cliente, brinda soporte en los procesos administrativos del día a día, facilitando la comunicación continua, el seguimiento de expedientes y asegurando una experiencia ágil y transparente en cada consulta."
+                bio: "Maialen apoya la atención y gestión diaria de Argieder, los procesos administrativos, la comunicación con clientes y el seguimiento de expedientes para facilitar un servicio ágil y cercano."
+            },
+            ana: {
+                name: "Ana",
+                role: "Integrante del equipo",
+                tag: "Equipo Argieder",
+                bio: "Ana forma parte del equipo de Argieder y contribuye al trabajo conjunto para ofrecer un servicio cercano y de calidad a los clientes. Esta descripción es provisional y puede actualizarse con su puesto y responsabilidades reales."
             }
         };
 
@@ -761,7 +658,7 @@
         const isMobile = () => window.matchMedia('(max-width: 767px)').matches;
 
         if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries) => {
+            const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         coreWrapper.classList.add('core-deployed');
@@ -778,7 +675,6 @@
             const member = teamData[key];
             if (!member) return;
 
-            /* No actualizamos ni mostramos información dinámica en móvil. */
             if (!isMobile()) {
                 document.getElementById('hud-name').textContent = member.name;
                 document.getElementById('hud-tag').textContent = member.tag;
@@ -789,38 +685,17 @@
                 node.classList.toggle('active', node.dataset.member === key);
             });
 
-            const beamIds = [
-                'belen',
-                'veronica',
-                'janire',
-                'david',
-                'olatz',
-                'maialen'
-            ];
-
-            beamIds.forEach(id => {
+            Object.keys(teamData).forEach(id => {
                 const line = document.getElementById(`beam-${id}`);
                 if (!line) return;
 
                 const active = id === key;
-                line.setAttribute('stroke', active ? '#e7bb55' : '#F5B800');
+                line.setAttribute('stroke', active ? '#FFD700' : '#F5B800');
                 line.setAttribute('stroke-width', active ? '4' : '2');
-                line.setAttribute('opacity', active ? '1' : '0.2');
-
-                if (active) {
-                    line.removeAttribute('stroke-dasharray');
-                } else {
-                    line.setAttribute('stroke-dasharray', '4,4');
-                }
+                line.setAttribute('opacity', active ? '1' : '.2');
             });
         }
 
-        /*
-         * En móvil, tocar un nodo lo amplía.
-         * Tocar el mismo nodo otra vez lo reduce.
-         * Tocar otro nodo cambia la selección.
-         * En escritorio se conserva la activación original.
-         */
         document.querySelectorAll('.core-member-node[data-member]').forEach(node => {
             const key = node.dataset.member;
 
@@ -833,46 +708,36 @@
             });
 
             node.addEventListener('click', event => {
-                if (isMobile()) {
-                    event.preventDefault();
+                event.preventDefault();
 
+                if (isMobile()) {
                     const wasSelected = node.classList.contains('mobile-selected');
 
                     document.querySelectorAll('.core-member-node.mobile-selected').forEach(selected => {
                         selected.classList.remove('mobile-selected');
                     });
 
-                    if (!wasSelected) {
-                        node.classList.add('mobile-selected');
-                    }
-
-                    activateCoreMember(key);
-                } else {
-                    activateCoreMember(key);
+                    if (!wasSelected) node.classList.add('mobile-selected');
                 }
+
+                activateCoreMember(key);
             });
 
             node.addEventListener('keydown', event => {
                 if (event.key === 'Enter' || event.key === ' ') {
                     event.preventDefault();
-
-                    if (isMobile()) {
-                        node.click();
-                    } else {
-                        activateCoreMember(key);
-                    }
+                    node.click();
                 }
             });
         });
 
-        /* Si se cambia de móvil a escritorio, se quita la selección ampliada. */
         window.matchMedia('(min-width: 768px)').addEventListener?.('change', () => {
             document.querySelectorAll('.core-member-node.mobile-selected').forEach(node => {
                 node.classList.remove('mobile-selected');
             });
         });
 
-        /* Fondo animado de partículas */
+        /* FONDO ANIMADO */
         const canvas = document.getElementById('canvas-matrix');
         const ctx = canvas.getContext('2d');
 
@@ -883,10 +748,10 @@
             constructor() {
                 this.x = Math.random() * window.innerWidth;
                 this.y = Math.random() * window.innerHeight;
-                this.vx = (Math.random() - 0.5) * 0.8;
-                this.vy = (Math.random() - 0.5) * 0.8;
-                this.radius = Math.random() * 2 + 0.5;
-                this.color = Math.random() > 0.3 ? '#F5B800' : '#FFFFFF';
+                this.vx = (Math.random() - .5) * .8;
+                this.vy = (Math.random() - .5) * .8;
+                this.radius = Math.random() * 2 + .5;
+                this.color = Math.random() > .3 ? '#F5B800' : '#FFFFFF';
             }
 
             draw() {
@@ -921,7 +786,9 @@
 
         function initParticles() {
             particles = [];
-            const count = Math.floor((window.innerWidth * window.innerHeight) / 22000);
+            const count = Math.floor(
+                window.innerWidth * window.innerHeight / 22000
+            );
 
             for (let i = 0; i < count; i++) {
                 particles.push(new Particle());
@@ -944,8 +811,8 @@
 
                     if (distance < 120) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(245, 184, 0, ${0.15 - distance / 800})`;
-                        ctx.lineWidth = 0.5;
+                        ctx.strokeStyle = `rgba(245,184,0,${.15 - distance / 800})`;
+                        ctx.lineWidth = .5;
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
                         ctx.stroke();
@@ -967,12 +834,10 @@
                 }, 500);
             }
 
-            if (animationFrameId === null) {
-                animateCanvas();
-            }
+            if (animationFrameId === null) animateCanvas();
         });
 
-        /* Fichas emergentes del equipo */
+        /* FICHAS EMERGENTES */
         const backdrop = document.getElementById('modal-backdrop');
         const modalContainer = document.getElementById('modal-container');
 
@@ -985,6 +850,7 @@
             document.getElementById('modal-bio').textContent = data.bio;
 
             backdrop.classList.remove('hidden');
+            backdrop.classList.add('flex');
 
             requestAnimationFrame(() => {
                 backdrop.classList.remove('opacity-0');
@@ -1000,13 +866,12 @@
 
             setTimeout(() => {
                 backdrop.classList.add('hidden');
+                backdrop.classList.remove('flex');
             }, 300);
         }
 
         backdrop.addEventListener('click', event => {
-            if (event.target === backdrop) {
-                closeModal();
-            }
+            if (event.target === backdrop) closeModal();
         });
 
         document.addEventListener('keydown', event => {
