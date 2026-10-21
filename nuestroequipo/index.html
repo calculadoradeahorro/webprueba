@@ -86,7 +86,7 @@
         .plasma-card:hover::before { opacity: 1; }
 
         #core-orbital-wrapper {
-            --orbit-radius: 170px;
+            --orbit-radius: 195px;
         }
 
         .core-member-node {
@@ -104,51 +104,38 @@
 
         .core-deployed .core-member-node { opacity: 1; }
 
-        /*
-         * Distribución de los 9 nodos intercalando distancias (cerca ~115px / lejos ~185px)
+        /* 
+         * Distribución geométrica en círculo perfecto con mayor radio (195px) 
+         * para los 9 integrantes distribuidos equidistantemente (cada 40 grados)
          */
-        /* 1. Belén (Arriba - Lejos) */
-        .core-deployed .node-belen { transform: translate(-50%, calc(-50% - 185px)); }
-        
-        /* 2. Verónica (Arriba-Derecha - Cerca) */
-        .core-deployed .node-veronica { transform: translate(calc(-50% + 88px), calc(-50% - 74px)); }
-        
-        /* 3. Janire (Derecha-Arriba - Lejos) */
-        .core-deployed .node-janire { transform: translate(calc(-50% + 182px), calc(-50% - 32px)); }
-
-        /* 4. Ander (Derecha-Abajo - Cerca) */
-        .core-deployed .node-ander { transform: translate(calc(-50% + 99px), calc(-50% + 57px)); }
-
-        /* 5. David (Abajo-Derecha - Lejos) */
-        .core-deployed .node-david { transform: translate(calc(-50% + 63px), calc(-50% + 174px)); }
-
-        /* 6. Olatz (Abajo-Izquierda - Cerca) */
-        .core-deployed .node-olatz { transform: translate(calc(-50% - 63px), calc(-50% + 95px)); }
-
-        /* 7. Maialen (Izquierda-Abajo - Lejos) */
-        .core-deployed .node-maialen { transform: translate(calc(-50% - 175px), calc(-50% + 60px)); }
-
-        /* 8. Ana (Izquierda-Arriba - Cerca) */
-        .core-deployed .node-ana { transform: translate(calc(-50% - 99px), calc(-50% - 57px)); }
-
-        /* 9. Hugo (Arriba-Izquierda - Lejos) */
-        .core-deployed .node-hugo { transform: translate(calc(-50% - 120px), calc(-50% - 140px)); }
-
+        .core-deployed .node-janire    { transform: translate(calc(-50% + 195px), calc(-50% + 0px)); }
+        .core-deployed .node-ander     { transform: translate(calc(-50% + 149px), calc(-50% + 125px)); }
+        .core-deployed .node-david     { transform: translate(calc(-50% + 33px), calc(-50% + 192px)); }
+        .core-deployed .node-olatz     { transform: translate(calc(-50% - 97px), calc(-50% + 168px)); }
+        .core-deployed .node-maialen   { transform: translate(calc(-50% - 179px), calc(-50% + 76px)); }
+        .core-deployed .node-ana       { transform: translate(calc(-50% - 179px), calc(-50% - 76px)); }
+        .core-deployed .node-hugo      { transform: translate(calc(-50% - 97px), calc(-50% - 168px)); }
+        .core-deployed .node-veronica  { transform: translate(calc(-50% + 33px), calc(-50% - 192px)); }
+        .core-deployed .node-belen     { transform: translate(calc(-50% + 149px), calc(-50% - 125px)); }
 
         .text-glow-gold {
             text-shadow: 0 0 15px rgba(245,184,0,.5);
         }
 
         @media (max-width: 640px) {
-            .core-deployed .node-belen { transform: translate(-50%, calc(-50% - 140px)) scale(.72); }
-            .core-deployed .node-veronica { transform: translate(calc(-50% + 65px), calc(-50% - 55px)) scale(.72); }
-            .core-deployed .node-janire { transform: translate(calc(-50% + 135px), calc(-50% - 24px)) scale(.72); }
-            .core-deployed .node-ander { transform: translate(calc(-50% + 75px), calc(-50% + 42px)) scale(.72); }
-            .core-deployed .node-david { transform: translate(calc(-50% + 48px), calc(-50% + 130px)) scale(.72); }
-            .core-deployed .node-olatz { transform: translate(calc(-50% - 48px), calc(-50% + 70px)) scale(.72); }
-            .core-deployed .node-maialen { transform: translate(calc(-50% - 130px), calc(-50% + 45px)) scale(.72); }
-            .core-deployed .node-ana { transform: translate(calc(-50% - 75px), calc(-50% - 42px)) scale(.72); }
-            .core-deployed .node-hugo { transform: translate(calc(-50% - 90px), calc(-50% - 105px)) scale(.72); }
+            #core-orbital-wrapper {
+                --orbit-radius: 140px;
+            }
+
+            .core-deployed .node-janire    { transform: translate(calc(-50% + 140px), calc(-50% + 0px)) scale(.72); }
+            .core-deployed .node-ander     { transform: translate(calc(-50% + 107px), calc(-50% + 90px)) scale(.72); }
+            .core-deployed .node-david     { transform: translate(calc(-50% + 24px), calc(-50% + 137px)) scale(.72); }
+            .core-deployed .node-olatz     { transform: translate(calc(-50% - 70px), calc(-50% + 121px)) scale(.72); }
+            .core-deployed .node-maialen   { transform: translate(calc(-50% - 128px), calc(-50% + 54px)) scale(.72); }
+            .core-deployed .node-ana       { transform: translate(calc(-50% - 128px), calc(-50% - 54px)) scale(.72); }
+            .core-deployed .node-hugo      { transform: translate(calc(-50% - 70px), calc(-50% - 121px)) scale(.72); }
+            .core-deployed .node-veronica  { transform: translate(calc(-50% + 24px), calc(-50% - 137px)) scale(.72); }
+            .core-deployed .node-belen     { transform: translate(calc(-50% + 107px), calc(-50% - 90px)) scale(.72); }
         }
 
         @media (max-width: 767px) {
@@ -159,15 +146,15 @@
                 filter: brightness(1.15);
             }
 
-            .core-deployed .node-belen.mobile-selected { transform: translate(-50%, calc(-50% - 140px)) scale(.9); }
-            .core-deployed .node-veronica.mobile-selected { transform: translate(calc(-50% + 65px), calc(-50% - 55px)) scale(.9); }
-            .core-deployed .node-janire.mobile-selected { transform: translate(calc(-50% + 135px), calc(-50% - 24px)) scale(.9); }
-            .core-deployed .node-ander.mobile-selected { transform: translate(calc(-50% + 75px), calc(-50% + 42px)) scale(.9); }
-            .core-deployed .node-david.mobile-selected { transform: translate(calc(-50% + 48px), calc(-50% + 130px)) scale(.9); }
-            .core-deployed .node-olatz.mobile-selected { transform: translate(calc(-50% - 48px), calc(-50% + 70px)) scale(.9); }
-            .core-deployed .node-maialen.mobile-selected { transform: translate(calc(-50% - 130px), calc(-50% + 45px)) scale(.9); }
-            .core-deployed .node-ana.mobile-selected { transform: translate(calc(-50% - 75px), calc(-50% - 42px)) scale(.9); }
-            .core-deployed .node-hugo.mobile-selected { transform: translate(calc(-50% - 90px), calc(-50% - 105px)) scale(.9); }
+            .core-deployed .node-janire.mobile-selected    { transform: translate(calc(-50% + 140px), calc(-50% + 0px)) scale(.9); }
+            .core-deployed .node-ander.mobile-selected     { transform: translate(calc(-50% + 107px), calc(-50% + 90px)) scale(.9); }
+            .core-deployed .node-david.mobile-selected     { transform: translate(calc(-50% + 24px), calc(-50% + 137px)) scale(.9); }
+            .core-deployed .node-olatz.mobile-selected     { transform: translate(calc(-50% - 70px), calc(-50% + 121px)) scale(.9); }
+            .core-deployed .node-maialen.mobile-selected   { transform: translate(calc(-50% - 128px), calc(-50% + 54px)) scale(.9); }
+            .core-deployed .node-ana.mobile-selected       { transform: translate(calc(-50% - 128px), calc(-50% - 54px)) scale(.9); }
+            .core-deployed .node-hugo.mobile-selected      { transform: translate(calc(-50% - 70px), calc(-50% - 121px)) scale(.9); }
+            .core-deployed .node-veronica.mobile-selected  { transform: translate(calc(-50% + 24px), calc(-50% - 137px)) scale(.9); }
+            .core-deployed .node-belen.mobile-selected     { transform: translate(calc(-50% + 107px), calc(-50% - 90px)) scale(.9); }
         }
 
         ::-webkit-scrollbar { width: 8px; }
@@ -189,7 +176,6 @@
 
 <body class="relative min-h-screen selection:bg-energy-gold selection:text-black">
 
-    <!-- Background Dynamic Particle Mesh Canvas -->
     <canvas id="canvas-matrix" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
    <!-- Header -->
@@ -292,24 +278,23 @@
 
                 <!-- NÚCLEO ORBITAL -->
                 <div class="lg:col-span-6 flex justify-center items-center py-12">
-                    <div id="core-orbital-wrapper" class="relative w-[380px] h-[380px] sm:w-[480px] sm:h-[480px] flex items-center justify-center">
+                    <div id="core-orbital-wrapper" class="relative w-[420px] h-[420px] sm:w-[500px] sm:h-[500px] flex items-center justify-center">
 
-                        <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="-240 -240 480 480">
-                            <!-- Órbita Exterior -->
-                            <circle cx="0" cy="0" r="185" fill="none" stroke="rgba(245,184,0,.2)" stroke-width="1.5" stroke-dasharray="6,6"/>
-                            <!-- Órbita Interior -->
-                            <circle cx="0" cy="0" r="115" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                        <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="-250 -250 500 500">
+                            <!-- Órbita circular principal más amplia -->
+                            <circle cx="0" cy="0" r="195" fill="none" stroke="rgba(245,184,0,.2)" stroke-width="1.5" stroke-dasharray="6,6"/>
+                            <circle cx="0" cy="0" r="120" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
 
-                            <!-- Rayos Conectores -->
-                            <line id="beam-belen" x1="0" y1="0" x2="0" y2="-185" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-veronica" x1="0" y1="0" x2="88" y2="-74" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-janire" x1="0" y1="0" x2="182" y2="-32" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-ander" x1="0" y1="0" x2="99" y2="57" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-david" x1="0" y1="0" x2="63" y2="174" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-olatz" x1="0" y1="0" x2="-63" y2="95" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-maialen" x1="0" y1="0" x2="-175" y2="60" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-ana" x1="0" y1="0" x2="-99" y2="-57" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-hugo" x1="0" y1="0" x2="-120" y2="-140" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <!-- Rayos Conectores en círculo equilibrado -->
+                            <line id="beam-janire" x1="0" y1="0" x2="195" y2="0" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-ander" x1="0" y1="0" x2="149" y2="125" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-david" x1="0" y1="0" x2="33" y2="192" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-olatz" x1="0" y1="0" x2="-97" y2="168" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-maialen" x1="0" y1="0" x2="-179" y2="76" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-ana" x1="0" y1="0" x2="-179" y2="-76" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-hugo" x1="0" y1="0" x2="-97" y2="-168" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-veronica" x1="0" y1="0" x2="33" y2="-192" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-belen" x1="0" y1="0" x2="149" y2="-125" stroke="#F5B800" stroke-width="2" opacity=".3"/>
                         </svg>
 
                         <div class="relative w-36 h-36 rounded-full bg-energy-surface p-1 shadow-node-hover z-10 flex items-center justify-center">
@@ -317,30 +302,6 @@
                                 <img src="logoargieder.png" alt="Argieder" class="w-8 h-8 object-contain">
                                 <span class="text-xs uppercase text-white tracking-widest mt-2">EQUIPO</span>
                                 <span class="text-xs uppercase text-white tracking-widest mt-1">ARGIEDER</span>
-                            </div>
-                        </div>
-
-                        <!-- BELÉN -->
-                        <div class="core-member-node node-belen" data-member="belen" role="button" tabindex="0" aria-label="Ver información de Belén Teijeira">
-                            <div class="relative">
-                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
-                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
-                                        <img src="belen.jpg" alt="Belén Teijeira" class="w-full h-full object-cover">
-                                    </div>
-                                </div>
-                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">BELÉN</span>
-                            </div>
-                        </div>
-
-                        <!-- VERÓNICA -->
-                        <div class="core-member-node node-veronica" data-member="veronica" role="button" tabindex="0" aria-label="Ver información de Verónica Martín">
-                            <div class="relative">
-                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
-                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
-                                        <img src="veronica.jpg" alt="Verónica Martín" class="w-full h-full object-cover">
-                                    </div>
-                                </div>
-                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">VERÓNICA</span>
                             </div>
                         </div>
 
@@ -428,6 +389,30 @@
                             </div>
                         </div>
 
+                        <!-- VERÓNICA -->
+                        <div class="core-member-node node-veronica" data-member="veronica" role="button" tabindex="0" aria-label="Ver información de Verónica Martín">
+                            <div class="relative">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
+                                        <img src="veronica.jpg" alt="Verónica Martín" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">VERÓNICA</span>
+                            </div>
+                        </div>
+
+                        <!-- BELÉN -->
+                        <div class="core-member-node node-belen" data-member="belen" role="button" tabindex="0" aria-label="Ver información de Belén Teijeira">
+                            <div class="relative">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
+                                        <img src="belen.jpg" alt="Belén Teijeira" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">BELÉN</span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -512,7 +497,6 @@
                     <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
                 </div>
 
-                <!-- TARJETA DE ANDER -->
                 <div class="team-card plasma-card rounded-3xl p-8 cursor-pointer hover:-translate-y-2" onclick="openModal('ander')">
                     <img src="sinfoto.png" alt="Ander" class="w-20 h-20 rounded-2xl object-cover mb-5">
                     <span class="text-xs uppercase font-bold text-energy-gold">Asesor Energético</span>
@@ -522,7 +506,6 @@
                     <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
                 </div>
 
-                <!-- TARJETA DE HUGO -->
                 <div class="team-card plasma-card rounded-3xl p-8 cursor-pointer hover:-translate-y-2" onclick="openModal('hugo')">
                     <img src="sinfoto.png" alt="Hugo" class="w-20 h-20 rounded-2xl object-cover mb-5">
                     <span class="text-xs uppercase font-bold text-energy-cyan">Soporte Técnico</span>
@@ -621,9 +604,6 @@
     <script>
         lucide.createIcons();
 
-        /*
-         * Datos centrales de todos los integrantes (incluyendo a Ander y Hugo).
-         */
         const teamData = {
             belen: {
                 name: "Belén Teijeira",
