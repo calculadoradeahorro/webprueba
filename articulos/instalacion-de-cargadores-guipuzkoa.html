@@ -22,21 +22,19 @@
             theme: {
                 extend: {
                     colors: {
-                            gold: '#d97706',
-                            goldLight: '#F5D061',
-                            goldSoft: '#fef3c7',
-                            emerald: '#059669',
-                            emeraldSoft: '#d1fae5',
-                            lightBg: '#f8fafc',
-                            cardBg: '#ffffff',
-                            cardBorder: '#e2e8f0',
-                            textPrimary: '#0f172a',
-                            textSecondary: '#475569',
-                            darkBg: '#1d1d1d',
+                        gold: '#d97706',
+                        goldLight: '#F5D061',
+                        goldSoft: '#fef3c7',
+                        emerald: '#059669',
+                        emeraldSoft: '#d1fae5',
+                        lightBg: '#f8fafc',
+                        cardBg: '#ffffff',
+                        cardBorder: '#e2e8f0',
+                        textPrimary: '#0f172a',
+                        textSecondary: '#475569',
+                        darkBg: '#1d1d1d',
                         darkCard: '#121318',
-                        darkBorder: '#222530',
-                        lightBg: '#FAFAFB'
-                        
+                        darkBorder: '#222530'
                     },
                     fontFamily: {
                         sans: ['Plus Jakarta Sans', 'sans-serif'],
@@ -81,18 +79,6 @@
             transform: translateY(-2px);
         }
 
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #0f172a 0%, #b45309 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .gold-badge {
-            background: #fef3c7;
-            border: 1px solid #fde68a;
-            color: #b45309;
-        }
-
         /* Barra de progreso de lectura */
         #reading-progress {
             position: fixed;
@@ -114,7 +100,7 @@
     <!-- Barra de progreso superior -->
     <div id="reading-progress"></div>
 
-     <!-- Header con logos a los extremos, menú centrado y efecto Blur translúcido -->
+    <!-- Header con logos a los extremos, menú centrado y efecto Blur translúcido -->
     <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
         <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
             
@@ -161,8 +147,8 @@
         </div>
     </header>
     
-    <!-- CONTENIDO PRINCIPAL DE LA NOTICIA -->
-    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 py-12 relative z-10">
+    <!-- CONTENIDO PRINCIPAL DE LA NOTICIA (pt-28 md:pt-36 para dar espacio suficiente con respecto al menú superior) -->
+    <main class="flex-grow max-w-4xl mx-auto px-4 sm:px-6 pt-28 md:pt-36 pb-12 relative z-10">
 
         <!-- TÍTULO PRINCIPAL EN GRANDE -->
         <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 text-center sm:text-left leading-tight tracking-tight mb-8">
@@ -183,13 +169,12 @@
         </div>
         
         <!-- Botón de WhatsApp -->
-            <div class="flex justify-center pt-6">
-                <a href="https://wa.me/34604113451" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-emerald-500 text-white font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-emerald-400 shadow-glow-green transition-all transform hover:scale-105 text-center">
-                    <i class="fa-brands fa-whatsapp text-xl"></i>
-                    <span>contáctanos y recibe tu presupuesto sin compromiso</span>
-                </a>
-            </div>
-        </section>
+        <div class="flex justify-center pt-2 pb-6">
+            <a href="https://wa.me/34604113451" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-emerald-500 text-white font-bold text-xs sm:text-sm uppercase tracking-wider hover:bg-emerald-400 shadow-glow-green transition-all transform hover:scale-105 text-center">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>contáctanos y recibe tu presupuesto sin compromiso</span>
+            </a>
+        </div>
 
         <!-- ARTÍCULO - CUERPO DE TEXTO -->
         <article class="prose prose-slate max-w-none text-slate-700 space-y-6 text-base sm:text-lg leading-relaxed">
@@ -197,7 +182,7 @@
             <!-- Resumen / Intro destacada -->
             <div class="glow-card-light p-6 rounded-2xl border-l-4 border-l-amber-500 text-slate-800 font-medium my-6 text-lg bg-amber-50/40">
                 <p class="m-0 leading-relaxed">
-                    <strong>La movilidad eléctrica sigue ganando terreno en Gipuzkoa y todo el País Vasco.</strong>Cada vez son más las personas y empresas que apuestan por vehículos eléctricos, tanto por compromiso con el medio ambiente como por ahorro a medio y largo plazo. Sin embargo, una de las preguntas más frecuentes sigue siendo: ¿a dónde recurrir para la instalación de cargadores para coche eléctrico en Gipuzkoa?
+                    <strong>La movilidad eléctrica sigue ganando terreno en Gipuzkoa y todo el País Vasco.</strong> Cada vez son más las personas y empresas que apuestan por vehículos eléctricos, tanto por compromiso con el medio ambiente como por ahorro a medio y largo plazo. Sin embargo, una de las preguntas más frecuentes sigue siendo: ¿a dónde recurrir para la instalación de cargadores para coche eléctrico en Gipuzkoa?
                 </p>
             </div>
 
@@ -284,144 +269,11 @@
             <a href="#" class="text-xs bg-slate-100 hover:bg-amber-100 text-slate-700 hover:text-amber-800 px-3 py-1.5 rounded-lg border border-slate-200 transition-colors">#Tecnología2026</a>
         </div>
 
-        <!-- 2. ARTÍCULOS RELACIONADOS -->
-        <section class="mt-20">
-            <div class="text-center mb-10">
-                <span class="text-amber-600 text-xs font-bold uppercase tracking-widest block mb-1">MÁS CONTENIDO</span>
-                <h3 class="text-2xl font-extrabold text-slate-900">Noticias Relacionadas</h3>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                
-                <!-- Tarjeta 1 -->
-                <div class="glow-card-light rounded-2xl overflow-hidden flex flex-col justify-between group">
-                    <div class="h-40 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&auto=format&fit=crop&q=80" alt="Baterías" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/ffffff/d97706?text=Noticia+1'">
-                        <span class="absolute top-3 left-3 bg-amber-500 text-white font-extrabold text-[10px] px-2.5 py-1 rounded-md uppercase shadow-sm">Baterías</span>
-                    </div>
-                    <div class="p-5 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h4 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-2 mb-2">
-                                Nueva red de almacenamiento doméstico de alta densidad
-                            </h4>
-                            <p class="text-xs text-slate-500 line-clamp-3 mb-4">
-                                Soluciones que optimizan la reserva eléctrica durante los meses de invierno.
-                            </p>
-                        </div>
-                        <a href="#" class="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
-                            Leer artículo <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 2 -->
-                <div class="glow-card-light rounded-2xl overflow-hidden flex flex-col justify-between group">
-                    <div class="h-40 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?w=600&auto=format&fit=crop&q=80" alt="Eólica" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/ffffff/059669?text=Noticia+2'">
-                        <span class="absolute top-3 left-3 bg-emerald-600 text-white font-extrabold text-[10px] px-2.5 py-1 rounded-md uppercase shadow-sm">Sostenible</span>
-                    </div>
-                    <div class="p-5 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h4 class="font-bold text-slate-900 group-hover:text-emerald-600 transition-colors line-clamp-2 mb-2">
-                                Turbinas micro-eólicas urbanas para edificios altos
-                            </h4>
-                            <p class="text-xs text-slate-500 line-clamp-3 mb-4">
-                                Aprovechamiento de corrientes de aire en las grandes metrópolis europeas.
-                            </p>
-                        </div>
-                        <a href="#" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 flex items-center gap-1">
-                            Leer artículo <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 3 -->
-                <div class="glow-card-light rounded-2xl overflow-hidden flex flex-col justify-between group">
-                    <div class="h-40 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1558441719-677242504856?w=600&auto=format&fit=crop&q=80" alt="Smart Grid" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/600x400/ffffff/d97706?text=Noticia+3'">
-                        <span class="absolute top-3 left-3 bg-amber-500 text-white font-extrabold text-[10px] px-2.5 py-1 rounded-md uppercase shadow-sm">Smart Grid</span>
-                    </div>
-                    <div class="p-5 flex-grow flex flex-col justify-between">
-                        <div>
-                            <h4 class="font-bold text-slate-900 group-hover:text-amber-600 transition-colors line-clamp-2 mb-2">
-                                ¿Cómo saber si tu factura eléctrica refleja un ahorro real?
-                            </h4>
-                            <p class="text-xs text-slate-500 line-clamp-3 mb-4">
-                                Claves para auditar tu consumo mes a mes sin complicaciones.
-                            </p>
-                        </div>
-                        <a href="#" class="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1">
-                            Leer artículo <i class="fa-solid fa-arrow-right text-[10px]"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- 3. CAJA DE SUSCRIPCIÓN -->
-        <section id="suscribirse" class="mt-20">
-            <div class="glow-card-light p-8 sm:p-12 rounded-3xl text-center relative overflow-hidden bg-white border border-amber-200">
-                <div class="absolute -top-12 -left-12 w-40 h-40 bg-amber-500/10 rounded-full blur-2xl"></div>
-                
-                <span class="gold-badge text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">BOLETÍN SEMANAL</span>
-                
-                <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">
-                    Recibe las últimas novedades en tu email
-                </h3>
-                <p class="text-sm text-slate-600 max-w-lg mx-auto mb-8">
-                    Sin spam. Solo análisis profundos, tendencias y noticias seleccionadas sobre tecnología y energía.
-                </p>
-
-                <form onsubmit="handleSubscribe(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
-                    <input type="email" 
-                           placeholder="Tu correo electrónico..." 
-                           required 
-                           class="bg-slate-50 border border-slate-300 focus:border-amber-500 text-slate-900 placeholder-slate-400 rounded-xl px-4 py-3 text-sm flex-grow outline-none transition-all focus:ring-2 focus:ring-amber-500/20">
-                    <button type="submit" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider transition-all transform hover:-translate-y-0.5 whitespace-nowrap shadow-md shadow-amber-500/20">
-                        Suscribirse <i class="fa-solid fa-paper-plane ml-1"></i>
-                    </button>
-                </form>
-            </div>
-        </section>
-
     </main>
 
     <!-- Banner Imagen de Financiación Institucional -->
-            <div class="p-4 md:p-6 rounded-none bg-white/95 border border-white/20 flex justify-center items-center shadow-lg">
-                <img src="financiacion.png" alt="Financiado por la Unión Europea - NextGenerationEU, Gobierno de España, Plan de Recuperación" class="max-h-16 md:max-h-20 w-auto object-contain">
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal Window for Full Profile Details -->
-    <div id="modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
-        <div id="modal-container" class="plasma-card max-w-2xl w-full rounded-3xl p-6 sm:p-10 border-2 border-energy-gold transform scale-95 transition-transform duration-300 relative overflow-hidden">
-            
-            <button onclick="closeModal()" class="absolute top-6 right-6 p-2 rounded-full bg-energy-surface text-slate-400 hover:text-white hover:bg-energy-surfaceLight transition-colors">
-                <i data-lucide="x" class="w-6 h-6"></i>
-            </button>
-
-            <div class="flex items-center gap-4 mb-6">
-                <div class="w-16 h-16 rounded-2xl bg-energy-gold/20 border border-energy-gold flex items-center justify-center text-energy-gold">
-                    <i data-lucide="zap" class="w-8 h-8"></i>
-                </div>
-                <div>
-                    <h3 id="modal-name" class="text-2xl sm:text-3xl font-black text-white"></h3>
-                    <span id="modal-role" class="text-xs font-bold uppercase tracking-widest text-energy-gold block"></span>
-                </div>
-            </div>
-
-            <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed border-t border-energy-border/50 pt-6">
-                <p id="modal-bio"></p>
-            </div>
-
-            <div class="mt-8 pt-6 border-t border-energy-border/50 flex justify-end">
-                <button onclick="closeModal()" class="px-6 py-2.5 rounded-full font-bold text-xs text-slate-900 bg-energy-gold hover:bg-energy-brightGold shadow-plasma transition-all">
-                    Cerrar Ficha
-                </button>
-            </div>
-        </div>
+    <div class="p-4 md:p-6 bg-white/95 border-t border-slate-200 flex justify-center items-center shadow-lg relative z-10">
+        <img src="financiacion.png" alt="Financiado por la Unión Europea - NextGenerationEU, Gobierno de España, Plan de Recuperación" class="max-h-16 md:max-h-20 w-auto object-contain">
     </div>
 
     <!-- Full Footer Exact Copy -->
@@ -490,7 +342,7 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // 1. ANIMACIÓN DEL CANVAS DE PARTÍCULAS (Partículas suaves sobre fondo claro)
+        // ANIMACIÓN DEL CANVAS DE PARTÍCULAS
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
 
@@ -513,14 +365,13 @@
                 this.speedX = (Math.random() * 0.3) - 0.15;
                 this.speedY = (Math.random() * 0.3) - 0.15;
                 
-                // Colores dorados y verdes suaves sobre fondo claro
                 const rand = Math.random();
                 if (rand > 0.5) {
-                    this.color = '#d97706'; // Ámbar/Dorado
+                    this.color = '#d97706';
                 } else if (rand > 0.2) {
-                    this.color = '#059669'; // Esmeralda
+                    this.color = '#059669';
                 } else {
-                    this.color = '#cbd5e1'; // Gris suave
+                    this.color = '#cbd5e1';
                 }
                 
                 this.opacity = Math.random() * 0.35 + 0.15;
@@ -566,43 +417,13 @@
             animateParticles();
         };
 
-        // 2. BARRA DE PROGRESO DE LECTURA
+        // BARRA DE PROGRESO DE LECTURA
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             document.getElementById('reading-progress').style.width = scrolled + '%';
         });
-
-        // 3. TOAST & ACCIONES
-        function notificarAccion(mensaje) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-message');
-            
-            toastMsg.textContent = mensaje;
-            toast.classList.remove('translate-y-20', 'opacity-0');
-            
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
-        }
-
-        function copiarEnlace() {
-            const tempInput = document.createElement('input');
-            tempInput.value = window.location.href;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
-            
-            notificarAccion('¡Enlace copiado al portapapeles!');
-        }
-
-        function handleSubscribe(e) {
-            e.preventDefault();
-            notificarAccion('¡Gracias por suscribirte!');
-            e.target.reset();
-        }
     </script>
 </body>
 </html>
