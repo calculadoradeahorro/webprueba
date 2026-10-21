@@ -105,73 +105,50 @@
         .core-deployed .core-member-node { opacity: 1; }
 
         /*
-         * Siete nodos distribuidos alrededor del núcleo.
-         * Las posiciones también se utilizan para las conexiones SVG.
+         * Distribución de los 9 nodos intercalando distancias (cerca ~115px / lejos ~185px)
          */
-        .core-deployed .node-belen {
-            transform: translate(-50%,calc(-50% - 170px));
-        }
+        /* 1. Belén (Arriba - Lejos) */
+        .core-deployed .node-belen { transform: translate(-50%, calc(-50% - 185px)); }
+        
+        /* 2. Verónica (Arriba-Derecha - Cerca) */
+        .core-deployed .node-veronica { transform: translate(calc(-50% + 88px), calc(-50% - 74px)); }
+        
+        /* 3. Janire (Derecha-Arriba - Lejos) */
+        .core-deployed .node-janire { transform: translate(calc(-50% + 182px), calc(-50% - 32px)); }
 
-        .core-deployed .node-veronica {
-            transform: translate(calc(-50% + 133px),calc(-50% - 106px));
-        }
+        /* 4. Ander (Derecha-Abajo - Cerca) */
+        .core-deployed .node-ander { transform: translate(calc(-50% + 99px), calc(-50% + 57px)); }
 
-        .core-deployed .node-janire {
-            transform: translate(calc(-50% + 166px),calc(-50% + 38px));
-        }
+        /* 5. David (Abajo-Derecha - Lejos) */
+        .core-deployed .node-david { transform: translate(calc(-50% + 63px), calc(-50% + 174px)); }
 
-        .core-deployed .node-david {
-            transform: translate(calc(-50% - 166px),calc(-50% + 38px));
-        }
+        /* 6. Olatz (Abajo-Izquierda - Cerca) */
+        .core-deployed .node-olatz { transform: translate(calc(-50% - 63px), calc(-50% + 95px)); }
 
-        .core-deployed .node-olatz {
-            transform: translate(calc(-50% + 106px),calc(-50% + 133px));
-        }
+        /* 7. Maialen (Izquierda-Abajo - Lejos) */
+        .core-deployed .node-maialen { transform: translate(calc(-50% - 175px), calc(-50% + 60px)); }
 
-        .core-deployed .node-maialen {
-            transform: translate(calc(-50% - 106px),calc(-50% + 133px));
-        }
+        /* 8. Ana (Izquierda-Arriba - Cerca) */
+        .core-deployed .node-ana { transform: translate(calc(-50% - 99px), calc(-50% - 57px)); }
 
-        .core-deployed .node-ana {
-            transform: translate(calc(-50% - 133px),calc(-50% - 106px));
-        }
+        /* 9. Hugo (Arriba-Izquierda - Lejos) */
+        .core-deployed .node-hugo { transform: translate(calc(-50% - 120px), calc(-50% - 140px)); }
+
 
         .text-glow-gold {
             text-shadow: 0 0 15px rgba(245,184,0,.5);
         }
 
         @media (max-width: 640px) {
-            #core-orbital-wrapper {
-                --orbit-radius: 125px;
-            }
-
-            .core-deployed .node-belen {
-                transform: translate(-50%,calc(-50% - 130px)) scale(.76);
-            }
-
-            .core-deployed .node-veronica {
-                transform: translate(calc(-50% + 102px),calc(-50% - 81px)) scale(.76);
-            }
-
-            .core-deployed .node-janire {
-                transform: translate(calc(-50% + 127px),calc(-50% + 29px)) scale(.76);
-            }
-
-            .core-deployed .node-david {
-                transform: translate(calc(-50% - 127px),calc(-50% + 29px)) scale(.76);
-            }
-
-            .core-deployed .node-olatz {
-                transform: translate(calc(-50% + 81px),calc(-50% + 102px)) scale(.76);
-            }
-
-            .core-deployed .node-maialen {
-                transform: translate(calc(-50% - 81px),calc(-50% + 102px)) scale(.76);
-            }
-
-            .core-deployed .node-ana {
-                transform: translate(calc(-50% - 102px),calc(-50% - 81px)) scale(.76);
-            }
+            .core-deployed .node-belen { transform: translate(-50%, calc(-50% - 140px)) scale(.72); }
+            .core-deployed .node-veronica { transform: translate(calc(-50% + 65px), calc(-50% - 55px)) scale(.72); }
+            .core-deployed .node-janire { transform: translate(calc(-50% + 135px), calc(-50% - 24px)) scale(.72); }
+            .core-deployed .node-ander { transform: translate(calc(-50% + 75px), calc(-50% + 42px)) scale(.72); }
+            .core-deployed .node-david { transform: translate(calc(-50% + 48px), calc(-50% + 130px)) scale(.72); }
+            .core-deployed .node-olatz { transform: translate(calc(-50% - 48px), calc(-50% + 70px)) scale(.72); }
+            .core-deployed .node-maialen { transform: translate(calc(-50% - 130px), calc(-50% + 45px)) scale(.72); }
+            .core-deployed .node-ana { transform: translate(calc(-50% - 75px), calc(-50% - 42px)) scale(.72); }
+            .core-deployed .node-hugo { transform: translate(calc(-50% - 90px), calc(-50% - 105px)) scale(.72); }
         }
 
         @media (max-width: 767px) {
@@ -182,33 +159,15 @@
                 filter: brightness(1.15);
             }
 
-            .core-deployed .node-belen.mobile-selected {
-                transform: translate(-50%,calc(-50% - 130px)) scale(.95);
-            }
-
-            .core-deployed .node-veronica.mobile-selected {
-                transform: translate(calc(-50% + 102px),calc(-50% - 81px)) scale(.95);
-            }
-
-            .core-deployed .node-janire.mobile-selected {
-                transform: translate(calc(-50% + 127px),calc(-50% + 29px)) scale(.95);
-            }
-
-            .core-deployed .node-david.mobile-selected {
-                transform: translate(calc(-50% - 127px),calc(-50% + 29px)) scale(.95);
-            }
-
-            .core-deployed .node-olatz.mobile-selected {
-                transform: translate(calc(-50% + 81px),calc(-50% + 102px)) scale(.95);
-            }
-
-            .core-deployed .node-maialen.mobile-selected {
-                transform: translate(calc(-50% - 81px),calc(-50% + 102px)) scale(.95);
-            }
-
-            .core-deployed .node-ana.mobile-selected {
-                transform: translate(calc(-50% - 102px),calc(-50% - 81px)) scale(.95);
-            }
+            .core-deployed .node-belen.mobile-selected { transform: translate(-50%, calc(-50% - 140px)) scale(.9); }
+            .core-deployed .node-veronica.mobile-selected { transform: translate(calc(-50% + 65px), calc(-50% - 55px)) scale(.9); }
+            .core-deployed .node-janire.mobile-selected { transform: translate(calc(-50% + 135px), calc(-50% - 24px)) scale(.9); }
+            .core-deployed .node-ander.mobile-selected { transform: translate(calc(-50% + 75px), calc(-50% + 42px)) scale(.9); }
+            .core-deployed .node-david.mobile-selected { transform: translate(calc(-50% + 48px), calc(-50% + 130px)) scale(.9); }
+            .core-deployed .node-olatz.mobile-selected { transform: translate(calc(-50% - 48px), calc(-50% + 70px)) scale(.9); }
+            .core-deployed .node-maialen.mobile-selected { transform: translate(calc(-50% - 130px), calc(-50% + 45px)) scale(.9); }
+            .core-deployed .node-ana.mobile-selected { transform: translate(calc(-50% - 75px), calc(-50% - 42px)) scale(.9); }
+            .core-deployed .node-hugo.mobile-selected { transform: translate(calc(-50% - 90px), calc(-50% - 105px)) scale(.9); }
         }
 
         ::-webkit-scrollbar { width: 8px; }
@@ -230,23 +189,17 @@
 
 <body class="relative min-h-screen selection:bg-energy-gold selection:text-black">
 
-    <canvas id="canvas-matrix" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
-
-    <body class="relative min-h-screen selection:bg-gold selection:text-black">
-
     <!-- Background Dynamic Particle Mesh Canvas -->
     <canvas id="canvas-matrix" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-   <!-- Header con logos a los extremos, menú centrado y efecto Blur translúcido -->
+   <!-- Header -->
     <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
         <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
             
-            <!-- Logo Izquierdo: logoargieder.png -->
             <a href="https://calculadoradeahorro.github.io/webprueba/" class="flex items-center shrink-0 group">
                 <img src="logoargieder.png" alt="Argieder Logo" class="h-8 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
             </a>
 
-            <!-- Menú de Navegación Central (Solo visible en PC) -->
             <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-slate-300">
                 <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold transition-colors py-1">Inicio</a>
                 <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold transition-colors py-1">Ahorra en tu factura</a>
@@ -254,27 +207,23 @@
                 <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="hover:text-gold transition-colors py-1">Servicios</a>
                 <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold transition-colors py-1">Contacto</a>
                 
-                <!-- Botón Verde visible en PC -->
                 <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-xs font-bold uppercase tracking-wider hover:bg-emerald-500/20 hover:border-emerald-400 hover:shadow-[0_0_20px_rgba(52,211,153,0.3)] transition-all duration-300 whitespace-nowrap">
                     <i class="fa-solid fa-euro-sign text-emerald-400 text-xs"></i>
                     <span>CALCULA TU AHORRO CON AULED</span>
                 </a>
             </nav>
 
-            <!-- Botón Verde visible SOLO en Celular (Ubicado en la cabecera principal) -->
             <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="md:hidden inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[11px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">
                 <i class="fa-solid fa-euro-sign text-emerald-400 text-[10px]"></i>
                 <span>ahorra con auled</span>
             </a>
 
-            <!-- Logo Derecho: logoauled.png -->
             <a href="https://calculadoradeahorro.github.io/webprueba/auledchargerdesign/" class="flex items-center shrink-0 group">
                 <img src="logoauled.png" alt="Auled Logo" class="h-8 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
             </a>
 
         </div>
 
-        <!-- Menú Móvil Secundario -->
         <div class="md:hidden flex justify-center items-center gap-4 pt-3 border-t border-white/5 mt-2 text-xs font-medium text-slate-300 overflow-x-auto whitespace-nowrap">
             <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold">Inicio</a>
             <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold">Factura</a>
@@ -320,7 +269,7 @@
                                     <span id="hud-name" class="text-lg font-black text-white">Interactúa con el Núcleo</span>
                                     <span id="hud-tag" class="px-2 py-0.5 rounded-full bg-energy-surface text-energy-cyan text-[10px] font-bold uppercase">En línea</span>
                                 </div>
-                                <p id="hud-desc" class="text-xs text-slate-400">Selecciona un nodo para conocer a cada integrante del equipo.</p>
+                                <p id="hud-desc" class="text-xs text-slate-400">Pasa el cursor por cada foto para conocer a los integrantes del equipo.</p>
                             </div>
                         </div>
                     </div>
@@ -335,7 +284,7 @@
                             <span class="block text-[11px] uppercase text-slate-400 mt-1">Fundación</span>
                         </div>
                         <div class="p-4 rounded-2xl bg-energy-surface border border-energy-border text-center">
-                            <span class="text-2xl sm:text-3xl font-black text-white">7</span>
+                            <span class="text-2xl sm:text-3xl font-black text-white">9</span>
                             <span class="block text-[11px] uppercase text-slate-400 mt-1">Especialistas</span>
                         </div>
                     </div>
@@ -343,19 +292,24 @@
 
                 <!-- NÚCLEO ORBITAL -->
                 <div class="lg:col-span-6 flex justify-center items-center py-12">
-                    <div id="core-orbital-wrapper" class="relative w-[360px] h-[360px] sm:w-[460px] sm:h-[460px] flex items-center justify-center">
+                    <div id="core-orbital-wrapper" class="relative w-[380px] h-[380px] sm:w-[480px] sm:h-[480px] flex items-center justify-center">
 
-                        <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="-230 -230 460 460">
-                            <circle cx="0" cy="0" r="170" fill="none" stroke="rgba(245,184,0,.2)" stroke-width="1.5" stroke-dasharray="6,6"/>
-                            <circle cx="0" cy="0" r="110" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
+                        <svg class="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="-240 -240 480 480">
+                            <!-- Órbita Exterior -->
+                            <circle cx="0" cy="0" r="185" fill="none" stroke="rgba(245,184,0,.2)" stroke-width="1.5" stroke-dasharray="6,6"/>
+                            <!-- Órbita Interior -->
+                            <circle cx="0" cy="0" r="115" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
 
-                            <line id="beam-belen" x1="0" y1="0" x2="0" y2="-170" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-veronica" x1="0" y1="0" x2="133" y2="-106" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-janire" x1="0" y1="0" x2="166" y2="38" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-david" x1="0" y1="0" x2="-166" y2="38" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-olatz" x1="0" y1="0" x2="106" y2="133" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-maialen" x1="0" y1="0" x2="-106" y2="133" stroke="#F5B800" stroke-width="2" opacity=".3"/>
-                            <line id="beam-ana" x1="0" y1="0" x2="-133" y2="-106" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <!-- Rayos Conectores -->
+                            <line id="beam-belen" x1="0" y1="0" x2="0" y2="-185" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-veronica" x1="0" y1="0" x2="88" y2="-74" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-janire" x1="0" y1="0" x2="182" y2="-32" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-ander" x1="0" y1="0" x2="99" y2="57" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-david" x1="0" y1="0" x2="63" y2="174" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-olatz" x1="0" y1="0" x2="-63" y2="95" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-maialen" x1="0" y1="0" x2="-175" y2="60" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-ana" x1="0" y1="0" x2="-99" y2="-57" stroke="#F5B800" stroke-width="2" opacity=".3"/>
+                            <line id="beam-hugo" x1="0" y1="0" x2="-120" y2="-140" stroke="#F5B800" stroke-width="2" opacity=".3"/>
                         </svg>
 
                         <div class="relative w-36 h-36 rounded-full bg-energy-surface p-1 shadow-node-hover z-10 flex items-center justify-center">
@@ -369,7 +323,7 @@
                         <!-- BELÉN -->
                         <div class="core-member-node node-belen" data-member="belen" role="button" tabindex="0" aria-label="Ver información de Belén Teijeira">
                             <div class="relative">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
                                     <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="belen.jpg" alt="Belén Teijeira" class="w-full h-full object-cover">
                                     </div>
@@ -381,7 +335,7 @@
                         <!-- VERÓNICA -->
                         <div class="core-member-node node-veronica" data-member="veronica" role="button" tabindex="0" aria-label="Ver información de Verónica Martín">
                             <div class="relative">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
                                     <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="veronica.jpg" alt="Verónica Martín" class="w-full h-full object-cover">
                                     </div>
@@ -393,7 +347,7 @@
                         <!-- JANIRE -->
                         <div class="core-member-node node-janire" data-member="janire" role="button" tabindex="0" aria-label="Ver información de Janire Etxebeste">
                             <div class="relative">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
                                     <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="janire.jpg" alt="Janire Etxebeste" class="w-full h-full object-cover">
                                     </div>
@@ -402,10 +356,22 @@
                             </div>
                         </div>
 
+                        <!-- ANDER -->
+                        <div class="core-member-node node-ander" data-member="ander" role="button" tabindex="0" aria-label="Ver información de Ander">
+                            <div class="relative">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
+                                        <img src="sinfoto.png" alt="Ander" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">ANDER</span>
+                            </div>
+                        </div>
+
                         <!-- DAVID -->
                         <div class="core-member-node node-david" data-member="david" role="button" tabindex="0" aria-label="Ver información de David Tena">
                             <div class="relative">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
                                     <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="david.jpg" alt="David Tena" class="w-full h-full object-cover">
                                     </div>
@@ -417,7 +383,7 @@
                         <!-- OLATZ -->
                         <div class="core-member-node node-olatz" data-member="olatz" role="button" tabindex="0" aria-label="Ver información de Olatz Garai">
                             <div class="relative">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
                                     <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="olatz.jpg" alt="Olatz Garai" class="w-full h-full object-cover">
                                     </div>
@@ -429,7 +395,7 @@
                         <!-- MAIALEN -->
                         <div class="core-member-node node-maialen" data-member="maialen" role="button" tabindex="0" aria-label="Ver información de Maialen">
                             <div class="relative">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
                                     <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="sinfoto.png" alt="Maialen" class="w-full h-full object-cover">
                                     </div>
@@ -438,15 +404,27 @@
                             </div>
                         </div>
 
-                        <!-- NUEVA INTEGRANTE: ANA -->
+                        <!-- ANA -->
                         <div class="core-member-node node-ana" data-member="ana" role="button" tabindex="0" aria-label="Ver información de Ana">
                             <div class="relative">
-                                <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
                                     <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
                                         <img src="sinfoto.png" alt="Ana" class="w-full h-full object-cover">
                                     </div>
                                 </div>
                                 <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">ANA</span>
+                            </div>
+                        </div>
+
+                        <!-- HUGO -->
+                        <div class="core-member-node node-hugo" data-member="hugo" role="button" tabindex="0" aria-label="Ver información de Hugo">
+                            <div class="relative">
+                                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full p-1 bg-gradient-to-tr from-energy-gold to-yellow-600 shadow-plasma">
+                                    <div class="w-full h-full rounded-full overflow-hidden border-2 border-energy-bg">
+                                        <img src="sinfoto.png" alt="Hugo" class="w-full h-full object-cover">
+                                    </div>
+                                </div>
+                                <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-2.5 py-0.5 rounded-full bg-energy-gold text-black text-[10px] font-black">HUGO</span>
                             </div>
                         </div>
 
@@ -525,13 +503,32 @@
                     <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
                 </div>
 
-                <!-- NUEVA TARJETA DE ANA -->
                 <div class="team-card plasma-card rounded-3xl p-8 cursor-pointer hover:-translate-y-2" onclick="openModal('ana')">
                     <img src="sinfoto.png" alt="Ana" class="w-20 h-20 rounded-2xl object-cover mb-5">
                     <span class="text-xs uppercase font-bold text-energy-cyan">Equipo Comercial</span>
                     <h4 class="text-2xl font-black text-white mt-2">Ana</h4>
                     <p class="text-xs uppercase tracking-widest text-energy-cyan mt-2 mb-4">Compras</p>
                     <p class="text-sm text-slate-300 mb-5">Atención al Cliente, Carga de Vehículos Eléctricos y Compras.</p>
+                    <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
+                </div>
+
+                <!-- TARJETA DE ANDER -->
+                <div class="team-card plasma-card rounded-3xl p-8 cursor-pointer hover:-translate-y-2" onclick="openModal('ander')">
+                    <img src="sinfoto.png" alt="Ander" class="w-20 h-20 rounded-2xl object-cover mb-5">
+                    <span class="text-xs uppercase font-bold text-energy-gold">Asesor Energético</span>
+                    <h4 class="text-2xl font-black text-white mt-2">Ander</h4>
+                    <p class="text-xs uppercase tracking-widest text-energy-gold mt-2 mb-4">Departamento Técnico / Comercial</p>
+                    <p class="text-sm text-slate-300 mb-5">Especialista en asesoramiento técnico y desarrollo de soluciones energéticas a medida para clientes.</p>
+                    <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
+                </div>
+
+                <!-- TARJETA DE HUGO -->
+                <div class="team-card plasma-card rounded-3xl p-8 cursor-pointer hover:-translate-y-2" onclick="openModal('hugo')">
+                    <img src="sinfoto.png" alt="Hugo" class="w-20 h-20 rounded-2xl object-cover mb-5">
+                    <span class="text-xs uppercase font-bold text-energy-cyan">Soporte Técnico</span>
+                    <h4 class="text-2xl font-black text-white mt-2">Hugo</h4>
+                    <p class="text-xs uppercase tracking-widest text-energy-cyan mt-2 mb-4">Gestión y Operaciones</p>
+                    <p class="text-sm text-slate-300 mb-5">Soporte operativo en estudios energéticos, optimización de contratos y seguimiento técnico.</p>
                     <span class="text-sm font-bold text-energy-gold">Ver ficha completa →</span>
                 </div>
 
@@ -625,9 +622,7 @@
         lucide.createIcons();
 
         /*
-         * Datos centrales de todos los integrantes.
-         * Ana queda registrada aquí para que el nodo orbital,
-         * el panel informativo y la ficha emergente funcionen.
+         * Datos centrales de todos los integrantes (incluyendo a Ander y Hugo).
          */
         const teamData = {
             belen: {
@@ -668,9 +663,21 @@
             },
             ana: {
                 name: "Ana",
-                role: "Integrante del equipo",
+                role: "Compras y Atención al Cliente",
                 tag: "Equipo Argieder",
-                bio: "Ana forma parte del equipo de Argieder y contribuye al trabajo conjunto para ofrecer un servicio cercano y de calidad a los clientes. Esta descripción es provisional y puede actualizarse con su puesto y responsabilidades reales."
+                bio: "Ana forma parte del equipo de Argieder y contribuye a la gestión de compras, soporte de atención al cliente y soluciones de carga para vehículos eléctricos."
+            },
+            ander: {
+                name: "Ander",
+                role: "Asesor Energético",
+                tag: "Equipo Técnico / Comercial",
+                bio: "Ander forma parte del equipo técnico y comercial de Argieder, aportando soluciones personalizadas y asesorando a los clientes para maximizar la eficiencia y el ahorro en sus consumos."
+            },
+            hugo: {
+                name: "Hugo",
+                role: "Soporte Técnico y Operaciones",
+                tag: "Equipo de Gestión",
+                bio: "Hugo brinda soporte operativo e interviene en la elaboración y seguimiento de los proyectos energéticos de la compañía, garantizando un servicio de alta calidad."
             }
         };
 
