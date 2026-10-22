@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Cookies | Argieder</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logoargieder.png">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        gold: {
+                            light: '#F5D061',
+                            DEFAULT: '#E3A827',
+                            dark: '#D4920B',
+                            amber: '#F3C649'
+                        },
+                        darkBg: '#1d1d1d',
+                        darkCard: '#121318',
+                        darkBorder: '#222530',
+                        lightBg: '#FAFAFB'
+                    },
+                    boxShadow: {
+                        'glow-gold': '0 0 30px rgba(227, 168, 39, 0.35)',
+                        'glow-gold-lg': '0 0 50px rgba(227, 168, 39, 0.5)',
+                        'glow-green': '0 0 30px rgba(34, 197, 94, 0.4)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --brand-gold: #E3A827;
+            --brand-gold-glow: rgba(227, 168, 39, 0.4);
+        }
+
+        body {
+            background-color: #1d1d1d;
+            color: #E2E8F0;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Neumorphic Dark Card with Golden Glow on Hover */
+        .gold-glass-card {
+            background: rgba(29, 29, 29, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(227, 168, 39, 0.25);
+            transition: all 0.4s ease;
+        }
+
+        .gold-glass-card:hover {
+            border-color: rgba(227, 168, 39, 0.7);
+            box-shadow: 0 10px 35px -5px rgba(227, 168, 39, 0.3);
+        }
+
+        /* Glowing text effects */
+        .text-glow-gold {
+            text-shadow: 0 0 18px rgba(227, 168, 39, 0.6);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen selection:bg-gold selection:text-black font-body">
+
+    <!-- Background Dynamic Particle Mesh Canvas -->
+    <canvas id="canvas-matrix" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- Header con logos a los extremos, menú centrado y efecto Blur translúcido -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
+        <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
+            
+            <!-- Logo Izquierdo: logoargieder.png -->
+            <a href="https://calculadoradeahorro.github.io/webprueba/" class="flex items-center shrink-0 group">
+                <img src="logoargieder.png" alt="Argieder Logo" class="h-8 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+            </a>
+
+            <!-- Menú de Navegación Central (Solo visible en PC) -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-slate-300">
+                <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold transition-colors py-1">Inicio</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold transition-colors py-1">Ahorra en tu factura</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/" class="hover:text-gold transition-colors py-1">Nuestro equipo</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="hover:text-gold transition-colors py-1">Servicios</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold transition-colors py-1">Contacto</a>
+                
+                <!-- Botón Verde visible en PC -->
+                <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-xs font-bold uppercase tracking-wider hover:bg-emerald-500/20 hover:border-emerald-400 hover:shadow-[0_0_20px_rgba(52,211,153,0.3)] transition-all duration-300 whitespace-nowrap">
+                    <i class="fa-solid fa-euro-sign text-emerald-400 text-xs"></i>
+                    <span>CALCULA TU AHORRO CON AULED</span>
+                </a>
+            </nav>
+
+            <!-- Botón Verde visible SOLO en Celular -->
+            <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="md:hidden inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[11px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">
+                <i class="fa-solid fa-euro-sign text-emerald-400 text-[10px]"></i>
+                <span>ahorra con auled</span>
+            </a>
+
+            <!-- Logo Derecho: logoauled.png -->
+            <a href="https://calculadoradeahorro.github.io/webprueba/auledchargerdesign/" class="flex items-center shrink-0 group">
+                <img src="logoauled.png" alt="Auled Logo" class="h-8 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+            </a>
+
+        </div>
+
+        <!-- Menú Móvil Secundario -->
+        <div class="md:hidden flex justify-center items-center gap-4 pt-3 border-t border-white/5 mt-2 text-xs font-medium text-slate-300 overflow-x-auto whitespace-nowrap">
+            <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold">Inicio</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold">Factura</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/" class="hover:text-gold">Equipo</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="hover:text-gold">Servicios</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold">Contacto</a>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL: POLÍTICA DE COOKIES -->
+    <main class="relative pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto z-10 font-body">
+        
+        <!-- Encabezado de la página -->
+        <div class="text-center space-y-4 mb-12">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/40 text-gold text-xs font-semibold tracking-wider uppercase shadow-glow-gold">
+                <i class="fa-solid fa-cookie-bite text-gold"></i> Transparencia y Privacidad
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white font-sans tracking-tight">
+                POLÍTICA DE <br class="hidden sm:inline">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-gold-amber text-glow-gold">
+                    COOKIES
+                </span>
+            </h1>
+            <p class="text-slate-400 text-sm font-medium">www.argieder.net[cite: 1]</p>
+        </div>
+
+        <!-- Tarjeta del Contenido de Cookies -->
+        <div class="gold-glass-card rounded-3xl p-6 sm:p-10 md:p-12 border border-gold/30 shadow-2xl space-y-10 text-slate-300 text-sm md:text-base leading-relaxed">
+
+            <!-- Introducción -->
+            <section class="space-y-4 border-b border-gold/20 pb-8">
+                <p>
+                    El acceso a este Sitio Web puede implicar la utilización de cookies. Las cookies son pequeñas cantidades de información que se almacenan en el navegador utilizado por cada Usuario —en los distintos dispositivos que pueda utilizar para navegar— para que el servidor recuerde cierta información que posteriormente y únicamente el servidor que la implementó leerá. Las cookies facilitan la navegación, la hacen más amigable, y no dañan el dispositivo de navegación.[cite: 1]
+                </p>
+                <p>
+                    Las cookies son procedimientos automáticos de recogida de información relativa a las preferencias determinadas por el Usuario durante su visita al Sitio Web con el fin de reconocerlo como Usuario, y personalizar su experiencia y el uso del Sitio Web, y pueden también, por ejemplo, ayudar a identificar y resolver errores.[cite: 1]
+                </p>
+                <p>
+                    La información recabada a través de las cookies puede incluir la fecha y hora de visitas al Sitio Web, las páginas visionadas, el tiempo que ha estado en el Sitio Web y los sitios visitados justo antes y después del mismo. Sin embargo, ninguna cookie permite que esta misma pueda contactarse con el número de teléfono del Usuario o con cualquier otro medio de contacto personal. Ninguna cookie puede extraer información del disco duro del Usuario o robar información personal. La única manera de que la información privada del Usuario forme parte del archivo Cookie es que el usuario dé personalmente esa información al servidor.[cite: 1]
+                </p>
+                <p>
+                    Las cookies que permiten identificar a una persona se consideran datos personales. Por tanto, a las mismas les será de aplicación la Política de Privacidad anteriormente descrita. En este sentido, para la utilización de las mismas será necesario el consentimiento del Usuario. Este consentimiento será comunicado, en base a una elección auténtica, ofrecido mediante una decisión afirmativa y positiva, antes del tratamiento inicial, removible y documentado.[cite: 1]
+                </p>
+            </section>
+
+            <!-- Cookies Propias -->
+            <section class="space-y-4 border-b border-gold/20 pb-8">
+                <h2 class="text-xl md:text-2xl font-bold text-gold font-sans uppercase flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-sm shrink-0"><i class="fa-solid fa-shield-halved text-xs"></i></span>
+                    Cookies propias
+                </h2>
+                <p>
+                    Son aquellas cookies que son enviadas al ordenador o dispositivo del Usuario y gestionadas exclusivamente por Argieder Gestion S.L. para el mejor funcionamiento del Sitio Web. La información que se recaba se emplea para mejorar la calidad del Sitio Web y su Contenido y su experiencia como Usuario. Estas cookies permiten reconocer al Usuario como visitante recurrente del Sitio Web y adaptar el contenido para ofrecerle contenidos que se ajusten a sus preferencias.[cite: 1]
+                </p>
+            </section>
+
+            <!-- Cookies de Terceros -->
+            <section class="space-y-4 border-b border-gold/20 pb-8">
+                <h2 class="text-xl md:text-2xl font-bold text-gold font-sans uppercase flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-sm shrink-0"><i class="fa-solid fa-network-wired text-xs"></i></span>
+                    Cookies de terceros
+                </h2>
+                <p>
+                    Son cookies utilizadas y gestionadas por entidades externas que proporcionan a Argieder Gestion S.L. servicios solicitados por este mismo para mejorar el Sitio Web y la experiencia del usuario al navegar en el Sitio Web. Los principales objetivos para los que se utilizan cookies de terceros son la obtención de estadísticas de accesos y analizar la información de la navegación, es decir, cómo interactúa el Usuario con el Sitio Web.[cite: 1]
+                </p>
+                <p>
+                    La información que se obtiene se refiere, por ejemplo, al número de páginas visitadas, el idioma, el lugar a la que la dirección IP desde el que accede el Usuario, el número de Usuarios que acceden, la frecuencia y reincidencia de las visitas, el tiempo de visita, el navegador que usan, el operador o tipo de dispositivo desde el que se realiza la visita. Esta información se utiliza para mejorar el Sitio Web, y detectar nuevas necesidades para ofrecer a los Usuarios un Contenido y/o servicio de óptima calidad. En todo caso, la información se recopila de forma anónima y se elaboran informes de tendencias del Sitio Web sin identificar a usuarios individuales.[cite: 1]
+                </p>
+                <p>
+                    Puede obtener más información sobre las cookies, la información sobre la privacidad, o consultar la descripción del tipo de cookies que se utiliza, sus principales características, periodo de expiración, etc. en el siguiente(s) enlace(s):[cite: 1]
+                </p>
+                <div class="bg-black/40 border border-white/10 rounded-2xl p-4 text-slate-200">
+                    <p><strong class="text-gold font-semibold">Google Analytics:</strong> <a href="https://developers.google.com/analytics/" target="_blank" class="text-gold hover:underline">https://developers.google.com/analytics/</a>[cite: 1]</p>
+                </div>
+                <p>
+                    La(s) entidad(es) encargada(s) del suministro de cookies podrá(n) ceder esta información a terceros, siempre y cuando lo exija la ley o sea un tercero el que procese esta información para dichas entidades.[cite: 1]
+                </p>
+            </section>
+
+            <!-- Deshabilitar, rechazar y eliminar cookies -->
+            <section class="space-y-4">
+                <h2 class="text-xl md:text-2xl font-bold text-gold font-sans uppercase flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-sm shrink-0"><i class="fa-solid fa-ban text-xs"></i></span>
+                    Deshabilitar, rechazar y eliminar cookies
+                </h2>
+                <p>
+                    El Usuario puede deshabilitar, rechazar y eliminar las cookies —total o parcialmente— instaladas en su dispositivo mediante la configuración de su navegador (entre los que se encuentran, por ejemplo, Chrome, Firefox, Safari, Explorer). En este sentido, los procedimientos para rechazar y eliminar las cookies pueden diferir de un navegador de Internet a otro. En consecuencia, el Usuario debe acudir a las instrucciones facilitadas por el propio navegador de Internet que esté utilizando. En el supuesto de que rechace el uso de cookies —total o parcialmente— podrá seguir usando el Sitio Web, si bien podrá tener limitada la utilización de algunas de las prestaciones del mismo.[cite: 1]
+                </p>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Full Footer Exact Copy -->
+    <footer class="bg-[#1d1d1d] border-t border-gold/20 pt-16 pb-12 text-slate-400 text-xs relative z-10 font-body">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
+                
+                <!-- Columna 1: Logo y descripción -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="logoargieder.png" alt="Argieder Logo" class="h-8 w-auto object-contain">
+                    </div>
+                    <p class="leading-relaxed">
+                        Argieder Gestión es una asesoría energética tecnológica dedicada a la optimización de gasto energético para empresas.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Información (Centrada) -->
+                <div class="flex flex-col items-center text-center">
+                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm font-sans">Información</h5>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="hover:text-gold transition-colors">Aviso Legal</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors">Política de Cookies</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contáctanos -->
+                <div>
+                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm font-sans">Contáctanos</h5>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-gold shrink-0 mt-0.5"></i>
+                            <span>OFICINA: Aranguren Auzoa 2, Local 104/105, Galerías CC Mamut, La Planta (Frente a escaleras eléctricas) 20180 Oiartzun</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-phone text-gold shrink-0"></i>
+                            <span>(+34) 943 007 407</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-envelope text-gold shrink-0"></i>
+                            <span>info@argieder.es</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gold/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>Argieder Gestión S.L. © - Todos los derechos reservados.</p>
+                <div class="flex gap-4 text-slate-400">
+                    <a href="https://www.facebook.com/argieder/" class="hover:text-gold"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/argieder_gestion/" class="hover:text-gold"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Dynamic Particle Canvas -->
+    <script>
+        const canvas = document.getElementById('canvas-matrix');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.radius = Math.random() * 2 + 0.5;
+                this.color = Math.random() > 0.3 ? '#E3A827' : '#FFFFFF';
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const count = Math.floor((canvas.width * canvas.height) / 22000);
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(227, 168, 39, ${0.15 - dist / 800})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.onload = function() {
+            resizeCanvas();
+            animateCanvas();
+        };
+        window.addEventListener('resize', resizeCanvas);
+    </script>
+</body>
+</html>
