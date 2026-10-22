@@ -556,8 +556,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
             
-            <!-- Columna 1: Logo y descripción -->
-            <div class="space-y-4">
+            <!-- Columna 1: Logo y descripción (Centrado en móvil, a la izquierda en PC) -->
+            <div class="space-y-4 flex flex-col items-center md:items-start text-center md:text-left">
                 <div class="flex items-center gap-3">
                     <img src="logoargieder.png" alt="Argieder Logo" class="h-8 w-auto object-contain">
                 </div>
@@ -566,7 +566,7 @@
                 </p>
             </div>
 
-            <!-- Columna 2: Información (Centrada) -->
+            <!-- Columna 2: Información (Centrada siempre) -->
             <div class="flex flex-col items-center text-center">
                 <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Información</h5>
                 <ul class="space-y-2.5">
@@ -576,19 +576,19 @@
                 </ul>
             </div>
 
-            <!-- Columna 3: Contáctanos -->
-            <div>
+            <!-- Columna 3: Contáctanos (Centrado en móvil, a la izquierda en PC) -->
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
                 <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Contáctanos</h5>
-                <ul class="space-y-3">
-                    <li class="flex items-start gap-2.5">
+                <ul class="space-y-3 flex flex-col items-center md:items-start">
+                    <li class="flex flex-col md:flex-row items-center md:items-start gap-2.5">
                         <i class="fa-solid fa-location-dot text-gold shrink-0 mt-0.5"></i>
                         <span>OFICINA: Astigarragako Bidea 2, Local 104/105, Galerías CC Mamut, 1a Planta (frente a escaleras eléctricas), 20180 Oiartzun</span>
                     </li>
-                    <li class="flex items-center gap-2.5">
+                    <li class="flex flex-col md:flex-row items-center md:items-start gap-2.5">
                         <i class="fa-solid fa-phone text-gold shrink-0"></i>
                         <span>(+34) 943 227 623</span>
                     </li>
-                    <li class="flex items-center gap-2.5">
+                    <li class="flex flex-col md:flex-row items-center md:items-start gap-2.5">
                         <i class="fa-solid fa-envelope text-gold shrink-0"></i>
                         <span>info@argieder.es</span>
                     </li>
@@ -597,7 +597,7 @@
 
         </div>
 
-        <div class="border-t border-gold/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="border-t border-gold/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
             <p>Argieder Gestión S.L. © - Todos los derechos reservados.</p>
             <div class="flex gap-4 text-slate-400">
                 <a href="https://www.facebook.com/argieder/" class="hover:text-gold"><i class="fa-brands fa-facebook-f"></i></a>
@@ -606,7 +606,7 @@
         </div>
     </div>
 </footer>
-
+    
     <script>
         lucide.createIcons();
 
