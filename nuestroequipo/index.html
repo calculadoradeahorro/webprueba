@@ -168,12 +168,12 @@
             }
         }
 
-        /* --- Estilos de la Sección Tour de Oficinas con Puerta Interactiva --- */
+        /* --- Estilos de la Sección Tour de Oficinas con puerta.png --- */
         .workspace-tour-section {
             position: relative;
             z-index: 10;
             padding-top: 5rem;
-            padding-bottom: 7rem; /* Amplio espacio con el cartel de financiación */
+            padding-bottom: 7rem; /* Gran separación respecto al cartel de financiación */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -203,55 +203,69 @@
             text-shadow: 0 0 25px rgba(245, 184, 0, 0.5);
         }
 
-        /* Contenedor de la Puerta 3D */
-        .door-scene {
-            perspective: 1200px;
-            cursor: pointer;
-            display: inline-block;
-            outline: none;
-        }
-
-        .door-element {
-            width: 130px;
-            height: 195px;
-            background: linear-gradient(135deg, #f5b800 0%, #c49200 100%);
-            border-radius: 12px 12px 4px 4px;
+        /* Contenedor 3D de la imagen puerta.png */
+        .photo-door-scene {
             position: relative;
+            width: 100%;
+            max-width: 380px;
+            aspect-ratio: 1 / 1;
+            margin: 0 auto;
+            perspective: 1400px;
+            cursor: pointer;
+            border-radius: 16px;
+        }
+
+        .photo-door-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
             transform-style: preserve-3d;
-            transform-origin: left center;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
-            box-shadow: 0 15px 35px rgba(245, 184, 0, 0.35), inset 0 2px 6px rgba(255, 255, 255, 0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid #ffe153;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+            border: 1px solid rgba(245, 184, 0, 0.25);
         }
 
-        .door-scene:hover .door-element,
-        .door-scene.active .door-element {
-            transform: rotateY(-80deg);
-            box-shadow: -15px 20px 45px rgba(0, 0, 0, 0.7);
-        }
-
-        .door-knob-el {
+        /* Hoja derecha fija de puerta.png */
+        .photo-door-right {
             position: absolute;
-            right: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 14px;
-            height: 14px;
-            background: #111111;
-            border-radius: 50%;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.6), inset 0 1px 2px rgba(255,255,255,0.4);
+            inset: 0;
+            background-image: url('puerta.png');
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+            z-index: 1;
         }
 
-        .door-inner-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        /* Hoja izquierda interactiva (puerta de acceso que se abre) */
+        .photo-door-left {
+            position: absolute;
+            inset: 0;
+            background-image: url('puerta.png');
+            background-size: cover;
+            background-position: center;
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+            transform-origin: left center;
+            transform-style: preserve-3d;
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 2;
+        }
+
+        /* Difuminado interior fundido exactamente con el color de fondo #1d1d1d */
+        .photo-door-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            box-shadow: inset 0 0 50px 25px #1d1d1d;
             pointer-events: none;
+            border-radius: 16px;
+            z-index: 10;
+        }
+
+        /* Apertura de la puerta al pasar el cursor o hacer clic */
+        .photo-door-scene:hover .photo-door-left,
+        .photo-door-scene.active .photo-door-left {
+            transform: rotateY(-85deg);
         }
 
         /* --- Modal / Burbuja Redondeada --- */
@@ -675,7 +689,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN TOUR DE OFICINAS (CON LÍNEA FINA AMARILLA, TÍTULO GRANDE Y PUERTA INTERACTIVA) -->
+    <!-- SECCIÓN TOUR DE OFICINAS (CON LÍNEA FINA AMARILLA, TÍTULO GRANDE Y puerta.png INTERACTIVA) -->
     <section class="workspace-tour-section">
         <!-- Línea fina amarilla separadora -->
         <div class="workspace-divider">
@@ -685,16 +699,13 @@
         <!-- Título grande y llamativo -->
         <h3 class="workspace-title-main">CONOCE NUESTRO ESPACIO DE TRABAJO</h3>
         
-        <!-- Puerta 3D Interactiva -->
-        <div class="door-scene" id="openVideoBtn" role="button" tabindex="0" aria-label="Abrir puerta para conocer el espacio de trabajo">
-            <div class="door-element">
-                <div class="door-knob-el"></div>
-                <div class="door-inner-content">
-                    <svg class="w-10 h-10 text-[#1d1d1d]" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
-                    <span class="text-[10px] font-black uppercase text-[#1d1d1d] mt-2 tracking-widest">TOUR</span>
-                </div>
+        <!-- Contenedor con la imagen puerta.png que se abre al interactuar -->
+        <div class="photo-door-scene" id="openVideoBtn" role="button" tabindex="0" aria-label="Abrir puerta para conocer el espacio de trabajo">
+            <div class="photo-door-wrapper">
+                <!-- Hoja derecha fija -->
+                <div class="photo-door-right"></div>
+                <!-- Hoja izquierda que se abre en 3D -->
+                <div class="photo-door-left"></div>
             </div>
         </div>
     </section>
@@ -1085,37 +1096,25 @@
             }
         });
 
-        /* SCRIPT PARA LA PUERTA INTERACTIVA Y EL VIDEO */
+        /* SCRIPT PARA LA PUERTA INTERACTIVA (puerta.png) Y EL VIDEO */
         document.addEventListener('DOMContentLoaded', () => {
-            const openVideoBtn = document.getElementById('openVideoBtn');
+            const doorScene = document.getElementById('openVideoBtn');
             const closeVideoBtn = document.getElementById('closeVideoBtn');
             const videoModal = document.getElementById('videoModal');
             const workspaceVideo = document.getElementById('workspaceVideo');
 
-            if (openVideoBtn && videoModal && workspaceVideo) {
+            if (doorScene && videoModal && workspaceVideo) {
                 const triggerOpen = () => {
-                    openVideoBtn.classList.add('active');
+                    doorScene.classList.add('active');
                     videoModal.classList.add('active');
                     workspaceVideo.play().catch(e => console.log("Autoplay bloqueado:", e));
                 };
 
-                openVideoBtn.addEventListener('click', triggerOpen);
-                
-                openVideoBtn.addEventListener('mouseenter', () => {
-                    if (window.matchMedia('(min-width: 768px)').matches) {
-                        openVideoBtn.classList.add('active');
-                    }
-                });
-                
-                openVideoBtn.addEventListener('mouseleave', () => {
-                    if (window.matchMedia('(min-width: 768px)').matches) {
-                        openVideoBtn.classList.remove('active');
-                    }
-                });
+                doorScene.addEventListener('click', triggerOpen);
 
                 const closeVideoModal = () => {
                     videoModal.classList.remove('active');
-                    openVideoBtn.classList.remove('active');
+                    doorScene.classList.remove('active');
                     workspaceVideo.pause();
                     workspaceVideo.currentTime = 0;
                 };
