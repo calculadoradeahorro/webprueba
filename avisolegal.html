@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso Legal y Condiciones Generales de Uso | Argieder</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Montserrat & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logoargieder.png">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    },
+                    colors: {
+                        gold: {
+                            light: '#F5D061',
+                            DEFAULT: '#E3A827',
+                            dark: '#D4920B',
+                            amber: '#F3C649'
+                        },
+                        darkBg: '#1d1d1d',
+                        darkCard: '#121318',
+                        darkBorder: '#222530',
+                        lightBg: '#FAFAFB'
+                    },
+                    boxShadow: {
+                        'glow-gold': '0 0 30px rgba(227, 168, 39, 0.35)',
+                        'glow-gold-lg': '0 0 50px rgba(227, 168, 39, 0.5)',
+                        'glow-green': '0 0 30px rgba(34, 197, 94, 0.4)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --brand-gold: #E3A827;
+            --brand-gold-glow: rgba(227, 168, 39, 0.4);
+        }
+
+        body {
+            background-color: #1d1d1d;
+            color: #E2E8F0;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Neumorphic Dark Card with Golden Glow on Hover */
+        .gold-glass-card {
+            background: rgba(29, 29, 29, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(227, 168, 39, 0.25);
+            transition: all 0.4s ease;
+        }
+
+        .gold-glass-card:hover {
+            border-color: rgba(227, 168, 39, 0.7);
+            box-shadow: 0 10px 35px -5px rgba(227, 168, 39, 0.3);
+        }
+
+        /* Glowing text effects */
+        .text-glow-gold {
+            text-shadow: 0 0 18px rgba(227, 168, 39, 0.6);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen selection:bg-gold selection:text-black font-body">
+
+    <!-- Background Dynamic Particle Mesh Canvas -->
+    <canvas id="canvas-matrix" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
+
+    <!-- Header con logos a los extremos, menú centrado y efecto Blur translúcido -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-darkBg/80 backdrop-blur-md border-b border-gold/20 px-4 lg:px-8 py-3.5 transition-all">
+        <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
+            
+            <!-- Logo Izquierdo: logoargieder.png -->
+            <a href="https://calculadoradeahorro.github.io/webprueba/" class="flex items-center shrink-0 group">
+                <img src="logoargieder.png" alt="Argieder Logo" class="h-8 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+            </a>
+
+            <!-- Menú de Navegación Central (Solo visible en PC) -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-slate-300">
+                <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold transition-colors py-1">Inicio</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold transition-colors py-1">Ahorra en tu factura</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/" class="hover:text-gold transition-colors py-1">Nuestro equipo</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="hover:text-gold transition-colors py-1">Servicios</a>
+                <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold transition-colors py-1">Contacto</a>
+                
+                <!-- Botón Verde visible en PC -->
+                <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-xs font-bold uppercase tracking-wider hover:bg-emerald-500/20 hover:border-emerald-400 hover:shadow-[0_0_20px_rgba(52,211,153,0.3)] transition-all duration-300 whitespace-nowrap">
+                    <i class="fa-solid fa-euro-sign text-emerald-400 text-xs"></i>
+                    <span>CALCULA TU AHORRO CON AULED</span>
+                </a>
+            </nav>
+
+            <!-- Botón Verde visible SOLO en Celular -->
+            <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="md:hidden inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[11px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">
+                <i class="fa-solid fa-euro-sign text-emerald-400 text-[10px]"></i>
+                <span>ahorra con auled</span>
+            </a>
+
+            <!-- Logo Derecho: logoauled.png -->
+            <a href="https://calculadoradeahorro.github.io/webprueba/auledchargerdesign/" class="flex items-center shrink-0 group">
+                <img src="logoauled.png" alt="Auled Logo" class="h-8 md:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+            </a>
+
+        </div>
+
+        <!-- Menú Móvil Secundario -->
+        <div class="md:hidden flex justify-center items-center gap-4 pt-3 border-t border-white/5 mt-2 text-xs font-medium text-slate-300 overflow-x-auto whitespace-nowrap">
+            <a href="https://calculadoradeahorro.github.io/webprueba/" class="hover:text-gold">Inicio</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/#factura" class="hover:text-gold">Factura</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/nuestroequipo/" class="hover:text-gold">Equipo</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/#servicios" class="hover:text-gold">Servicios</a>
+            <a href="https://calculadoradeahorro.github.io/webprueba/#contacto" class="hover:text-gold">Contacto</a>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL: AVISO LEGAL Y CONDICIONES GENERALES DE USO -->
+    <main class="relative pt-36 pb-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto z-10 font-body">
+        
+        <!-- Encabezado de la página -->
+        <div class="text-center space-y-4 mb-12">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/40 text-gold text-xs font-semibold tracking-wider uppercase shadow-glow-gold">
+                <i class="fa-solid fa-scale-balanced text-gold"></i> Términos Legales
+            </div>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white font-sans tracking-tight">
+                AVISO LEGAL Y CONDICIONES <br class="hidden sm:inline">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-light via-gold to-gold-amber text-glow-gold">
+                    GENERALES DE USO
+                </span>
+            </h1>
+            <p class="text-slate-400 text-sm font-medium">www.argieder.net</p>
+        </div>
+
+        <!-- Tarjeta del Contenido Legal -->
+        <div class="gold-glass-card rounded-3xl p-6 sm:p-10 md:p-12 border border-gold/30 shadow-2xl space-y-10 text-slate-300 text-sm md:text-base leading-relaxed">
+
+            <!-- Sección I -->
+            <section class="space-y-4 border-b border-gold/20 pb-8">
+                <h2 class="text-xl md:text-2xl font-bold text-gold font-sans uppercase flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-sm shrink-0">I</span>
+                    INFORMACIÓN GENERAL
+                </h2>
+                <p>
+                    En cumplimiento con el deber de información dispuesto en la Ley 34/2002 de Servicios de la Sociedad de la Información y el Comercio Electrónico (LSSI-CE) de 11 de julio, se facilitan a continuación los siguientes datos de información general de este sitio web:
+                </p>
+                <div class="bg-black/40 border border-white/10 rounded-2xl p-5 space-y-2.5 text-slate-200">
+                    <p><strong class="text-gold font-semibold">Titularidad del sitio web:</strong> www.argieder.net (en adelante, Sitio Web) la ostenta <span class="text-white font-semibold">Argieder Gestion SL</span></p>
+                    <p><strong class="text-gold font-semibold">NIF:</strong> B75040394</p>
+                    <p><strong class="text-gold font-semibold">Inscrita en:</strong> Registro Mercantil de Gipuzkoa (Tomo 102, Página 6, Hoja 808)</p>
+                    <p><strong class="text-gold font-semibold">Representante:</strong> David Tena</p>
+                    <p><strong class="text-gold font-semibold">Dirección:</strong> Avenida Oria 8-10 (edificio Burnet) oficina 409 Lasarte, País Vasco</p>
+                    <p><strong class="text-gold font-semibold">Teléfono de contacto:</strong> 943 227 623</p>
+                    <p><strong class="text-gold font-semibold">Email de contacto:</strong> <a href="mailto:info@argieder.es" class="text-gold hover:underline">info@argieder.es</a></p>
+                </div>
+            </section>
+
+            <!-- Sección II -->
+            <section class="space-y-6 border-b border-gold/20 pb-8">
+                <h2 class="text-xl md:text-2xl font-bold text-gold font-sans uppercase flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-sm shrink-0">II</span>
+                    TÉRMINOS Y CONDICIONES GENERALES DE USO
+                </h2>
+
+                <div class="space-y-3">
+                    <h3 class="text-lg font-semibold text-white font-sans">El objeto de las condiciones: El Sitio Web</h3>
+                    <p>
+                        El objeto de las presentes Condiciones Generales de Uso (en adelante, Condiciones) es regular el acceso y la utilización del Sitio Web. A los efectos de las presentes Condiciones se entenderá como Sitio Web: la apariencia externa de los interfaces de pantalla, tanto de forma estática como de forma dinámica, es decir, el árbol de navegación; y todos los elementos integrados tanto en los interfaces de pantalla como en el árbol de navegación (en adelante, Contenidos) y todos aquellos servicios o recursos en línea que en su caso ofrezca a los Usuarios (en adelante, Servicios).
+                    </p>
+                    <p>
+                        Argieder Gestion SL se reserva la facultad de modificar, en cualquier momento, y sin aviso previo, la presentación y configuración del Sitio Web y de los Contenidos y Servicios que en él pudieran estar incorporados. El Usuario reconoce y acepta que en cualquier momento Argieder Gestion SL pueda interrumpir, desactivar y/o cancelar cualquiera de estos elementos que se integran en el Sitio Web o el acceso a los mismos.
+                    </p>
+                    <p>
+                        El acceso al Sitio Web por el Usuario tiene carácter libre y, por regla general, es gratuito sin que el Usuario tenga que proporcionar una contraprestación para poder disfrutar de ello, salvo en lo relativo al coste de conexión a través de la red de telecomunicaciones suministrada por el proveedor de acceso que hubiere contratado el Usuario.
+                    </p>
+                    <p>
+                        La utilización de alguno de los Contenidos o Servicios del Sitio Web podrá hacerse mediante la suscripción o registro previo del Usuario.
+                    </p>
+                </div>
+
+                <div class="space-y-3 pt-2">
+                    <h3 class="text-lg font-semibold text-white font-sans">El Usuario</h3>
+                    <p>
+                        El acceso, la navegación y uso del Sitio Web, confiere la condición de Usuario, por lo que se aceptan, desde que se inicia la navegación por el Sitio Web, todas las Condiciones aquí establecidas, así como sus ulteriores modificaciones, sin perjuicio de la aplicación de la correspondiente normativa legal de obligado cumplimiento según el caso. Dada la relevancia de lo anterior, se recomienda al Usuario leerlas cada vez que visite el Sitio Web.
+                    </p>
+                    <p>
+                        El Sitio Web de Argieder Gestion SL proporciona gran diversidad de información, servicios y datos. El Usuario asume su responsabilidad para realizar un uso correcto del Sitio Web. Esta responsabilidad se extenderá a:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-2 text-slate-300">
+                        <li>
+                            Un uso de la información, Contenidos y/o Servicios y datos ofrecidos por Argieder Gestion SL sin que sea contrario a lo dispuesto por las presentes Condiciones, la Ley, la moral o el orden público, o que de cualquier otro modo puedan suponer lesión de los derechos de terceros o del mismo funcionamiento del Sitio Web.
+                        </li>
+                        <li>
+                            La veracidad y licitud de las informaciones aportadas por el Usuario en los formularios extendidos por Argieder Gestion SL para el acceso a ciertos Contenidos o Servicios ofrecidos por el Sitio Web. En todo caso, el Usuario notificará de forma inmediata a Argieder Gestion SL acerca de cualquier hecho que permita el uso indebido de la información registrada en dichos formularios, tales como, pero no solo, el robo, extravío, o el acceso no autorizado a identificadores y/o contraseñas, con el fin de proceder a su inmediata cancelación.
+                        </li>
+                    </ul>
+                    <p>
+                        El mero acceso a este Sitio Web no supone entablar ningún tipo de relación de carácter comercial entre Argieder Gestion SL y el Usuario.
+                    </p>
+                    <p>
+                        Siempre en el respeto de la legislación vigente, este Sitio Web de Argieder Gestion SL se dirige a todas las personas, sin importar su edad, que puedan acceder y/o navegar por las páginas del Sitio Web.
+                    </p>
+                    <p>
+                        El Sitio Web está dirigido principalmente a Usuarios residentes en España. Argieder Gestion SL no asegura que el Sitio Web cumpla con legislaciones de otros países, ya sea total o parcialmente. Si el Usuario reside o tiene su domiciliado en otro lugar y decide acceder y/o navegar en el Sitio Web lo hará bajo su propia responsabilidad, deberá asegurarse de que tal acceso y navegación cumple con la legislación local que le es aplicable, no asumiendo Argieder Gestion SL responsabilidad alguna que se pueda derivar de dicho acceso.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Sección III -->
+            <section class="space-y-4 border-b border-gold/20 pb-8">
+                <h2 class="text-xl md:text-2xl font-bold text-gold font-sans uppercase flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-sm shrink-0">III</span>
+                    ACCESO Y NAVEGACIÓN EN EL SITIO WEB: EXCLUSIÓN DE GARANTÍAS Y RESPONSABILIDAD
+                </h2>
+                <p>
+                    Argieder Gestion SL no garantiza la continuidad, disponibilidad y utilidad del Sitio Web, ni de los Contenidos o Servicios. Argieder Gestion SL hará todo lo posible por el buen funcionamiento del Sitio Web, sin embargo, no se responsabiliza ni garantiza que el acceso a este Sitio Web no vaya a ser ininterrumpido o que esté libre de error.
+                </p>
+                <p>
+                    Tampoco se responsabiliza o garantiza que el contenido o software al que pueda accederse a través de este Sitio Web, esté libre de error o cause un daño al sistema informático (software y hardware) del Usuario. En ningún caso Argieder Gestion SL será responsable por las pérdidas, daños o perjuicios de cualquier tipo que surjan por el acceso, navegación y el uso del Sitio Web, incluyéndose, pero no limitándose, a los ocasionados a los sistemas informáticos o los provocados por la introducción de virus.
+                </p>
+                <p>
+                    Argieder Gestion SL tampoco se hace responsable de los daños que pudiesen ocasionarse a los usuarios por un uso inadecuado de este Sitio Web. En particular, no se hace responsable en modo alguno de las caídas, interrupciones, falta o defecto de las telecomunicaciones que pudieran ocurrir.
+                </p>
+            </section>
+
+            <!-- Sección IV -->
+            <section class="space-y-4 border-b border-gold/20 pb-8">
+                <h2 class="text-xl md:text-2xl font-bold text-gold font-sans uppercase flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-sm shrink-0">IV</span>
+                    POLÍTICA DE ENLACES
+                </h2>
+                <p>
+                    Se informa que el Sitio Web de Argieder Gestion SL pone o puede poner a disposición de los Usuarios medios de enlace (como, entre otros, links, banners, botones), directorios y motores de búsqueda que permiten a los Usuarios acceder a sitios web pertenecientes y/o gestionados por terceros.
+                </p>
+                <p>
+                    La instalación de estos enlaces, directorios y motores de búsqueda en el Sitio Web tiene por objeto facilitar a los Usuarios la búsqueda de y acceso a la información disponible en Internet, sin que pueda considerarse una sugerencia, recomendación o invitación para la visita de los mismos.
+                </p>
+                <p>
+                    Argieder Gestion SL no ofrece ni comercializa por sí ni por medio de terceros los productos y/o servicios disponibles en dichos sitios enlazados.
+                </p>
+                <p>
+                    Asimismo, tampoco garantizará la disponibilidad técnica, exactitud, veracidad, validez o legalidad de sitios ajenos a su propiedad a los que se pueda acceder por medio de los enlaces.
+                </p>
+                <p>
+                    Argieder Gestion SL en ningún caso revisará o controlará el contenido de otros sitios web, así como tampoco aprueba, examina ni hace propios los productos y servicios, contenidos, archivos y cualquier otro material existente en los referidos sitios enlazados.
+                </p>
+                <p>
+                    Argieder Gestion SL no asume ninguna responsabilidad por los daños y perjuicios que pudieran producirse por el acceso, uso, calidad o licitud de los contenidos, comunicaciones, opiniones, productos y servicios de los sitios web no gestionados por Argieder Gestion SL y que sean enlazados en este Sitio Web.
+                </p>
+                <p>
+                    El Usuario o tercero que realice un hipervínculo desde una página web de otro, distinto, sitio web al Sitio Web de Argieder Gestion SL deberá saber que:
+                </p>
+                <ul class="list-disc pl-6 space-y-2 text-slate-300">
+                    <li>No se permite la reproducción —total o parcialmente— de ninguno de los Contenidos y/o Servicios del Sitio Web sin autorización expresa de Argieder Gestion SL.</li>
+                    <li>No se permite tampoco ninguna manifestación falsa, inexacta o incorrecta sobre el Sitio Web de Argieder Gestion SL, ni sobre los Contenidos y/o Servicios del mismo.</li>
+                    <li>A excepción del hipervínculo, el sitio web en el que se establezca dicho hiperenlace no contendrá ningún elemento, de este Sitio Web, protegido como propiedad intelectual por el ordenamiento jurídico español, salvo autorización expresa de Argieder Gestion SL.</li>
+                    <li>El establecimiento del hipervínculo no implicará la existencia de relaciones entre Argieder Gestion SL y el titular del sitio web desde el cual se realice, ni el conocimiento y acceptance de Argieder Gestion SL de los contenidos, servicios y/o actividades ofrecidas en dicho sitio web, y viceversa.</li>
+                </ul>
+            </section>
+
+            <!-- Sección V -->
+            <section class="space-y-4 border-b border-gold/20 pb-8">
+                <h2 class="text-xl md:text-2xl font-bold text-gold font-sans uppercase flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-sm shrink-0">V</span>
+                    PROPIEDAD INTELECTUAL E INDUSTRIAL
+                </h2>
+                <p>
+                    Argieder Gestion SL por sí o como parte cesionaria, es titular de todos los derechos de propiedad intelectual e industrial del Sitio Web, así como de los elementos contenidos en el mismo (a título enunciativo y no exhaustivo, imágenes, sonido, audio, vídeo, software o textos, marcas o logotipos, combinaciones de colores, estructura y diseño, selección de materiales usados, programas de ordenador necesarios para su funcionamiento, acceso y uso, etc.). Serán, por consiguiente, obras protegidas como propiedad intelectual por el ordenamiento jurídico español, siéndoles aplicables tanto la normativa española y comunitaria en este campo, como los tratados internacionales relativos a la materia y suscritos por España.
+                </p>
+                <p>
+                    Todos los derechos reservados. En virtud de lo dispuesto en la Ley de Propiedad Intelectual, quedan expresamente prohibidas la reproducción, la distribución y la comunicación pública, incluida su modalidad de puesta a disposición, de la totalidad o parte de los contenidos de esta página web, con fines comerciales, en cualquier soporte y por cualquier medio técnico, sin la autorización de Argieder Gestion SL.
+                </p>
+                <p>
+                    El Usuario se compromete a respetar los derechos de propiedad intelectual e industrial de Argieder Gestion SL. Podrá visualizar los elementos del Sitio Web o incluso imprimirlos, copiarlos y almacenarlos en el disco duro de su ordenador o en cualquier otro soporte físico siempre y cuando sea, exclusivamente, para su uso personal. El Usuario, sin embargo, no podrá suprimir, alterar, o manipular cualquier dispositivo de protección o sistema de seguridad que estuviera instalado en el Sitio Web.
+                </p>
+                <p>
+                    En caso de que el Usuario o tercero considere que cualquiera de los Contenidos del Sitio Web suponga una violación de los derechos de protección de la propiedad intelectual, deberá comunicarlo inmediatamente a Argieder Gestion SL a través de los datos de contacto del apartado de INFORMACIÓN GENERAL de este Aviso Legal y Condiciones Generales de Uso.
+                </p>
+            </section>
+
+            <!-- Sección VI -->
+            <section class="space-y-4">
+                <h2 class="text-xl md:text-2xl font-bold text-gold font-sans uppercase flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-lg bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-sm shrink-0">VI</span>
+                    ACCIONES LEGALES, LEGISLACIÓN APLICABLE Y JURISDICCIÓN
+                </h2>
+                <p>
+                    Argieder Gestion SL se reserva la facultad de presentar las acciones civiles o penales que considere necesarias por la utilización indebida del Sitio Web y Contenidos, o por el incumplimiento de las presentes Condiciones.
+                </p>
+                <p>
+                    La relación entre el Usuario y Argieder Gestion SL se regirá por la normativa vigente y de aplicación en el territorio español. De surgir cualquier controversia en relación con la interpretación y/o a la aplicación de estas Condiciones las partes someterán sus conflictos a la jurisdicción ordinaria sometiéndose a los jueces y tribunales que correspondan conforme a derecho.
+                </p>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Full Footer Exact Copy -->
+    <footer class="bg-[#1d1d1d] border-t border-gold/20 pt-16 pb-12 text-slate-400 text-xs relative z-10 font-body">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
+                
+                <!-- Columna 1: Logo y descripción -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <img src="logoargieder.png" alt="Argieder Logo" class="h-8 w-auto object-contain">
+                    </div>
+                    <p class="leading-relaxed">
+                        Argieder Gestión es una asesoría energética tecnológica dedicada a la optimización de gasto energético para empresas.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Información (Centrada) -->
+                <div class="flex flex-col items-center text-center">
+                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm font-sans">Información</h5>
+                    <ul class="space-y-2.5">
+                        <li><a href="#" class="hover:text-gold transition-colors">Aviso Legal</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors">Política de Cookies</a></li>
+                        <li><a href="#" class="hover:text-gold transition-colors">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contáctanos -->
+                <div>
+                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm font-sans">Contáctanos</h5>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-gold shrink-0 mt-0.5"></i>
+                            <span>OFICINA: Aranguren Auzoa 2, Local 104/105, Galerías CC Mamut, La Planta (Frente a escaleras eléctricas) 20180 Oiartzun</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-phone text-gold shrink-0"></i>
+                            <span>(+34) 943 007 407</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-envelope text-gold shrink-0"></i>
+                            <span>info@argieder.es</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gold/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>Argieder Gestión S.L. © - Todos los derechos reservados.</p>
+                <div class="flex gap-4 text-slate-400">
+                    <a href="https://www.facebook.com/argieder/" class="hover:text-gold"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/argieder_gestion/" class="hover:text-gold"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Dynamic Particle Canvas -->
+    <script>
+        const canvas = document.getElementById('canvas-matrix');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.radius = Math.random() * 2 + 0.5;
+                this.color = Math.random() > 0.3 ? '#E3A827' : '#FFFFFF';
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            const count = Math.floor((canvas.width * canvas.height) / 22000);
+            for (let i = 0; i < count; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        function animateCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    let dx = particles[i].x - particles[j].x;
+                    let dy = particles[i].y - particles[j].y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(227, 168, 39, ${0.15 - dist / 800})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animateCanvas);
+        }
+
+        window.onload = function() {
+            resizeCanvas();
+            animateCanvas();
+        };
+        window.addEventListener('resize', resizeCanvas);
+    </script>
+</body>
+</html>
