@@ -171,6 +171,148 @@
                 transition-duration: .01ms !important;
             }
         }
+        /* --- Sección del Botón Play --- */
+.workspace-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: transparent; /* Se adapta al fondo oscuro de la web */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.workspace-title {
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: 800; /* Texto grueso */
+  text-transform: uppercase; /* Mayúsculas */
+  letter-spacing: 1.5px;
+  margin-bottom: 24px;
+}
+
+/* --- Botón con Animación de Respiración --- */
+.play-btn-breath {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #e5a823; /* Color dorado/amarillo acorde al diseño */
+  color: #1a1a1a;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  box-shadow: 0 0 0 0 rgba(229, 168, 35, 0.5);
+  animation: breathe 2.5s infinite ease-in-out;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.play-btn-breath:hover {
+  background-color: #f5b833;
+}
+
+.play-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: 4px; /* Centrado óptico del icono play */
+}
+
+/* Keyframes para la animación de respiración/vibración suave */
+@keyframes breathe {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(229, 168, 35, 0.6);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px 10px rgba(229, 168, 35, 0.2);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(229, 168, 35, 0);
+  }
+}
+
+/* --- Modal / Burbuja Redondeada --- */
+.video-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro translúcido */
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.video-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  background: #1e1e1e;
+  border-radius: 20px; /* Esquinas muy redondeadas tipo burbuja */
+  padding: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transform: scale(0.8);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-modal-overlay.active .video-modal-content {
+  transform: scale(1);
+}
+
+/* Botón de Cierre */
+.close-modal-btn {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 36px;
+  height: 36px;
+  background-color: #e5a823;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Contenedor del Video Responsive */
+.video-container {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  padding-top: 56.25%; /* Relación de aspecto 16:9 */
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
     </style>
 </head>
 
@@ -519,6 +661,32 @@
         </div>
     </section>
 
+<!-- SECCIÓN TOUR DE OFICINAS -->
+<div class="workspace-section">
+  <h3 class="workspace-title">CONOCE NUESTRO ESPACIO DE TRABAJO</h3>
+  
+  <!-- Botón de Play animado -->
+  <button class="play-btn-breath" id="openVideoBtn" aria-label="Reproducir video del espacio de trabajo">
+    <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M8 5v14l11-7z"/>
+    </svg>
+  </button>
+</div>
+
+<!-- MODAL PARA MOSTRAR EL VIDEO -->
+<div class="video-modal-overlay" id="videoModal">
+  <div class="video-modal-content">
+    <button class="close-modal-btn" id="closeVideoBtn">&times;</button>
+    <div class="video-container">
+      <!-- Reemplaza "tu-video.mp4" por la ruta o URL de tu video -->
+      <video id="workspaceVideo" controls preload="metadata">
+        <source src="tu-video.mp4" type="video/mp4">
+        Tu navegador no soporta el reproductor de video.
+      </video>
+    </div>
+  </div>
+</div>
+    
     <!-- FINANCIACIÓN -->
     <section class="w-full relative z-10 bg-white/95 border-t border-white/20 py-4 md:py-6 flex justify-center items-center">
         <img src="financiacion.png" alt="Financiado por la Unión Europea - NextGenerationEU, Gobierno de España y Plan de Recuperación" class="max-h-16 md:max-h-20 w-auto object-contain">
@@ -893,7 +1061,41 @@
                 closeModal();
             }
         });
-    </script>
+document.addEventListener('DOMContentLoaded', () => {
+  const openVideoBtn = document.getElementById('openVideoBtn');
+  const closeVideoBtn = document.getElementById('closeVideoBtn');
+  const videoModal = document.getElementById('videoModal');
+  const workspaceVideo = document.getElementById('workspaceVideo');
 
+  // Abrir Modal y reproducir video
+  openVideoBtn.addEventListener('click', () => {
+    videoModal.classList.add('active');
+    workspaceVideo.play();
+  });
+
+  // Función para cerrar Modal y pausar video
+  const closeModal = () => {
+    videoModal.classList.remove('active');
+    workspaceVideo.pause();
+    workspaceVideo.currentTime = 0; // Reinicia el video al inicio
+  };
+
+  closeVideoBtn.addEventListener('click', closeModal);
+
+  // Cerrar haciendo clic fuera de la burbuja/modal
+  videoModal.addEventListener('click', (e) => {
+    if (e.target === videoModal) {
+      closeModal();
+    }
+  });
+
+  // Cerrar con la tecla ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+      closeModal();
+    }
+  });
+});
+        </script>
 </body>
 </html>
