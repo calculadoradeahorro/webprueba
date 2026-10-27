@@ -13,14 +13,8 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <!-- Línea del Favicon (.png) -->
     <link rel="icon" type="image/png" href="logoargieder.png">
-    
-    <title>Auled Charger Design</title>
-</head>
     
     <script>
         tailwind.config = {
@@ -95,6 +89,49 @@
         /* Glowing text effects */
         .text-glow-gold {
             text-shadow: 0 0 18px rgba(227, 168, 39, 0.6);
+        }
+
+        /* ESTILOS DEL EFECTO PUERTA 3D EN CORTAZÓN / HOVER */
+        .door-perspective {
+            perspective: 1000px;
+        }
+
+        .door-left {
+            transform-origin: left center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .door-right {
+            transform-origin: right center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .play-door-left {
+            transform-origin: left center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            clip-path: inset(0 50% 0 0);
+        }
+
+        .play-door-right {
+            transform-origin: right center;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            clip-path: inset(0 0 0 50%);
+        }
+
+        /* Animación al hacer Hover en el contenedor interactivo */
+        @media (min-width: 768px) {
+            .door-container:hover .door-left {
+                transform: rotateY(-65deg);
+            }
+            .door-container:hover .door-right {
+                transform: rotateY(65deg);
+            }
+            .door-container:hover .play-door-left {
+                transform: rotateY(-75deg);
+            }
+            .door-container:hover .play-door-right {
+                transform: rotateY(75deg);
+            }
         }
     </style>
 </head>
@@ -178,7 +215,7 @@
                     <div class="w-5 h-5 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 border border-gold/40">
                         <i class="fa-solid fa-check text-[10px]"></i>
                     </div>
-                    <span>Comple las <strong>normativas</strong></span>
+                    <span>Cumple las <strong>normativas</strong></span>
                 </div>
 
                 <div class="flex items-center gap-2 text-slate-200 font-medium text-base">
@@ -233,7 +270,7 @@
     </section>
 
     <!-- Sección Métricas iluminada -->
-    <section id="metricas" class="py-20 px-6 relative z-10 border-y border-gold/20 scroll-light-reveal">
+    <section id="metricas" class="pt-20 pb-12 px-6 relative z-10 border-t border-gold/20 scroll-light-reveal">
         <div class="max-w-7xl mx-auto">
             
             <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
@@ -283,6 +320,47 @@
                 <span class="inline-block px-6 py-3 rounded-full bg-gold/10 border border-gold/30 text-gold text-xs font-semibold uppercase tracking-widest">
                     Servicio profesional, eficiente y transparente
                 </span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN DE OFICINAS CON LÍNEAS DE EXTREMO A EXTREMO Y EFECTO PUERTA EN PLAY Y LOGOS -->
+    <section class="relative z-10 border-t border-b border-gold/30 py-16 px-6 bg-[#1d1d1d]">
+        <div class="max-w-5xl mx-auto text-center space-y-10">
+            
+            <!-- Título de las oficinas -->
+            <div class="space-y-2">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gold uppercase tracking-wider font-sans text-glow-gold">
+                    Conoce nuestras oficinas <span class="text-white font-light text-xl md:text-2xl tracking-normal border-b-0">y cómo llegar</span>
+                </h2>
+            </div>
+
+            <!-- Contenedor Interactivo con Efecto Puerta (Hover en PC) -->
+            <div class="door-container door-perspective relative flex items-center justify-center gap-6 md:gap-12 py-6 cursor-pointer max-w-3xl mx-auto">
+                
+                <!-- Logo Izquierdo: Argieder (Efecto Puerta se abre a la izquierda) -->
+                <div class="door-left w-28 md:w-44 shrink-0 flex items-center justify-center">
+                    <img src="logoargieder.png" alt="Argieder Logo" class="w-full h-auto object-contain filter drop-shadow-[0_0_15px_rgba(227,168,39,0.2)]">
+                </div>
+
+                <!-- Botón Play al Medio (Se divide en dos mitades que se abren como puerta) -->
+                <div class="relative w-16 h-16 md:w-20 md:h-20 shrink-0 flex items-center justify-center">
+                    <!-- Mitad Izquierda del Play -->
+                    <div class="play-door-left absolute inset-0 rounded-full bg-gradient-to-r from-gold to-gold-amber flex items-center justify-center shadow-glow-gold border border-white/30">
+                        <i class="fa-solid fa-play text-slate-950 text-xl md:text-2xl ml-1"></i>
+                    </div>
+                    <!-- Mitad Derecha del Play -->
+                    <div class="play-door-right absolute inset-0 rounded-full bg-gradient-to-r from-gold to-gold-amber flex items-center justify-center shadow-glow-gold border border-white/30">
+                        <i class="fa-solid fa-play text-slate-950 text-xl md:text-2xl ml-1"></i>
+                    </div>
+                </div>
+
+                <!-- Logo Derecho: Auled (Efecto Puerta se abre a la derecha) -->
+                <div class="door-right w-28 md:w-44 shrink-0 flex items-center justify-center">
+                    <img src="logoauled.png" alt="Auled Logo" class="w-full h-auto object-contain filter drop-shadow-[0_0_15px_rgba(227,168,39,0.2)]">
+                </div>
+
             </div>
 
         </div>
@@ -703,48 +781,48 @@
                 </div>
 
                 <form id="contactForm" class="space-y-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Nombre y Apellidos</label>
-            <input type="text" name="nombre" required placeholder="Ej. Carlos Martínez" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
-        </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Nombre y Apellidos</label>
+                            <input type="text" name="nombre" required placeholder="Ej. Carlos Martínez" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
+                        </div>
 
-        <div>
-            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Teléfono de contacto</label>
-            <input type="tel" name="telefono" required placeholder="+34 600 000 000" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
-        </div>
-    </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Teléfono de contacto</label>
+                            <input type="tel" name="telefono" required placeholder="+34 600 000 000" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
+                        </div>
+                    </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Correo Electrónico</label>
-            <input type="email" name="email" required placeholder="carlos@empresa.com" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
-        </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Correo Electrónico</label>
+                            <input type="email" name="email" required placeholder="carlos@empresa.com" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
+                        </div>
 
-        <div>
-            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Servicio de Interés</label>
-            <select name="servicio" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
-                <option value="Ahorro en Factura Eléctrica">Ahorro en Factura Eléctrica</option>
-                <option value="Cargador de Vehículo Eléctrico (AULED)">Cargador de Vehículo Eléctrico (AULED)</option>
-                <option value="Asesoramiento Tecnología LED">Asesoramiento Tecnología LED</option>
-                <option value="Energía Solar / Autoconsumo">Energía Solar / Autoconsumo</option>
-                <option value="Optimización de Potencias Empresas">Optimización de Potencias Empresas</option>
-            </select>
-        </div>
-    </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Servicio de Interés</label>
+                            <select name="servicio" class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all">
+                                <option value="Ahorro en Factura Eléctrica">Ahorro en Factura Eléctrica</option>
+                                <option value="Cargador de Vehículo Eléctrico (AULED)">Cargador de Vehículo Eléctrico (AULED)</option>
+                                <option value="Asesoramiento Tecnología LED">Asesoramiento Tecnología LED</option>
+                                <option value="Energía Solar / Autoconsumo">Energía Solar / Autoconsumo</option>
+                                <option value="Optimización de Potencias Empresas">Optimización de Potencias Empresas</option>
+                            </select>
+                        </div>
+                    </div>
 
-    <div>
-        <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Mensaje o Consulta Específica</label>
-        <textarea name="mensaje" rows="4" placeholder="Indícanos si eres particular o empresa y en qué podemos ayudarte..." class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all"></textarea>
-    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 uppercase mb-2">Mensaje o Consulta Específica</label>
+                        <textarea name="mensaje" rows="4" placeholder="Indícanos si eres particular o empresa y en qué podemos ayudarte..." class="w-full bg-black/80 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-gold transition-all"></textarea>
+                    </div>
 
-    <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold via-gold-amber to-gold-dark text-slate-950 font-black uppercase tracking-wider text-sm hover:shadow-glow-gold hover:scale-[1.01] transition-all">
-        Enviar Solicitud
-    </button>
+                    <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-gradient-to-r from-gold via-gold-amber to-gold-dark text-slate-950 font-black uppercase tracking-wider text-sm hover:shadow-glow-gold hover:scale-[1.01] transition-all">
+                        Enviar Solicitud
+                    </button>
 
-    <!-- Mensaje de estado -->
-    <div id="formStatus" class="hidden text-center p-4 rounded-xl text-xs font-bold"></div>
-</form>
+                    <!-- Mensaje de estado -->
+                    <div id="formStatus" class="hidden text-center p-4 rounded-xl text-xs font-bold"></div>
+                </form>
 
                 <div id="formConfirmation" class="hidden text-center py-10 space-y-4">
                     <div class="w-16 h-16 rounded-full bg-gold/20 text-gold border border-gold flex items-center justify-center text-3xl mx-auto shadow-glow-gold">
@@ -760,7 +838,7 @@
         </div>
     </section>
 
-<!-- Línea separadora amarilla/dorada -->
+    <!-- Línea separadora amarilla/dorada -->
     <div class="w-full border-t border-gold/30"></div>
 
     <!-- Sección Novedosa con Animación de Movimiento -->
@@ -784,12 +862,10 @@
         </div>
     </section>
     
-<!-- Banner Imagen de Financiación Institucional -->
-            <div class="p-4 md:p-6 rounded-none bg-white/95 border border-white/20 flex justify-center items-center shadow-lg">
-                <img src="financiacion.png" alt="Financiado por la Unión Europea - NextGenerationEU, Gobierno de España, Plan de Recuperación" class="max-h-16 md:max-h-20 w-auto object-contain">
-            </div>
-        </div>
-    </section>
+    <!-- Banner Imagen de Financiación Institucional -->
+    <div class="p-4 md:p-6 rounded-none bg-white/95 border border-white/20 flex justify-center items-center shadow-lg">
+        <img src="financiacion.png" alt="Financiado por la Unión Europea - NextGenerationEU, Gobierno de España, Plan de Recuperación" class="max-h-16 md:max-h-20 w-auto object-contain">
+    </div>
 
     <!-- Modal Window for Full Profile Details -->
     <div id="modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
@@ -822,60 +898,60 @@
     </div>
 
     <!-- Full Footer Exact Copy -->
-<footer class="bg-[#1d1d1d] border-t border-gold/20 pt-16 pb-12 text-slate-400 text-xs relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
-            
-            <!-- Columna 1: Logo y descripción (Centrado en móvil, a la izquierda en PC) -->
-            <div class="space-y-4 flex flex-col items-center md:items-start text-center md:text-left">
-                <div class="flex items-center gap-3">
-                    <img src="logoargieder.png" alt="Argieder Logo" class="h-8 w-auto object-contain">
+    <footer class="bg-[#1d1d1d] border-t border-gold/20 pt-16 pb-12 text-slate-400 text-xs relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
+                
+                <!-- Columna 1: Logo y descripción -->
+                <div class="space-y-4 flex flex-col items-center md:items-start text-center md:text-left">
+                    <div class="flex items-center gap-3">
+                        <img src="logoargieder.png" alt="Argieder Logo" class="h-8 w-auto object-contain">
+                    </div>
+                    <p class="leading-relaxed">
+                        Argieder Gestión es una asesoría energética tecnológica dedicada a la optimización de gasto energético para empresas.
+                    </p>
                 </div>
-                <p class="leading-relaxed">
-                    Argieder Gestión es una asesoría energética tecnológica dedicada a la optimización de gasto energético para empresas.
-                </p>
+
+                <!-- Columna 2: Información -->
+                <div class="flex flex-col items-center text-center">
+                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Información</h5>
+                    <ul class="space-y-2.5">
+                        <li><a href="http://argieder.es/avisolegal" class="hover:text-gold transition-colors">Aviso Legal</a></li>
+                        <li><a href="http://argieder.es/politicas" class="hover:text-gold transition-colors">Política de Cookies</a></li>
+                        <li><a href="http://argieder.es/privacidad" class="hover:text-gold transition-colors">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Contáctanos -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Contáctanos</h5>
+                    <ul class="space-y-3 flex flex-col items-center md:items-start">
+                        <li class="flex flex-col md:flex-row items-center md:items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-gold shrink-0 mt-0.5"></i>
+                            <span>OFICINA: Astigarragako Bidea 2, Local 104/105, Galerías CC Mamut, 1a Planta (frente a escaleras eléctricas), 20180 Oiartzun</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row items-center md:items-start gap-2.5">
+                            <i class="fa-solid fa-phone text-gold shrink-0"></i>
+                            <span>(+34) 943 227 623</span>
+                        </li>
+                        <li class="flex flex-col md:flex-row items-center md:items-start gap-2.5">
+                            <i class="fa-solid fa-envelope text-gold shrink-0"></i>
+                            <span>info@argieder.es</span>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
 
-            <!-- Columna 2: Información (Centrada siempre) -->
-            <div class="flex flex-col items-center text-center">
-                <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Información</h5>
-                <ul class="space-y-2.5">
-                    <li><a href="http://argieder.es/avisolegal" class="hover:text-gold transition-colors">Aviso Legal</a></li>
-                    <li><a href="http://argieder.es/politicas" class="hover:text-gold transition-colors">Política de Cookies</a></li>
-                    <li><a href="http://argieder.es/privacidad" class="hover:text-gold transition-colors">Política de Privacidad</a></li>
-                </ul>
-            </div>
-
-            <!-- Columna 3: Contáctanos (Centrado en móvil, a la izquierda en PC) -->
-            <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                <h5 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">Contáctanos</h5>
-                <ul class="space-y-3 flex flex-col items-center md:items-start">
-                    <li class="flex flex-col md:flex-row items-center md:items-start gap-2.5">
-                        <i class="fa-solid fa-location-dot text-gold shrink-0 mt-0.5"></i>
-                        <span>OFICINA: Astigarragako Bidea 2, Local 104/105, Galerías CC Mamut, 1a Planta (frente a escaleras eléctricas), 20180 Oiartzun</span>
-                    </li>
-                    <li class="flex flex-col md:flex-row items-center md:items-start gap-2.5">
-                        <i class="fa-solid fa-phone text-gold shrink-0"></i>
-                        <span>(+34) 943 227 623</span>
-                    </li>
-                    <li class="flex flex-col md:flex-row items-center md:items-start gap-2.5">
-                        <i class="fa-solid fa-envelope text-gold shrink-0"></i>
-                        <span>info@argieder.es</span>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="border-t border-gold/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
-            <p>Argieder Gestión S.L. © - Todos los derechos reservados.</p>
-            <div class="flex gap-4 text-slate-400">
-                <a href="https://www.facebook.com/argieder/" class="hover:text-gold"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/argieder_gestion/" class="hover:text-gold"><i class="fa-brands fa-instagram"></i></a>
+            <div class="border-t border-gold/20 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                <p>Argieder Gestión S.L. © - Todos los derechos reservados.</p>
+                <div class="flex gap-4 text-slate-400">
+                    <a href="https://www.facebook.com/argieder/" class="hover:text-gold"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/argieder_gestion/" class="hover:text-gold"><i class="fa-brands fa-instagram"></i></a>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <!-- JavaScript Dynamic Particle Canvas & Interactive Logic -->
     <script>
@@ -956,52 +1032,44 @@
         };
         window.addEventListener('resize', resizeCanvas);
 
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const submitBtn = document.getElementById('submitBtn');
-        const formStatus = document.getElementById('formStatus');
-        
-        // Cambiar texto del botón mientras envía
-        submitBtn.disabled = true;
-        submitBtn.innerText = 'ENVIANDO...';
-        
-        const formData = new FormData(contactForm);
-        
-        try {
-            const response = await fetch('https://formspree.io/f/xyekqnvz', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const submitBtn = document.getElementById('submitBtn');
+                const formStatus = document.getElementById('formStatus');
+                
+                submitBtn.disabled = true;
+                submitBtn.innerText = 'ENVIANDO...';
+                
+                const formData = new FormData(contactForm);
+                
+                try {
+                    const response = await fetch('https://formspree.io/f/xyekqnvz', {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        formStatus.className = "block text-center p-4 rounded-xl text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 mt-4";
+                        formStatus.innerText = "¡Muchas gracias! Hemos recibido tu solicitud. Te contactaremos en breve.";
+                        contactForm.reset();
+                    } else {
+                        throw new Error('Error al enviar');
+                    }
+                } catch (error) {
+                    formStatus.className = "block text-center p-4 rounded-xl text-xs font-bold bg-red-500/20 text-red-400 border border-red-500/30 mt-4";
+                    formStatus.innerText = "Ocurrió un error al enviar el formulario. Por favor, inténtalo de nuevo o contáctanos por teléfono.";
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'ENVIAR SOLICITUD';
                 }
             });
-            
-            if (response.ok) {
-                formStatus.className = "block text-center p-4 rounded-xl text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 mt-4";
-                formStatus.innerText = "¡Muchas gracias! Hemos recibido tu solicitud. Te contactaremos en breve.";
-                contactForm.reset();
-            } else {
-                throw new Error('Error al enviar');
-            }
-        } catch (error) {
-            formStatus.className = "block text-center p-4 rounded-xl text-xs font-bold bg-red-500/20 text-red-400 border border-red-500/30 mt-4";
-            formStatus.innerText = "Ocurrió un error al enviar el formulario. Por favor, inténtalo de nuevo o contáctanos por teléfono.";
-        } finally {
-            submitBtn.disabled = false;
-            submitBtn.innerText = 'ENVIAR SOLICITUD';
         }
-    });
-}
-        
-        // Form Submission Logic
-        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            this.classList.add('hidden');
-            document.getElementById('formConfirmation').classList.remove('hidden');
-        });
     </script>
 </body>
 </html>
