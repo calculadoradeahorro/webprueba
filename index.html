@@ -91,46 +91,27 @@
             text-shadow: 0 0 18px rgba(227, 168, 39, 0.6);
         }
 
-        /* ESTILOS DEL EFECTO PUERTA 3D EN CORTAZÓN / HOVER */
+        /* ESTILOS DEL EFECTO PUERTA 3D */
         .door-perspective {
-            perspective: 1000px;
+            perspective: 1200px;
         }
 
         .door-left {
             transform-origin: left center;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .door-right {
             transform-origin: right center;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .play-door-left {
-            transform-origin: left center;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            clip-path: inset(0 50% 0 0);
-        }
-
-        .play-door-right {
-            transform-origin: right center;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            clip-path: inset(0 0 0 50%);
-        }
-
-        /* Animación al hacer Hover en el contenedor interactivo */
         @media (min-width: 768px) {
             .door-container:hover .door-left {
-                transform: rotateY(-65deg);
+                transform: rotateY(-85deg);
             }
             .door-container:hover .door-right {
-                transform: rotateY(65deg);
-            }
-            .door-container:hover .play-door-left {
-                transform: rotateY(-75deg);
-            }
-            .door-container:hover .play-door-right {
-                transform: rotateY(75deg);
+                transform: rotateY(85deg);
             }
         }
     </style>
@@ -164,7 +145,7 @@
                 </a>
             </nav>
 
-            <!-- Botón Verde visible SOLO en Celular (Ubicado en la cabecera principal) -->
+            <!-- Botón Verde visible SOLO en Celular -->
             <a href="https://calculadoradeahorro.github.io/webprueba/calculadora/" class="md:hidden inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/40 text-emerald-400 text-[11px] font-bold uppercase tracking-wider whitespace-nowrap shrink-0">
                 <i class="fa-solid fa-euro-sign text-emerald-400 text-[10px]"></i>
                 <span>ahorra con auled</span>
@@ -325,9 +306,9 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN DE OFICINAS CON LÍNEAS DE EXTREMO A EXTREMO Y EFECTO PUERTA EN PLAY Y LOGOS -->
+    <!-- NUEVA SECCIÓN DE OFICINAS CON CAMINO BLANCO ESTÁTICO Y EFECTO PUERTA EN LOS LOGOS -->
     <section class="relative z-10 border-t border-b border-gold/30 py-16 px-6 bg-[#1d1d1d]">
-        <div class="max-w-5xl mx-auto text-center space-y-10">
+        <div class="max-w-4xl mx-auto text-center space-y-10">
             
             <!-- Título de las oficinas -->
             <div class="space-y-2">
@@ -336,29 +317,20 @@
                 </h2>
             </div>
 
-            <!-- Contenedor Interactivo con Efecto Puerta (Hover en PC) -->
-            <div class="door-container door-perspective relative flex items-center justify-center gap-6 md:gap-12 py-6 cursor-pointer max-w-3xl mx-auto">
+            <!-- Contenedor con Camino Blanco Estático al Fondo y Puertas con Logos -->
+            <div class="door-container door-perspective relative w-full max-w-xl h-48 md:h-64 mx-auto flex items-center justify-center cursor-pointer rounded-2xl overflow-hidden border border-gold/30 bg-[#151515]">
                 
-                <!-- Logo Izquierdo: Argieder (Efecto Puerta se abre a la izquierda) -->
-                <div class="door-left w-28 md:w-44 shrink-0 flex items-center justify-center">
-                    <img src="logoargieder.png" alt="Argieder Logo" class="w-full h-auto object-contain filter drop-shadow-[0_0_15px_rgba(227,168,39,0.2)]">
+                <!-- 1. CAMINO BLANCO ESTÁTICO (Fondo central, no se mueve ni divide) -->
+                <div class="absolute inset-y-0 w-24 md:w-36 bg-white shadow-[0_0_35px_rgba(255,255,255,0.8)] left-1/2 -translate-x-1/2 z-0"></div>
+
+                <!-- 2. PUERTA IZQUIERDA (Con logo Argieder) -->
+                <div class="door-left absolute inset-y-0 left-0 w-1/2 bg-[#1a1a1a] border-r border-gold/40 flex items-center justify-center z-10 shadow-2xl">
+                    <img src="logoargieder.png" alt="Argieder Logo" class="w-28 md:w-40 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(227,168,39,0.3)]">
                 </div>
 
-                <!-- Botón Play al Medio (Se divide en dos mitades que se abren como puerta) -->
-                <div class="relative w-16 h-16 md:w-20 md:h-20 shrink-0 flex items-center justify-center">
-                    <!-- Mitad Izquierda del Play -->
-                    <div class="play-door-left absolute inset-0 rounded-full bg-gradient-to-r from-gold to-gold-amber flex items-center justify-center shadow-glow-gold border border-white/30">
-                        <i class="fa-solid fa-play text-slate-950 text-xl md:text-2xl ml-1"></i>
-                    </div>
-                    <!-- Mitad Derecha del Play -->
-                    <div class="play-door-right absolute inset-0 rounded-full bg-gradient-to-r from-gold to-gold-amber flex items-center justify-center shadow-glow-gold border border-white/30">
-                        <i class="fa-solid fa-play text-slate-950 text-xl md:text-2xl ml-1"></i>
-                    </div>
-                </div>
-
-                <!-- Logo Derecho: Auled (Efecto Puerta se abre a la derecha) -->
-                <div class="door-right w-28 md:w-44 shrink-0 flex items-center justify-center">
-                    <img src="logoauled.png" alt="Auled Logo" class="w-full h-auto object-contain filter drop-shadow-[0_0_15px_rgba(227,168,39,0.2)]">
+                <!-- 3. PUERTA DERECHA (Con logo Auled) -->
+                <div class="door-right absolute inset-y-0 right-0 w-1/2 bg-[#1a1a1a] border-l border-gold/40 flex items-center justify-center z-10 shadow-2xl">
+                    <img src="logoauled.png" alt="Auled Logo" class="w-28 md:w-40 h-auto object-contain filter drop-shadow-[0_0_15px_rgba(227,168,39,0.3)]">
                 </div>
 
             </div>
@@ -384,9 +356,9 @@
                             </div>
 
                             <div class="space-y-4 my-auto">
-                                <div class="flex items-center justify-between font-sans- font-body text-xs text-slate-200">
+                                <div class="flex items-center justify-between font-sans font-body text-xs text-slate-200">
                                     <span>OPTMIZACIÓN DE POTENCIA</span>
-                                    <span class="text-xs font-sans font-body text-esmerald-400">100% OPTIMIZADO</span>
+                                    <span class="text-xs font-sans font-body text-emerald-400">100% OPTIMIZADO</span>
                                 </div>
                                 <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
                                     <div class="bg-gradient-to-r from-gold to-emerald-400 h-full w-[100%]"></div>
@@ -394,7 +366,7 @@
 
                                 <div class="flex items-center justify-between font-sans font-body text-xs text-slate-200">
                                     <span>ELIMINACIÓN ENERGÍA REACTIVA</span>
-                                    <span class="text-xs text-esmerald-400 font-sans font-body">CORREGIDO</span>
+                                    <span class="text-xs text-emerald-400 font-sans font-body">CORREGIDO</span>
                                 </div>
                                 <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
                                     <div class="bg-emerald-400 h-full w-[100%]"></div>
