@@ -226,7 +226,7 @@
         </div>
     </section>
 
-    <!-- Sección Métricas iluminada (Espaciado superior ajustado) -->
+    <!-- Sección Métricas iluminada -->
     <section id="metricas" class="pt-20 pb-16 px-6 relative z-10 border-t border-gold/20 scroll-light-reveal">
         <div class="max-w-7xl mx-auto">
             
@@ -282,26 +282,26 @@
         </div>
     </section>
 
-    <!-- BLOQUE DE OFICINAS / ESPACIO DE TRABAJO (CON DISTANCIA EQUILIBRADA ARRIBA Y ABAJO) -->
+    <!-- BLOQUE DE OFICINAS / ESPACIO DE TRABAJO (ADAPTADO MÓVIL Y PC) -->
     <section class="relative z-10 border-t border-b border-gold/30 w-full overflow-hidden group my-8">
         <div class="relative w-full h-[350px] md:h-[450px] flex items-center justify-center overflow-hidden">
             
             <!-- Imagen de fondo de extremo a extremo -->
-            <img src="oficinaequipo.png" alt="Espacio de trabajo Argieder" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+            <img src="oficinaequipo.png" alt="Espacio de trabajo Argieder" class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 md:group-hover:scale-105">
 
-            <!-- Capa oscura con opacidad baja al pasar el cursor (hover) -->
-            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+            <!-- Capa oscura: Visible siempre en móvil (bg-black/60), en PC se oculta y aparece con hover (md:opacity-0 md:group-hover:opacity-100) -->
+            <div class="absolute inset-0 bg-black/60 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
 
-            <!-- Contenido interactivo centrado (Aparece en hover) -->
-            <div class="relative z-20 flex flex-col items-center justify-center text-center px-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 space-y-4">
+            <!-- Contenido: Visible siempre en móvil, en PC se oculta y aparece con hover (md:opacity-0 md:group-hover:opacity-100) -->
+            <div class="relative z-20 flex flex-col items-center justify-center text-center px-4 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-500 transform translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 space-y-4">
                 
                 <!-- Textos en fuente Inter -->
                 <div class="space-y-1">
-                    <h3 class="text-white font-bold text-2xl uppercase md:text-4xl tracking-tight font-body">
-                        CONOCE NUESTRO ESPACIO DE TRABAJO
+                    <h3 class="text-white font-bold text-2xl md:text-4xl tracking-tight font-body">
+                        conoce nuestro espacio de trabajo
                     </h3>
-                    <p class="text-slate-300 font-light text-base uppercase md:text-lg font-body">
-                        Y CÓMO LLEGAR A ÉL
+                    <p class="text-slate-300 font-light text-base md:text-lg font-body">
+                        y cómo llegar a él
                     </p>
                 </div>
 
